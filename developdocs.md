@@ -17,11 +17,12 @@
 필드명|레이블|형식
 ---|---|---
 id|번호|int
-elected-date|당선일|yyyy-mm-dd
-chair|직위|text
+user|페이지주소|text
 name|이름|text
-page|페이지주소|text
-create-date|등록일|yyyy-mm-dd
+chair|직위|text
+elected-date|당선일|yyyy-mm-dd
+created-at|등록일|yyyy-mm-dd
+modified-at|수정일|yyyy-mm-dd
 
 **공약 구분(category)**
 
@@ -35,6 +36,7 @@ name|구분명|text
 description|설명|rich-text
 elected-id|당선자번호|int
 create-date|등록일|yyyy-mm-dd
+modified-at|수정일|yyyy-mm-dd
 
 **공약(policy)**
 
@@ -47,4 +49,5 @@ id|번호|int
 name|구분명|text
 description|설명|rich-text
 category-id|카테고리번호|int
-create-date|등록일|yyyy-mm-dd
+created-at|등록일|yyyy-mm-dd
+modified-at|수정일|yyyy-mm-dd
