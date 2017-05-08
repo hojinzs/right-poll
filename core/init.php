@@ -41,7 +41,7 @@ function db(): \PDO
         $port = DB_PORT;
         $id = DB_USERNAME;
         $password = DB_PASSWORD;
-        $dsn = "mysql:dbname={$dbname};host={$host};port=$password;charset=utf8mb4";
+        $dsn = "mysql:dbname={$dbname};host={$host};port={$port};charset=utf8mb4";
         $option = [
             \PDO::ATTR_TIMEOUT => 5,
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
@@ -49,7 +49,7 @@ function db(): \PDO
             \PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone = '+09:00'",
         ];
 
-       $pdo = new \PDO($dsn, 'root', 'Mandarin:0714', $option);
+       $pdo = new \PDO($dsn, $id, $password, $option);
        $wait_timeout = php_sapi_name() == 'cli' ? 15 : 5;
        $pdo->query("SET SESSION wait_timeout = {$wait_timeout}");
     }
