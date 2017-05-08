@@ -32,4 +32,19 @@ class Common
         $array = $stmt->fetchAll();
         return $array;
     }
+
+    /**
+     * 당선자의 공약 카테고리 목록 가져오기
+     * @param int $electedid 당선자ID
+     * @return [type] array array(id|label|description)
+     */
+    public static function getPolecatList($electedid)
+    {
+        // $stmt = \db()->prepare("SELECT * FROM rightpoll.polecat WHERE elected_id = :id") ;
+        $stmt = \db()->prepare("SELECT * FROM rightpoll.polecat WHERE elected_id= :id") ;
+        $stmt->bindValue(':id', $electedid);
+        $stmt->execute();
+        $array = $stmt->fetchAll();
+        return $array;
+    }
 }

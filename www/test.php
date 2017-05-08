@@ -1,31 +1,19 @@
 <?php require_once __DIR__ . '/../core/init.php';?>
+use App\Common;
 
 <?php
 
-// $ini_array = parse_ini_file("../config.ini");
-// print_r($ini_array);
-// 
-// define("DB_HOST", $ini_array['HOST']);
-// define("DB_PORT", $ini_array['PORT']);
-// define("DB_USERNAME", $ini_array['USERNAME']);
-// define("DB_PASSWORD", $ini_array['PASSWORD']);
-//
-// echo "<br>";
-// echo DB_HOST;
-// echo "<br>";
-// echo DB_PORT;
-// echo "<br>";
-// echo DB_USERNAME;
-// echo "<br>";
-// echo DB_PASSWORD;
+$id = 2;
 
-// function getDbInfo(){
-//     $obj = yaml_parse_file('some.yml');
-//     print_r( $obj );
+// function getPolecatList($electedid)
+// {
+//     $stmt = \db()->prepare("SELECT * FROM rightpoll.polecat WHERE elected_id=:id") ;
+//     $stmt->bindValue(':id', $electedid);
+//     $stmt->execute();
+//     $array = $stmt->fetchAll();
+//     return $array;
 // }
+// $array = getPolecatList($id);
 
-// [DB Setting]
-// HOST = "localhost"
-// PORT = "33040"
-// USERNAME = "root"
-// PASSWORD = "Mandarin:0714"
+$array = \App\Common::getPolecatList($id);
+print_r($array);
