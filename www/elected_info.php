@@ -52,6 +52,18 @@ foreach ($polecat as $num)
               </div>
             </div>
           </div>
+
+          <ul class="list-group">
+<?php
+$policy = \App\Common::getPolicyList($num['id']);
+foreach ($policy as $polnum) {
+?>
+            <li class="list-group-item"><?php echo $polnum['label'];?></li>
+<?php
+}
+?>
+          </ul>
+
       </div>
 
 <?php
