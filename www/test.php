@@ -2,6 +2,11 @@
 
 <?php
 
+/**
+ * [getPolicyList description]
+ * @param [type] $polcat_id [description]
+ * @return [type] [description]
+ */
 function getPolicyList($polcat_id)
 {
     $stmt = \db()->prepare("SELECT * FROM rightpoll.policy WHERE polcat_id=:id") ;
