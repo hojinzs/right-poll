@@ -20,14 +20,21 @@ $title = "공약정보: $elected_name";
 
   <div class="container">
 
-    <header class="row">
-      <div class="col-md-2">
-        <img src="http://placehold.it/160x160">
-      </div>
-      <div class="col-md-10">
-        <h1 id="pagetitle"><?php echo $elected_name; ?><br></h1>
-        <p><?php echo $elected_chair; ?></p>
-      </div>
+    <header>
+        <div class="row">
+          <div class="col-md-3 col-xs-8">
+            <img class="wr-profile img-responsive img-rounded" src="http://placehold.it/1024x1024">
+          </div>
+          <div class="col-md-9 col-xs-12">
+              <div class="row">
+                  <div class="col-xs-12">
+                      <h1 id="pagetitle"><?php echo $elected_name; ?><br></h1>
+                  </div>
+                  <div class="col-xs-12">
+                      <h4><?php echo $elected_chair; ?></h4>
+                  </div>
+              </div>
+          </div>
     </header>
 
     <div id="policy_list">
@@ -45,7 +52,7 @@ foreach ($polecat as $num)
                 <p><?php echo $num['description']?></p>
               </div>
               <div class="col-md-4">
-                <p>이행률</p>
+                <p>전체 이행률</p>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">0%</div>
                 </div>
@@ -60,13 +67,13 @@ foreach ($policy as $polnum) {
 ?>
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-7 col-xs-9"><?php echo $polnum['label'];?></div>
+                    <div class="col-md-7 col-xs-9"><?php echo $polnum['label'];?> | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>100</span></div>
                     <div class="col-md-1 col-xs-3">
                         <button type="button" class="btn btn-default btn-xs">
-                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 100
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 좋아요
                         </button>
                     </div>
-                    <div class="col-md-4 col-xs-12">공약이행평가</div>
+                    <div class="col-md-4 col-xs-12">[공약이행평가]</div>
                 </div>
             </li>
 <?php

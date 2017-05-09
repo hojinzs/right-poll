@@ -1,14 +1,16 @@
-header {
+body {
+    background-color: #FAFAFA;
+    padding-top: 70px;
+}
 
+header {
+    padding: 1em;
+    background-color: #FAFAFA;
 }
 
 nav {
   background-color: black;
   padding: 3px;
-}
-
-nav il {
-  color: white;
 }
 
 #elected_list{
@@ -19,4 +21,12 @@ nav il {
 
 #policy_list{
   margin-top: 10px;
+}
+
+.like {
+    color:#FF0000;
+}
+
+.wr-profile{
+
 }
