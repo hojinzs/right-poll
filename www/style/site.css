@@ -1,11 +1,11 @@
 body {
-    background-color: #FAFAFA;
-    padding-top: 70px;
+    background-color: #FAFCFE;
+    padding-top: 50px;
 }
 
 header {
     padding: 1em;
-    background-color: #FAFAFA;
+    background-color: #FAFCFE;
 }
 
 nav {
@@ -13,14 +13,10 @@ nav {
   padding: 3px;
 }
 
-#elected_list{
-  padding-left:10px;
-  padding-right:10px;
-  margin-top: 10px;
-}
+#wb_ElectedCard {
+    border: 1px solid #ddd;
+    padding: 5px;
 
-#policy_list{
-  margin-top: 10px;
 }
 
 .like {
@@ -29,4 +25,15 @@ nav {
 
 .wr-profile{
 
+}
+
+.wr-wrapper{
+    padding: 2em;
+    background-color: #fff;
+    border-color: black;
+}
+
+.wr_bg
+{
+    background-color: black;
 }

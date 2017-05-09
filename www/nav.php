@@ -18,7 +18,7 @@
         <li><a href="/">HOME</a></li>
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">ABOUT</a></li>
+        <li><a href="/about.php">ABOUT</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
