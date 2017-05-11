@@ -50,7 +50,7 @@ foreach ($polecat as $num)
                     <div class="row">
                       <div class="col-md-8">
                         <h4><?php echo $num['label']?></h4>
-                        <p><?php echo $num['description']?></p>
+                        <p><?php echo $num['desc']?></p>
                       </div>
                       <div class="col-md-4">
                         <p>전체 이행률</p>
@@ -68,7 +68,7 @@ foreach ($policy as $polnum) {
 ?>
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-7 col-xs-9"><?php echo $polnum['label'];?> | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>100</span></div>
+                            <div class="col-md-7 col-xs-9"><?php echo $polnum['title'];?> | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>100</span></div>
                             <div class="col-md-1 col-xs-3">
                                 <button type="button" class="btn btn-default btn-xs">
                                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 좋아요

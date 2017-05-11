@@ -46,9 +46,10 @@ modified_at|수정일|yyyy-mm-dd
 필드명|레이블|형식
 ---|---|---
 id|번호|int
-name|구분명|text
+title|구분명|text
 desc|설명|rich-text
-category_id|카테고리번호|int
+polcat_id|카테고리 번호|int
+elected_id|당선자 번호|int
 created_at|등록일|yyyy-mm-dd
 modified_at|수정일|yyyy-mm-dd
 
@@ -61,14 +62,13 @@ modified_at|수정일|yyyy-mm-dd
 ---|---|---
 id|번호|int
 name|내용|text
-desc|설명|rich-text
 pol_id|카테고리번호|int
 created_at|등록일|yyyy-mm-dd
 modified_at|수정일|yyyy-mm-dd
 
 **좋아요수(like counter)**
 
-* DB 테이블명: like
+* DB 테이블명: like_c
 * 좋아요 수
 
 필드명|레이블|형식
@@ -79,7 +79,7 @@ like|좋아요 수|int
 created_at|등록일|yyyy-mm-dd
 modified_at|수정일|yyyy-mm-dd
 
-**좋아요(like )**
+**좋아요(like)**
 
 * DB 테이블명: like_up
 * 좋아요 히스토리
