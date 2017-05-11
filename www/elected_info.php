@@ -6,7 +6,7 @@ $info = \App\Common::getElectedInfo($electedid);
 // $info = get_elected_info($_GET['id']);
 $elected_name = $info['name'];
 $elected_chair = $info['chair'];
-$title = "공약정보: $elected_name";
+$title = "공약정보::$elected_chair-$elected_name";
 ?>
 
 <HTML>
