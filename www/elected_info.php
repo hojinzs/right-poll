@@ -10,7 +10,6 @@ $title = "공약정보::$elected_chair-$elected_name";
 ?>
 
 <HTML>
-
 <?php include 'head.php'; ?>
 
 <BODY>
@@ -66,11 +65,11 @@ foreach ($polecat as $num)
 $policy = \App\Common::getPolicyList($num['id']);
 foreach ($policy as $polnum) {
 ?>
-                    <li class="list-group-item">
+                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-7 col-xs-9"><?php echo $polnum['title'];?> | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>100</span></div>
+                            <div class="col-md-7 col-xs-9"><a href="/policy_info.php?id=<?php echo $polnum['elected_id']?>&pol=<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a> | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>100</span></div>
                             <div class="col-md-1 col-xs-3">
-                                <button type="button" class="btn btn-default btn-xs">
+                                <button type="button" class="btn btn-default btn-xs"a;lsdkjf;jlkasdfasdf>
                                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 좋아요
                                 </button>
                             </div>

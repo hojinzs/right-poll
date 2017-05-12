@@ -60,5 +60,19 @@ class Common
         $array = $stmt->fetchAll();
         return $array;
     }
-        
+
+    /**
+     * 공약 상세 정보 가져오기
+     * @param int $policy_id 공약 ID
+     * @return array policy(id|label|description)
+     */
+    public static function getPolicyInfo($policy_id)
+    {
+        $stmt = \db()->prepare("SELECT * FROM rightpoll.policy WHERE id=:id") ;
+        $stmt->bindValue(':id', $policy_id);
+        $stmt->execute();
+        $array = $stmt->fetch();
+        return $array;
+    }
+
 }

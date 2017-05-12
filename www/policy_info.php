@@ -2,14 +2,27 @@
 
 <?php
 $electedid = $_GET['id'];
-$info = \App\Common::getElectedInfo($electedid);
+$policyid = $_GET['pol'];
+$elected = \App\Common::getElectedInfo($electedid);
+$policy = \App\Common::getPolicyInfo($policyid);
+
 // $info = get_elected_info($_GET['id']);
-$elected_name = $info['name'];
-$elected_chair = $info['chair'];
+$elected_name = $elected['name'];
+$elected_chair = $elected['chair'];
+$policy_title = $policy['title'];
 $title = "세부 공약::$elected_chair-$elected_name";
 ?>
 
 <HTML>
+    <head>
+    <script language="javascript">
+        function callThumbsUp(){
+            var ThumsUp="<?php echo \App\Control::callThumbsUp($policyid);?>";
+            alert("이 공약을 좋아하셨습니다.");
+
+        }
+    </script>
+</head>
 <?php include 'head.php';?>
 <BODY>
 <?php include 'nav.php'; ?>
@@ -33,7 +46,7 @@ $title = "세부 공약::$elected_chair-$elected_name";
           <div class="col-md-12 col-xs-12">
               <br>
               <button type="button" class="btn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-공약목록</button>
+공약 목록</button>
           </div>
       </div>
   </div>
@@ -44,8 +57,8 @@ $title = "세부 공약::$elected_chair-$elected_name";
             <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <span class="label label-primary">정치</span>
-                    <h2>공약 제모오옥</h2>
-                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    <h2><?php echo $policy_title?></h2>
+                    <button type="button" class="btn btn-primary" onclick="javascript:callThumbsUp();"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
 좋아요</button> 1231명이 이 공약을 좋아합니다.
                     <hr>
                 </div>
