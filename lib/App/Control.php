@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * 흔히쓰는 클래스
+ * 데이터 셋업이나 컨트롤에 쓰이는 클래스
  */
 class Control
 {
@@ -12,7 +12,7 @@ class Control
      * @param int $policy_id 공약 아이디
      * @return var (success/error)
      */
-    public static function callThumbsUp($policy_id)
+    public static function setThumbsUp($policy_id)
     {
         $stmt = \db()->prepare("INSERT INTO rightpoll.like_c (pol_id, likesum) VALUES (:id, '1') ON DUPLICATE KEY UPDATE likesum = likesum + 1");
         $stmt->bindValue(':id', $policy_id);

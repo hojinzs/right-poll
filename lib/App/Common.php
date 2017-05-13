@@ -50,29 +50,56 @@ class Common
     /**
      * 공약 카테고리의 상세 공약 목록 / 내용 가져오기
      * @param int $polcat_id 공약 카테고리 ID
-     * @return array array (id|label|description|...)
+     * @return array array(id|label|desc|...)
      */
     public static function getPolicyList($polcat_id)
     {
-        $stmt = \db()->prepare("SELECT * FROM rightpoll.policy WHERE polcat_id=:id") ;
+        $query="SELECT policy.id,polecat.label,title,policy.elected_id, polcat_id,like_c.likesum
+                FROM rightpoll.policy
+                INNER JOIN rightpoll.like_c, rightpoll.polecat
+                WHERE policy.polcat_id=:id AND rightpoll.like_c.pol_id = rightpoll.policy.id AND rightpoll.polecat.id = rightpoll.policy.polcat_id
+        ";
+
+        $stmt = \db()->prepare($query);
         $stmt->bindValue(':id', $polcat_id);
         $stmt->execute();
         $array = $stmt->fetchAll();
+
         return $array;
     }
 
     /**
-     * 공약 상세 정보 가져오기
+     * 공약의 상세 정보 가져오기
      * @param int $policy_id 공약 ID
-     * @return array policy(id|label|description)
+     * @return array policy(id|label|desc|...)
      */
     public static function getPolicyInfo($policy_id)
     {
-        $stmt = \db()->prepare("SELECT * FROM rightpoll.policy WHERE id=:id") ;
+        $query="SELECT policy.id,polecat.label,title,policy.elected_id, polcat_id,like_c.likesum
+                FROM rightpoll.policy
+                INNER JOIN rightpoll.like_c, rightpoll.polecat
+                WHERE policy.id=:id AND rightpoll.like_c.pol_id = rightpoll.policy.id AND rightpoll.polecat.id = rightpoll.policy.polcat_id";
+
+        $stmt = \db()->prepare($query) ;
         $stmt->bindValue(':id', $policy_id);
         $stmt->execute();
-        $array = $stmt->fetch();
-        return $array;
+        $row = $stmt->fetch();
+
+        return $row;
     }
 
+    /**
+     * 공약의 이행안 목록 가져오기
+     * @param int $policy_id [description]
+     * @return array plan(id|name|pol_id)
+     */
+    public static function getPlanList($policy_id)
+    {
+        $stmt = \db()->prepare("SELECT id,name,pol_id FROM rightpoll.plan WHERE pol_id=:id") ;
+        $stmt->bindValue(':id', $policy_id);
+        $stmt->execute();
+        $array = $stmt->fetchAll();
+
+        return $array;
+    }
 }

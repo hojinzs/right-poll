@@ -3,7 +3,6 @@
 
 $electedid = $_GET['id'];
 $info = \App\Common::getElectedInfo($electedid);
-// $info = get_elected_info($_GET['id']);
 $elected_name = $info['name'];
 $elected_chair = $info['chair'];
 $title = "공약정보::$elected_chair-$elected_name";
@@ -67,11 +66,13 @@ foreach ($policy as $polnum) {
 ?>
                      <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-7 col-xs-9"><a href="/policy_info.php?id=<?php echo $polnum['elected_id']?>&pol=<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a> | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>100</span></div>
+                            <div class="col-md-7 col-xs-9"><a href="/policy_info.php?id=<?php echo $polnum['elected_id']?>&pol=<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
+                                | <span class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><?php echo $polnum['likesum'];?></span></div>
                             <div class="col-md-1 col-xs-3">
-                                <button type="button" class="btn btn-default btn-xs"a;lsdkjf;jlkasdfasdf>
+                                <!-- 나중에 공약 목록에서 좋아요 하긔
+                                    <button type="button" class="btn btn-default btn-xs"a;lsdkjf;jlkasdfasdf>
                                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 좋아요
-                                </button>
+                                </button> -->
                             </div>
                             <div class="col-md-4 col-xs-12">[공약이행평가]</div>
                         </div>
