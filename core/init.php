@@ -41,7 +41,8 @@ function db(): \PDO
         $port = DB_PORT;
         $id = DB_USERNAME;
         $password = DB_PASSWORD;
-        $dsn = "mysql:dbname={$dbname};host={$host};port={$port};charset=utf8mb4";
+        // $dsn = "mysql:dbname={$dbname};host={$host};port={$port};charset=utf8mb4";
+        $dsn = "mysql:host={$host};port={$port};charset=utf8mb4";
         $option = [
             \PDO::ATTR_TIMEOUT => 5,
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
