@@ -1,0 +1,19 @@
+#vagrant
+
+.vagrant
+
+#OSX systemfile
+
+*/.DS_Store
+
+#composer
+
+/composer.phar
+/composer.lock
+/vendor
+
+#server config
+
+/config.ini
+
+ubuntu-xenial-16.04-cloudimg-console
