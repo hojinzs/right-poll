@@ -4,7 +4,4 @@
 $title = "TEST";
 include 'head.php';
 
-$a = \App\Common::getPolicyInfo(2);
-var_dump($a);
-
-?>
+var_dump($_SESSION);

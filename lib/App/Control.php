@@ -19,8 +19,9 @@ class Control
         $stmt->execute();
         $call_result = $stmt->fetch();
 
-        $stmt2 = \db()->prepare("INSERT INTO rightpoll.like(pol_id) VALUES (:id)");
+        $stmt2 = \db()->prepare("INSERT INTO rightpoll.like(pol_id, ip) VALUES (:id, :ip)");
         $stmt2->bindValue(':id', $policy_id);
+        $stmt2->bindValue(':ip', $_SESSION['ip']);
         $stmt2->execute();
 
         $result = "success";

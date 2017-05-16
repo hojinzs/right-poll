@@ -17,7 +17,7 @@
 필드명|레이블|형식
 ---|---|---
 id|번호|int
-user|페이지주소|text
+link|페이지주소|text
 name|이름|text
 chair|직위|text
 elected_date|당선일|yyyy-mm-dd
@@ -89,6 +89,21 @@ modified_at|수정일|yyyy-mm-dd
 id|번호|int
 policy_id|공약번호|int
 type|타입|var|(done,cancel)
+user|세션|var
+created_at|등록일|yyyy-mm-dd
+modified_at|수정일|yyyy-mm-dd
+
+**댓글(comment)**
+
+* DB 테이블명: comment
+* 댓글 (당선자 댓글, 공약 댓글)
+
+필드명|레이블|형식
+---|---|---
+id|번호|int
+comment_id|상위 코멘트|int
+elected_id|당선자 번호|int
+policy_id|공약 번호|int
 session|세션|var
 created_at|등록일|yyyy-mm-dd
 modified_at|수정일|yyyy-mm-dd

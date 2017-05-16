@@ -10,11 +10,20 @@ $whoops->register();
 
 getDbInfo();
 
+/** getSession */
+
+session_start();
+$id=session_id();
+
+$_SESSION['id'] = $id;
+$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+
 
 /**
  * getDBinfo
  */
-function getDbInfo(){
+function getDbInfo()
+{
     $ini_array = parse_ini_file("../config.ini");
 
     define("DB_NAME", $ini_array['NAME']);
