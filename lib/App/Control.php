@@ -9,25 +9,33 @@ class Control
 {
     /**
      * 공약의 좋아요수 +1
-     * @param int $policy_id 공약 아이디
+     * @param int $pol_id 공약 아이디
      * @return var (success/error)
      */
-    public static function setThumbsUp($policy_id)
+    public static function setThumbsUp($pol_id)
     {
-        $stmt = \db()->prepare("INSERT INTO rightpoll.like_c (pol_id, likesum) VALUES (:id, '1') ON DUPLICATE KEY UPDATE likesum = likesum + 1");
-        $stmt->bindValue(':id', $policy_id);
+
+        $i = \App\Common::isThumbsupAvailable($pol_id);
+
+        if ($i == FALSE){
+            return "liked";
+        }
+
+        $query="INSERT INTO rightpoll.like_c (pol_id, likesum)
+                VALUES (:id, '1') ON DUPLICATE KEY
+                UPDATE likesum = likesum + 1";
+
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':id', $pol_id);
         $stmt->execute();
-        $call_result = $stmt->fetch();
 
         $stmt2 = \db()->prepare("INSERT INTO rightpoll.like(pol_id, ip, session) VALUES (:id, :ip, :session)");
-        $stmt2->bindValue(':id', $policy_id);
-        $stmt2->bindValue(':ip', $_SESSION['ip']);
-        $stmt2->bindValue(':session', $_SESSION['id']);
+        $stmt2->bindParam(':id', $pol_id);
+        $stmt2->bindParam(':ip', $_SESSION['ip']);
+        $stmt2->bindParam(':session', $_SESSION['id']);
         $stmt2->execute();
 
-        $result = "success";
-
-        return $result;
+        return "success";
     }
 
 }

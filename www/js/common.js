@@ -8,7 +8,8 @@ $(document).ready(function(){
             url:"./like.php",
             data:pol_id,
             success:function(data){
-                alert ("공약을 '좋아요' 하셨습니다.");
+                alert (data);
+                location.reload(true);
             },
             error:function(request,status,error){
 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}

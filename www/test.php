@@ -3,5 +3,3 @@
 <?php
 $title = "TEST";
 include 'head.php';
-
-var_dump($_SESSION);

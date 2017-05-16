@@ -102,4 +102,30 @@ class Common
 
         return $array;
     }
+
+    /**
+     * 공약의 좋아요 가능 여부 (이미 좋아요를 하였는가?)
+     * @param  int $policy_id 공약 번호
+     * @return boolean        좋아요 가능 여부(TRUE/FALSE)
+     */
+    public static function isThumbsupAvailable($policy_id)
+    {
+
+        $query="SELECT like.id,like.pol_id,like.session
+                FROM rightpoll.like
+                WHERE like.pol_id=:id AND like.session=:session";
+
+        $stmt = \db()->prepare($query);
+        $stmt->bindValue(':id', $policy_id);
+        $stmt->bindValue(':session', $_SESSION['id']);
+        $stmt->execute();
+        $result = $stmt->fetchALL();
+
+        if ($result=NULL){
+            return TRUE;
+        }
+
+        return FALSE;
+
+    }
 }
