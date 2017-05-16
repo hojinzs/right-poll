@@ -121,11 +121,11 @@ class Common
         $stmt->execute();
         $result = $stmt->fetchALL();
 
-        if ($result=NULL){
-            return TRUE;
+        if ($result != null){
+            return false;
         }
 
-        return FALSE;
+        return true;
 
     }
 }

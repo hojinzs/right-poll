@@ -17,9 +17,10 @@ class Control
 
         $i = \App\Common::isThumbsupAvailable($pol_id);
 
-        if ($i == FALSE){
+        if ($i == false){
             return "liked";
         }
+
 
         $query="INSERT INTO rightpoll.like_c (pol_id, likesum)
                 VALUES (:id, '1') ON DUPLICATE KEY
