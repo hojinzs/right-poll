@@ -6,6 +6,7 @@ body {
 header {
     padding: 1em;
     background-color: #FAFCFE;
+    margin-bottom: 1em;
 }
 
 nav {
@@ -46,4 +47,91 @@ nav {
 .wr_bg
 {
     background-color: black;
+}
+
+.wr-comment{
+    max-width: 500px;
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form_comment_header{
+    background-color: black;
+    color:white;
+    padding: 0.5em 0.5em 0.5em 1em;
+}
+
+.comment_list{
+    max-height: 100%
+}
+
+.comment_header{
+    background-color: black;
+    color:white;
+    padding: 0.5em 0.5em 0.5em 1em;
+}
+
+.comment_area{
+    padding: 0.5em 0.5em 0.5em 1em;
+}
+
+.comment_info{
+    padding: 0.5em 0.5em 1.5em 1em;
+}
+
+.comment_report{
+    display: inline-block;
+}
+
+.comment_recommend{
+    display: inline-block;
+    float: right;
+}
+
+
+.add_comment_list{
+    border-left: 2px solid grey;
+    margin-left: 2em;
+}
+
+.add_comment_header{
+    background-color: black;
+    padding: 0.5em 0.5em 0.5em 1em;
+    color:white;
+}
+
+.add_comment_area{
+    padding: 0.5em 0.5em 0.5em 1em;
+}
+
+
+.add_comment_info{
+    padding: 0.5em 0.5em 1.5em 1em;
+}
+
+.add_comment_report{
+    display: inline-block;
+}
+
+.add_comment_recommend{
+    display: inline-block;
+    float: right;
+}
+
+.add_comment_summit{
+    background-color: grey;
+    padding: 0.5em 0.5em 0.5em 1em;
+}
+
+#comment {
+    resize: none;
+}
+
+.go_right{
+    display: inline-block;
+    float: right;
 }
