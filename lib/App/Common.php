@@ -75,10 +75,22 @@ class Common
      */
     public static function getPolicyInfo($policy_id)
     {
-        $query="SELECT policy.id,polecat.label,title,policy.elected_id, polcat_id,like_c.likesum
-                FROM rightpoll.policy
-                INNER JOIN rightpoll.like_c, rightpoll.polecat
-                WHERE policy.id=:id AND rightpoll.like_c.pol_id = rightpoll.policy.id AND rightpoll.polecat.id = rightpoll.policy.polcat_id";
+        $query =
+            "SELECT
+                p.id,
+                c.label,
+                p.title,
+                p.elected_id,
+                p.polcat_id,
+                l.likesum
+            FROM rightpoll.policy p
+            JOIN rightpoll.like_c l
+            JOIN rightpoll.polecat c
+            WHERE
+                p.id = :id
+                AND l.pol_id = p.id
+                AND c.id = p.polcat_id
+            ";
 
         $stmt = \db()->prepare($query) ;
         $stmt->bindValue(':id', $policy_id);
@@ -95,7 +107,14 @@ class Common
      */
     public static function getPlanList($policy_id)
     {
-        $stmt = \db()->prepare("SELECT id,name,pol_id FROM rightpoll.plan WHERE pol_id=:id") ;
+        $stmt = \db()->prepare(
+            "SELECT
+                id,
+                name,
+                pol_id
+            FROM rightpoll.plan
+            WHERE pol_id=:id
+        ") ;
         $stmt->bindValue(':id', $policy_id);
         $stmt->execute();
         $array = $stmt->fetchAll();
@@ -106,14 +125,20 @@ class Common
     /**
      * 공약의 좋아요 가능 여부 (이미 좋아요를 하였는가?)
      * @param  int $policy_id 공약 번호
-     * @return boolean        좋아요 가능 여부(TRUE/FALSE)
+     * @return bool        좋아요 가능 여부(TRUE/FALSE)
      */
     public static function isThumbsupAvailable($policy_id)
     {
 
-        $query="SELECT like.id,like.pol_id,like.session
-                FROM rightpoll.like
-                WHERE like.pol_id=:id AND like.session=:session";
+        $query =
+            "SELECT
+                like.id,
+                like.pol_id,
+                like.session
+            FROM rightpoll.like
+            WHERE like.pol_id=:id
+                AND like.session=:session
+            ";
 
         $stmt = \db()->prepare($query);
         $stmt->bindValue(':id', $policy_id);
@@ -127,5 +152,25 @@ class Common
 
         return true;
 
+    }
+
+    /**
+     * 코멘트 리스트 불러오기
+     * @param  int $elected_id 당선자 ID
+     * @return array     {id|comment_id|elected_id|text}
+     */
+    public static function getCommentList($elected_id)
+    {
+        $stmt = \db()->prepare(
+            "SELECT *
+            FROM rightpoll.comment
+            WHERE elected_id=:id
+            order by comment_id desc, id asc
+        ") ;
+        $stmt->bindValue(':id', $elected_id);
+        $stmt->execute();
+        $array = $stmt->fetchAll();
+
+        return $array;
     }
 }

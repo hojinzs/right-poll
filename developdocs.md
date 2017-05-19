@@ -104,6 +104,8 @@ id|번호|int
 comment_id|상위 코멘트|int
 elected_id|당선자 번호|int
 policy_id|공약 번호|int
+contents|내용|longtext
 session|세션|var
+user|사용자|var
 created_at|등록일|yyyy-mm-dd
 modified_at|수정일|yyyy-mm-dd
