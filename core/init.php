@@ -24,7 +24,10 @@ $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
  */
 function getDbInfo()
 {
-    $ini_array = parse_ini_file("../config.ini");
+
+    $dir= __DIR__;
+    $inipath = '/../config.ini';
+    $ini_array = parse_ini_file($dir.$inipath);
 
     define("DB_NAME", $ini_array['NAME']);
     define("DB_HOST", $ini_array['HOST']);

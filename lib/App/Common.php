@@ -173,4 +173,24 @@ class Common
 
         return $array;
     }
+
+
+    /**
+     * 댓글 정보 가져오기
+     * @param  int $comment_id 댓글 ID
+     * @return array          [id,comment_id,contents,etc..]
+     */
+    public static function getCommentInfo($comment_id)
+    {
+        $stmt = \db()->prepare(
+            "SELECT *
+            FROM rightpoll.comment
+            WHERE id=:id
+        ") ;
+        $stmt->bindValue(':id', $comment_id);
+        $stmt->execute();
+        $array = $stmt->fetch();
+
+        return $array;
+    }
 }

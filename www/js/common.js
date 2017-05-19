@@ -5,7 +5,7 @@ $(document).ready(function(){
 
         $.ajax ({
             type:"POST",
-            url:"./like.php",
+            url:"./pst/like.php",
             data:pol_id,
             success:function(data){
                 alert (data);
