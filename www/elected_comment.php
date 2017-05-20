@@ -23,6 +23,7 @@ $title = "한마디::$elected_chair-$elected_name";
 <?php include 'elected_menu.php' ?>
         </div>
         <div class="col-md-9">
+<?php include 'comment_summit.php' ?>
 <?php include 'comment_list.php' ?>
         </div>
     </div>

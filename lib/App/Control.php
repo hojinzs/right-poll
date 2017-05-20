@@ -46,7 +46,6 @@ class Control
      */
     public static function setComment($postComment)
     {
-        $error;
 
         if (array_key_exists ('elected_id',$postComment)) {
         } else {
@@ -54,6 +53,10 @@ class Control
         }
 
         if(array_key_exists ('content',$postComment)) {
+            if ($postComment['content'] == "")
+            {
+                $error[] = "not set content";
+            }
         } else {
             $error[] = "not set content";
         }
