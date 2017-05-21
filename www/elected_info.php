@@ -1,11 +1,8 @@
 <?php require_once __DIR__ . '/../core/init.php';?>
 <?php
 
-$electedid = $_GET['id'];
-$info = \App\Common::getElectedInfo($electedid);
-$elected_name = $info['name'];
-$elected_chair = $info['chair'];
-$title = "공약정보::$elected_chair-$elected_name";
+$elected = \App\Common::getElectedInfo($_GET['id']);
+$title = "공약정보::".$elected['chair']."-".$elected['name'];
 ?>
 
 <HTML>

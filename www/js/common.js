@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $("#set_thumbsup").click(function(){
         // var id = "id="+$("#set_thumbsup;").val();
         var pol_id = "pol_id="+$("#set_thumbsup").val();
@@ -15,5 +16,26 @@ $(document).ready(function(){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
         })
 
+    })
+})
+
+$(document).ready(function(){
+    $("#summit_comment").click(function(){
+        var queryString = $('#comment_form').serialize();
+
+        alert(queryString);
+
+        $.ajax({
+            type : 'POST',
+            url : './pst/comment.php',
+            data: queryString,
+            success : function(data){
+                alert(data);
+                location.reload(true);
+            },
+            error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            },
+        })
     })
 })

@@ -1,17 +1,29 @@
-<!-- COMMENT LIST -->
+<?php
+
+switch ($tg) {
+    case 'elct': # 당선자에 달리는 댓글일 경우
+        $cmts = \App\Common::getElctCommentList($elected['id']);
+        break;
+
+    case 'pol':  # 공약에 달리는 댓글일 경우
+        $cmts = \App\Common::getPolCommentList($policy['id']);
+        break;
+}
+?>
+
+<!-- PRINT COMMENT LIST -->
 <div class="row">
     <div class="comment_list">
 <?php
-$cmts = \App\Common::getCommentList($info['id']);
 foreach ($cmts as $cmt)
 {
 
     if ($cmt['comment_id'] == $cmt['id']) // 댓글일 경우
     { ?>
             <div class="comment_header">
-<?php echo $cmt['id'] ?>
+<?php echo $cmt['nick'] ?> |
                 <div class="go_right">
-                    IP: xxx.xxx.xxx.xxx
+                    IP: <?php echo $cmt['ip'] ?>
                 </div>
             </div>
             <div class="comment_area">
@@ -32,9 +44,9 @@ foreach ($cmts as $cmt)
 ?>
             <div class="add_comment_list">
                 <div class="add_comment_header">
-<?php echo $cmt['id'] ?>
+<?php echo $cmt['nick'] ?> |
                     <div class="go_right">
-                        IP: xxx.xxx.xxx.xxx
+                        IP: <?php echo $cmt['ip'] ?>
                     </div>
                 </div>
                 <div class="add_comment_area">

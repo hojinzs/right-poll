@@ -1,6 +1,6 @@
 <div class="row">
 <?php
-$polecat = \App\Common::getPolecatList($electedid);
+$polecat = \App\Common::getPolecatList($elected['id']);
 foreach ($polecat as $num)
 {
 ?>

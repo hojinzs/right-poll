@@ -64,13 +64,15 @@ foreach ($plans as $plan) {
                 <div class="col-md-6 col-xs-12">
                     <div>
                         <ul class="nav nav-pills">
-                            <li role="presentation" class="active"><a href="#">이행평가</a></li>
+                            <li role="presentation" class="active"><a href="#">한마디</a></li>
                             <li role="presentation"><a href="#">소식</a></li>
-                            <li role="presentation"><a href="#">한마디</a></li>
+                            <li role="presentation"><a href="#">이행평가</a></li>
                         </ul>
                     </div>
                     <div>
-                        <p>준비중입니다.</p>
+                        <?php $tg="pol" ?>
+                        <?php include 'comment_summit.php' ?>
+                        <?php include 'comment_list.php' ?>
                     </div>
                 </div>
             </div>

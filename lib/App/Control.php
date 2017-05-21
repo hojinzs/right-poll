@@ -46,18 +46,33 @@ class Control
      */
     public static function setComment($postComment)
     {
+        $success[0] = "success";
 
         if (array_key_exists ('elected_id',$postComment)) {
         } else {
+            $error[0] = "error";
             $error[] = "not set elected_id";
+        }
+
+        if(array_key_exists ('nickname',$postComment)) {
+            if ($postComment['nickname'] == "")
+            {
+                $error[0] = "error";
+                $error[] = "not set nickname";
+            }
+        } else {
+            $error[0] = "error";
+            $error[] = "not set nickname";
         }
 
         if(array_key_exists ('content',$postComment)) {
             if ($postComment['content'] == "")
             {
+                $error[0] = "error";
                 $error[] = "not set content";
             }
         } else {
+            $error[0] = "error";
             $error[] = "not set content";
         }
 
@@ -66,6 +81,7 @@ class Control
             $findPolicy = \App\Common::getPolicyInfo($postComment['policy_id']);
             if ($findPolicy['id'] == null)
             {
+                $error[0] = "error";
                 $error[] = "can not find policy_id";
             }
         } else {
@@ -94,12 +110,14 @@ class Control
             policy_id,
             comment_id,
             content,
+            nick,
             ip,
             session)
         VALUES (
             :elected_id,
             :policy_id,
             :comment_id,
+            :nick,
             :content,
             :ip,
             :session)
@@ -107,6 +125,7 @@ class Control
 
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':elected_id', $postComment['elected_id']);
+        $stmt->bindParam(':nick', $postComment['nickname']);
         $stmt->bindParam(':content', $postComment['content']);
         $stmt->bindParam(':comment_id', $postComment['comment']);
         $stmt->bindParam(':policy_id', $postComment['policy_id']);
@@ -130,7 +149,8 @@ class Control
             $stmt->execute();
         }
 
-        return "success";
+        $success[] = "댓글이 정상적으로 등록되었습니다.";
+        return $success;
     }
 
 }

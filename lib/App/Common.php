@@ -155,11 +155,11 @@ class Common
     }
 
     /**
-     * 코멘트 리스트 불러오기
+     * 당선자의 코멘트 리스트 불러오기
      * @param  int $elected_id 당선자 ID
      * @return array     {id|comment_id|elected_id|text}
      */
-    public static function getCommentList($elected_id)
+    public static function getElctCommentList($elected_id)
     {
         $stmt = \db()->prepare(
             "SELECT *
@@ -168,6 +168,26 @@ class Common
             order by comment_id desc, id asc
         ") ;
         $stmt->bindValue(':id', $elected_id);
+        $stmt->execute();
+        $array = $stmt->fetchAll();
+
+        return $array;
+    }
+
+    /**
+     * 공약의 코멘트 리스트 불러오기
+     * @param  int $pol_id 공약ID
+     * @return array     {id|comment_id|elected_id|text}
+     */
+    public static function getPolCommentList($pol_id)
+    {
+        $stmt = \db()->prepare(
+            "SELECT *
+            FROM rightpoll.comment
+            WHERE policy_id=:id
+            order by comment_id desc, id asc
+        ");
+        $stmt->bindValue(':id', $pol_id);
         $stmt->execute();
         $array = $stmt->fetchAll();
 
