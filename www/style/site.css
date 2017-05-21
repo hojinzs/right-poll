@@ -40,7 +40,7 @@ nav {
 }
 
 .wr-comment{
-    max-width: 500px;
+    /*max-width: 500px;*/
 }
 
 .wr_menu{
@@ -105,11 +105,15 @@ nav {
     padding: 0.5em 0.5em 0.5em 1em;
 }
 
+.comment_main{
+
+}
+
 .comment_header{
     background-color: black;
     color:white;
     padding: 0.5em 0.5em 0.5em 1em;
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 .comment_area{
@@ -117,7 +121,7 @@ nav {
 }
 
 .comment_info{
-    padding: 0.5em 0.5em 1.5em 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
 }
 
 .comment_report{
@@ -129,10 +133,25 @@ nav {
     float: right;
 }
 
-
-.add_comment_list{
+.comment_add{
     border-left: 2px solid grey;
     margin-left: 2em;
+    background-color: gray;
+}
+
+#comment_form{
+    margin-bottom: 0px;
+}
+
+
+.add_comment_form{
+    margin-bottom: 0px;
+}
+
+.add_comment{
+    border-left: 2px solid grey;
+    margin-left: 2em;
+    background-color: gray;
 }
 
 .add_comment_header{
@@ -147,7 +166,7 @@ nav {
 
 
 .add_comment_info{
-    padding: 0.5em 0.5em 1.5em 1em;
+    padding: 0.5em 0.5em 1em 1em;
 }
 
 .add_comment_report{
@@ -157,11 +176,6 @@ nav {
 .add_comment_recommend{
     display: inline-block;
     float: right;
-}
-
-.add_comment_summit{
-    background-color: grey;
-    padding: 0.5em 0.5em 0.5em 1em;
 }
 
 #comment {

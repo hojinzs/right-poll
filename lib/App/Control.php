@@ -88,15 +88,13 @@ class Control
             $postComment['policy_id']=null;
         }
 
-        if (array_key_exists('comment_id',$postComment))
+        if ($postComment['comment_id'] != null)
         {
             $findComment = \App\Common::getCommentInfo($postComment['comment_id']);
-            if ($findComent['id'] == null)
+            if ($findComment['id'] == null)
             {
                 $error[] = "can not find parents comment";
             }
-        } else {
-            $postComment['comment_id']=null;
         }
 
         if(isset($error))
@@ -109,8 +107,8 @@ class Control
             elected_id,
             policy_id,
             comment_id,
-            content,
             nick,
+            content,
             ip,
             session)
         VALUES (
@@ -125,9 +123,9 @@ class Control
 
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':elected_id', $postComment['elected_id']);
-        $stmt->bindParam(':nick', $postComment['nickname']);
         $stmt->bindParam(':content', $postComment['content']);
-        $stmt->bindParam(':comment_id', $postComment['comment']);
+        $stmt->bindParam(':nick', $postComment['nickname']);
+        $stmt->bindParam(':comment_id', $postComment['comment_id']);
         $stmt->bindParam(':policy_id', $postComment['policy_id']);
         $stmt->bindParam(':ip', $_SESSION['ip']);
         $stmt->bindParam(':session', $_SESSION['id']);

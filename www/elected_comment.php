@@ -20,7 +20,7 @@ $title = "한마디::".$elected['chair']."-".$elected['name'];
 <?php include 'elected_menu.php' ?>
         </div>
         <div class="col-md-9">
-<?php $tg="elct" ?>
+<?php $tg="elct"; $prt_cmt=null; ?>
 <?php include 'comment_summit.php' ?>
 <?php include 'comment_list.php' ?>
         </div>

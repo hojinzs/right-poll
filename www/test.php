@@ -4,15 +4,23 @@ $title = "TEST";
 include 'head.php';
 
 
-$i[] = 1;
-$i[] = 2;
-$i[] = 3;
-$i[] = 4;
-$i[] = 5;
+$pstd=60;
+$pstdComment = \App\Common::getCommentInfo($pstd);
 
-$msg = "Message \n Result:";
-foreach ($i as $j ) {
-    $msg = $msg."\n".$j;
+if($pstdComment['comment_id'] == null){
+    $query =
+    "UPDATE rightpoll.comment
+    SET comment_id =:id
+    WHERE id=:where_id;
+    ";
+
+    $stmt = \db()->prepare($query);
+    $stmt->bindParam(':id', $pstdComment['id']);
+    $stmt->bindParam(':where_id', $pstdComment['id']);
+    $stmt->execute();
+
+    echo 'get\n';
 }
 
-echo $msg;
+echo 'not get\n';
+print_r($pstdComment);

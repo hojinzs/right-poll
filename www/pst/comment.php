@@ -20,7 +20,7 @@ switch ($setComment['target']) {
 
 $setComment['nickname'] = $_POST['nickname'];
 $setComment['content'] = $_POST['content'];
-
+$setComment['comment_id'] = $_POST['parents'];
 
 $return = \App\Control::setComment($setComment);
 

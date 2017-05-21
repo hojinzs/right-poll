@@ -69,7 +69,7 @@ foreach ($plans as $plan) {
                         </ul>
                     </div>
                     <div>
-                        <?php $tg="pol" ?>
+                        <?php $tg="pol"; $prt_cmt=null?>
                         <?php include 'comment_summit.php' ?>
                         <?php include 'comment_list.php' ?>
                     </div>

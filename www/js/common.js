@@ -39,3 +39,23 @@ $(document).ready(function(){
         })
     })
 })
+
+$.fn.addComment_click = function(comment_id){
+    var queryString = $('#add_comment_form_'+comment_id).serialize();
+
+    alert(queryString);
+    alert(comment_id);
+
+    $.ajax({
+        type : 'POST',
+        url : './pst/comment.php',
+        data: queryString,
+        success : function(data){
+            alert(data);
+            location.reload(true);
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        },
+    })
+};
