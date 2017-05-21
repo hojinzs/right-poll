@@ -1,11 +1,10 @@
 <?php require_once __DIR__ . '/../core/init.php';?>
 
 <?php
-$electedid = $_GET['id'];
-$policyid = $_GET['pol'];
-$elected = \App\Common::getElectedInfo($electedid);
-$policy = \App\Common::getPolicyInfo($policyid);
-$plans = \App\Common::getPlanList($policyid);
+$policy = \App\Common::getPolicyInfo($_GET['pol']);
+
+$elected = \App\Common::getElectedInfo($policy['elected_id']);
+$plans = \App\Common::getPlanList($policy['id']);
 $title = "공약정보".$elected['chair']."-".$elected['name'];
 ?>
 
