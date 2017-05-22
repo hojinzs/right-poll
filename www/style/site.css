@@ -44,22 +44,18 @@ nav {
 }
 
 .wr_menu{
-    background-color: #FAFAFA;
-    border: 1px solid;
-    border-color: #6E6E6E;
-    padding-top:1em;
-    padding-bottom: 1em;
-    /*padding:1em;*/
-}
-
-.wr_menu .img_responsive{
-    margin: 0px;
-    padding: 0px;
+    margin-right: 1em;
 }
 
 .wr_menu_profile{
     margin: 0px;
     padding: 0px;
+}
+
+.wr_profile{
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
 }
 
 .wr_menu .name{

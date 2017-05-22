@@ -1,11 +1,8 @@
 <?php require_once __DIR__ . '/../core/init.php';?>
 <?php
 
-$electedid = $_GET['id'];
-$info = \App\Common::getElectedInfo($electedid);
-$elected_name = $info['name'];
-$elected_chair = $info['chair'];
-$title = "공약정보::$elected_chair-$elected_name";
+$elected = \App\Common::getElectedInfo($_GET['id']);
+$title = "공약정보::".$elected['chair']."-".$elected['name'];
 ?>
 
 <HTML>
@@ -17,10 +14,10 @@ $title = "공약정보::$elected_chair-$elected_name";
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
 <?php include 'new_elected_menu.php' ?>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
 <?php include 'elected_pollist.php' ?>
         </div>
     </div>
