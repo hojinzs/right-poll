@@ -1,44 +1,48 @@
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .wr_menu{
         margin: 1em;
+    }
+
+    .wr_profile{
+        margin-bottom: 1em;
+    }
+
+    .wr_menu .name{
+        border-left: #848484 3px solid;
+    }
+
+    .wr_menu .chair{
+        border-left: #848484 3px solid;
+    }
+
+    .wr_contents{
+        padding: 1em;
     }
 }
 
 body {
-    background-color: #E6E6E6;
-    padding-top:65px;
-}
-
-.wr_menu{
-
-
-}
-
-.wr_menu_profile{
-    margin: 0px;
-    padding: 0px;
+    background-color: #F2F2F2;
+    padding-top:55px;
 }
 
 .wr_profile{
     margin: 0px;
     padding: 0px;
     max-width: 100%;
-    margin-bottom: 1em;
+    border: #BDBDBD 1px solid;
 }
 
 .wr_menu .name{
-    border-left: #848484 5px solid;
-    font-size: 1.8em;
-    text-indent: 0.1em;
+    font-size: 1.6em;
+    text-indent: 0.3em;
     margin: 0px;
     padding: 0px;
     padding-top: 0.2em;
 }
 
 .wr_menu .chair{
-    border-left: #848484 5px solid;
-    font-size: 1.2em;
-    text-indent: 0.3em;
+    font-size: 1em;
+    text-indent: 0.5em;
     color: gray;
     margin: 0px;
     padding: 0px;
@@ -46,24 +50,96 @@ body {
 }
 
 .wr_menu a{
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 2em;
     margin: 0px;
     padding: 0px;
-    color: black;
+    color: #0B2161;
+    text-decoration: none;
 }
 
 .wr_menu a{
     text-decoration: none;
 }
 .wr_menu_list{
-    border-left: #A9BCF5 5px solid;
-    text-indent: 0.3em;
+    border-left: #A9BCF5 3px solid;
+    text-indent: 0.5em;
     margin: 0px;
     padding: 0px;
 }
 
 .wr_menu_list:hover{
     background-color: #FFFFFF;
-    border-left: #5882FA 5px solid;
+    border-left: #5882FA 3px solid;
+}
+
+.wr_contents{
+    height: 100%;
+    margin: 0px;
+    padding: 1em;
+    background-color: white;
+    border-left: #E6E6E6 1px solid;
+    border-right: #E6E6E6 1px solid;
+}
+
+.wr_panel{
+    border: #E6E6E6 1px solid;
+    margin-bottom: 1.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.wr_panel-body{
+    padding: 1em;
+}
+
+.wr_panel-body h4{
+    margin-top: 0px;
+}
+
+.w3-progressbar{
+    font-size: 0.8em;
+}
+
+.wr_list-group{
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.wr_list-group-item{
+    border-top: #E6E6E6 1px solid;
+    background-color: #F2F2F2;
+    padding: 1em;
+}
+
+.wr_list-group-item a{
+    text-decoration: none;
+    color:black;
+}
+
+.wr_list-group-item a:hover{
+    font-weight: bold;
+}
+
+
+.wr_like_c{
+    background-color: #F78181;
+    color:#FBEFEF;
+    padding:0.4em;
+    font-size: 0.8em;
+}
+
+.wr_comment_c{
+    background-color: #819FF7;
+    color:#EFF2FB;
+    padding:0.4em;
+    font-size: 0.8em;
+}
+
+.evl{
+    background-color: #848484;
+    color:#F2F2F2;
+    padding:0.4em;
+    font-size: 0.8em;
 }

@@ -9,6 +9,8 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
 <?php include 'head.php'; ?>
 <head>
     <link rel="stylesheet" href="style/n_site.css">
+    <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
+    <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
 </head>
 
 <BODY>
@@ -20,8 +22,8 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
         <div class="col-md-2">
 <?php include 'new_elected_menu.php' ?>
         </div>
-        <div class="col-md-10">
-<?php include 'elected_pollist.php' ?>
+        <div class="col-md-10 wr_contents ">
+<?php include 'new_elected_pollist.php' ?>
         </div>
     </div>
 </div>
