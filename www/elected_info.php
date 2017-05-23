@@ -7,7 +7,6 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
 
 <HTML>
 <?php include 'head.php'; ?>
-
 <BODY>
 
 <?php include 'nav.php'; ?>
@@ -16,10 +15,10 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
 <?php include 'elected_menu.php' ?>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
 <?php include 'elected_pollist.php' ?>
         </div>
     </div>

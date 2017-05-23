@@ -7,6 +7,9 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
 
 <HTML>
 <?php include 'head.php'; ?>
+<head>
+    <link rel="stylesheet" href="style/n_site.css">
+</head>
 
 <BODY>
 
