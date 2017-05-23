@@ -1,29 +1,39 @@
-@media (min-width: 800px) {
-    .wr_menu{
-        margin: 1em;
-    }
-
-    .wr_profile{
-        margin-bottom: 1em;
-    }
-
-    .wr_menu .name{
-        border-left: #848484 3px solid;
-    }
-
-    .wr_menu .chair{
-        border-left: #848484 3px solid;
-    }
-
-    .wr_contents{
-        padding: 1em;
-    }
-}
-
 body {
     background-color: #F2F2F2;
-    padding-top:55px;
 }
+
+nav{
+    background: #1C1C1C;
+}
+
+nav .brand{
+    line-height: 2em;
+    font-size: 1.2em;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight:bold;
+}
+
+nav .nav-right{
+    line-height: 2em;
+    font-size: 1.2em;
+    color: white;
+    display: inline-block;
+    float: right;
+}
+
+nav a{
+    text-decoration: none;
+    color:white;
+}
+
+
+.wr_elc_profile{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
 
 .wr_profile{
     padding: 0px;
@@ -73,9 +83,9 @@ body {
 }
 
 .wr_contents{
-    height: 100%;
+    min-height: 100%;
     margin: 0px;
-    padding: 1em;
+    padding: 0.4em;
     background-color: white;
     border-left: #E6E6E6 1px solid;
     border-right: #E6E6E6 1px solid;
@@ -89,15 +99,23 @@ body {
 }
 
 .wr_panel-body{
-    padding: 1em;
+    padding: 0.5em;
 }
 
 .wr_panel-body h4{
     margin-top: 0px;
 }
 
-.w3-progressbar{
-    font-size: 0.8em;
+.progress_per{
+    background-color: #848484;
+    color:#F2F2F2;
+    padding:0.3em;
+    font-size: 0.6em;
+    margin-left: 0.5em;
+}
+
+.wr_panel-body .w3-progress-container{
+    margin-top: 0.3em;
 }
 
 .wr_list-group{
@@ -109,7 +127,7 @@ body {
 .wr_list-group-item{
     border-top: #E6E6E6 1px solid;
     background-color: #F2F2F2;
-    padding: 1em;
+    padding: 0.5em;
 }
 
 .wr_list-group-item a{
@@ -141,4 +159,44 @@ body {
     color:#F2F2F2;
     padding:0.4em;
     font-size: 0.8em;
+}
+
+@media (min-width: 800px) {
+    .wr_menu{
+        margin: 1em;
+    }
+
+    .wr_elc_profile{
+        padding-top: 0em;
+        padding-bottom: 0em;
+    }
+
+
+    .wr_profile{
+        margin-bottom: 0.8em;
+    }
+
+    .wr_menu .name{
+        border-left: #848484 3px solid;
+    }
+
+    .wr_menu .chair{
+        border-left: #848484 3px solid;
+    }
+
+    .wr_contents{
+        padding: 1em;
+    }
+
+    .wr_panel-left{
+        border-right: #E6E6E6 1px solid;
+    }
+
+    .wr_panel-body{
+        padding: 1em;
+    }
+
+    .wr_list-group-item{
+        padding: 1em;
+    }
 }

@@ -15,7 +15,7 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
 
 <BODY>
 
-<?php include 'nav.php'; ?>
+<?php include 'new_nav.php'; ?>
 
 <div class="container">
     <div class="row">
