@@ -28,15 +28,19 @@ nav a{
     color:white;
 }
 
+.wr_elc_info{
+    margin-bottom: 0.5em;
+}
+
 
 .wr_elc_profile{
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    padding-left: 0.5em;
 }
 
 
 .wr_profile{
-    margin-left: 0.5em;
     padding: 0px;
     max-width: 100%;
     border: #BDBDBD 1px solid;
@@ -94,9 +98,7 @@ nav a{
 
 .wr_panel{
     border: #E6E6E6 1px solid;
-    margin-bottom: 1.5em;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-bottom: 0.5em;
 }
 
 .wr_panel-body{
@@ -167,9 +169,14 @@ nav a{
         margin: 1em;
     }
 
+    .wr_elc_info{
+        margin-bottom: 0em;
+    }
+
     .wr_elc_profile{
         padding-top: 0em;
         padding-bottom: 0em;
+        padding-left: 0em;
     }
 
 

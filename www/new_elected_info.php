@@ -22,8 +22,12 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
         <div class="col-md-2">
 <?php include 'new_elected_menu.php' ?>
         </div>
-        <div class="col-md-10 wr_contents ">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="wr_contents">
 <?php include 'new_elected_pollist.php' ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>

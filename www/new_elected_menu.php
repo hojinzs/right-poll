@@ -1,9 +1,9 @@
 <div class="wr_menu">
     <div class="row">
-        <div class="wr_elc_profile col-md-12 col-xs-12">
+        <div class="wr_elc_info col-md-12 col-xs-12">
             <div class="row">
                 <div class="col-md-12 col-xs-2">
-                    <div class="row">
+                    <div class="row wr_elc_profile">
                         <img class="wr_profile" src="https://pbs.twimg.com/profile_images/798463233774350336/KlHqUNgL.jpg">
                     </div>
                 </div>

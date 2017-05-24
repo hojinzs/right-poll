@@ -1,4 +1,3 @@
-<div class="row">
 <?php
 $polecat = \App\Common::getPolecatList($elected['id']);
 foreach ($polecat as $num)
@@ -46,4 +45,3 @@ foreach ($policy as $polnum) {
 <?php
 }
 ?>
-</div>
