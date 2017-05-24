@@ -25,7 +25,7 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
         </div>
         <div class="col-md-10">
             <div class="row">
-                <div class="wr_contents">
+                <div class="wr_contents col-md-12">
 <?php
 switch ($mnu) {
     case 'pol':
@@ -37,7 +37,6 @@ switch ($mnu) {
         # 한마디일 경우, 댓글 리스트를 include
         $tg="elct"; $prt_cmt=null;
         include 'new_cmt_summit.php';
-        echo "<hr>";
         include 'new_cmt_lst.php';
         break;
 

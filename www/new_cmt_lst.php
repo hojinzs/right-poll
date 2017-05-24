@@ -11,7 +11,7 @@ switch ($tg) {
 ?>
 
 <!-- PRINT COMMENT LIST -->
-<div class="comment_list col-md-12">
+<div class="comment_list">
 <?php
 foreach ($cmts as $cmt)
 {
@@ -50,21 +50,21 @@ foreach ($cmts as $cmt)
 ?>
         <div class="add_comment">
             <div class="add_comment_header">
-<?php echo $cmt['nick'] ?> |
-                <div class="go_right">
-                    IP: <?php echo $cmt['ip'] ?>
+<?php echo $cmt['nick'] ?>
+                <div class="wr_user_ip go_right">
+                    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?php echo $cmt['ip'] ?>
                 </div>
             </div>
             <div class="add_comment_area">
 <?php echo $cmt['content']?>
             </div>
-            <div class="add_comment_info">
-                <div class="add_comment_report">
+            <div class="add_comment_report">
 <?php echo $cmt['created_at']?> | 신고
-                </div>
+            </div>
+            <div class="add_cmt_btn_set">
                 <div class="add_comment_recommend">
-                    <button>좋아요</button>
-                    <button>싫어요</button>
+                    <button class="cmt_like">좋아요</button>
+                    <button class="cmt_dislike">싫어요</button>
                 </div>
             </div>
         </div>
