@@ -14,7 +14,7 @@
     <input type="hidden" id="parents" name="parents" value="<?php echo $prt_cmt; ?>">
             <div class="form_comment_header">
                 <label for="user">한마디 작성</label>
-                <div class="go_right">
+                <div class="user_ip go_right">
                     YOUR IP: <?php echo $_SESSION['ip'];?>
                 </div>
             </div>

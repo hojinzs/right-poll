@@ -30,86 +30,11 @@
 }
 
 .form_comment_header{
-    background-color: black;
-    color:white;
-    padding: 0.5em 0.5em 0.5em 1em;
+
 }
 
 .comment_main{
 
-}
-
-.comment_header{
-    background-color: black;
-    color:white;
-    padding: 0.5em 0.5em 0.5em 1em;
-    margin-top: 1em;
-}
-
-.comment_area{
-    padding: 0.5em 0.5em 0.5em 1em;
-}
-
-.comment_info{
-    padding: 0.5em 0.5em 0.5em 1em;
-}
-
-.comment_report{
-    display: inline-block;
-}
-
-.comment_recommend{
-    display: inline-block;
-    float: right;
-}
-
-.comment_add{
-    border-left: 2px solid grey;
-    margin-left: 2em;
-    background-color: gray;
-}
-
-#comment_form{
-    margin-bottom: 0px;
-}
-
-
-.add_comment_form{
-    margin-bottom: 0px;
-}
-
-.add_comment{
-    border-left: 2px solid grey;
-    margin-left: 2em;
-    background-color: gray;
-}
-
-.add_comment_header{
-    background-color: black;
-    padding: 0.5em 0.5em 0.5em 1em;
-    color:white;
-}
-
-.add_comment_area{
-    padding: 0.5em 0.5em 0.5em 1em;
-}
-
-
-.add_comment_info{
-    padding: 0.5em 0.5em 1em 1em;
-}
-
-.add_comment_report{
-    display: inline-block;
-}
-
-.add_comment_recommend{
-    display: inline-block;
-    float: right;
-}
-
-#comment {
-    resize: none;
 }
 
 .go_right{

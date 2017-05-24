@@ -2,6 +2,7 @@
 <?php
 
 $elected = \App\Common::getElectedInfo($_GET['id']);
+$mnu = $_GET['mnu'];
 $title = "공약정보::".$elected['chair']."-".$elected['name'];
 ?>
 
@@ -25,7 +26,27 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
         <div class="col-md-10">
             <div class="row">
                 <div class="wr_contents">
-<?php include 'new_elected_pollist.php' ?>
+<?php
+switch ($mnu) {
+    case 'pol':
+        # 공약 목록일 경우, 공약 리스트를 include
+        include 'new_elected_pollist.php';
+        break;
+
+    case 'cmt':
+        # 한마디일 경우, 댓글 리스트를 include
+        $tg="elct"; $prt_cmt=null;
+        include 'new_cmt_summit.php';
+        echo "<hr>";
+        include 'new_cmt_lst.php';
+        break;
+
+    default:
+        # 지정이 없을 경우, 공약 리스트를 include
+        include 'new_elected_pollist.php';
+        break;
+}
+?>
                 </div>
             </div>
         </div>

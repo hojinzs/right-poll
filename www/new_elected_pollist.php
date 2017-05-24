@@ -1,3 +1,5 @@
+<h2>우리 이니 하고싶은거 목록</h2>
+
 <?php
 $polecat = \App\Common::getPolecatList($elected['id']);
 foreach ($polecat as $num)
