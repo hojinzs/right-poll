@@ -17,6 +17,7 @@ $(document).ready(function(){
         })
 
     })
+
 })
 
 $(document).ready(function(){
@@ -39,6 +40,25 @@ $(document).ready(function(){
         })
     })
 })
+
+
+$(document).ready(function(){
+    $(".comment_add").hide();
+    $(".add_comment").hide();
+
+})
+
+// $.fn.sh_add_click = function(comment_id){
+//
+//     $('.comment_add').hide();
+//     $('.add_comment').hide();
+//
+//     $('.comment_add_'+comment_id).show();
+//     $('.add_comment_'+comment_id).show();
+//         },
+//     })
+// };
+
 
 $.fn.addComment_click = function(comment_id){
     var queryString = $('#add_comment_form_'+comment_id).serialize();

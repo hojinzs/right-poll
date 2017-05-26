@@ -441,10 +441,6 @@ nav a{
         max-width: 600px;
     }
 
-    .comment_add{
-        padding: 0em;
-    }
-
     .add_cmt_form{
         max-width: 600px;
     }
@@ -455,6 +451,7 @@ nav a{
     }
 
     .comment_add{
+        padding: 0em;
         border-left: #E6E6E6 1px solid;
         border-right: #E6E6E6 1px solid;
     }

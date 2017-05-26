@@ -33,7 +33,7 @@ foreach ($cmts as $cmt)
             </div>
             <div class="comment_info">
                 <div class="comment_openaddbtn">
-                    <button class="cmt_addmnt_btn">대댓글</button>
+                    <button class="cmt_addmnt_btn" onclick="$(this).sh_add_click('<?php echo $cmt['id'] ?>');">대댓글</button>
                 </div>
                 <div class="comment_recommend">
                     <button class="cmt_like">좋아요</button>
@@ -41,14 +41,14 @@ foreach ($cmts as $cmt)
                 </div>
             </div>
         </div>
-        <div class="comment_add">
+        <div class="comment_add comment_add_<?php echo $cmt['id']?>">
 <?php $prt_cmt=$cmt['id']; include 'new_addcmt_summit.php'; ?>
         </div>
 <?php
     } else {
 // 대댓글일 경우
 ?>
-        <div class="add_comment">
+        <div class="add_comment add_comment_<?php echo $cmt['comment_id'] ?>">
             <div class="add_comment_header">
 <?php echo $cmt['nick'] ?>
                 <div class="wr_user_ip go_right">
@@ -70,8 +70,6 @@ foreach ($cmts as $cmt)
         </div>
     <?php
     }
-    ?>
-<?php
 }
 ?>
 </div>
