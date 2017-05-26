@@ -40,9 +40,9 @@ foreach ($cmts as $cmt)
                     <button class="cmt_dislike">싫어요</button>
                 </div>
             </div>
-            <div class="comment_add hidden">
+        </div>
+        <div class="comment_add">
 <?php $prt_cmt=$cmt['id']; include 'new_addcmt_summit.php'; ?>
-            </div>
         </div>
 <?php
     } else {

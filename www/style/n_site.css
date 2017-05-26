@@ -234,9 +234,14 @@ nav a{
     padding: 0px;
 }
 
+.comment_main{
+    border-top: #E6E6E6 1px solid;
+    border-bottom: #E6E6E6 1px solid;
+    margin-top: 0.5em;
+    padding: 0.8em;
+}
+
 .comment_header{
-    border-top: #BDBDBD 1px solid;
-    padding: 0.5em 0.5em 0.5em 1em;
     color: black;
     font-size: 1.2em;
     font-weight: bolder;
@@ -247,17 +252,20 @@ nav a{
     margin-top: 0.5em;
 }
 
+.comment_main .wr_user_ip{
+    font-size: 0.6em;
+}
+
 .comment_area{
-    padding: 0.5em 0.5em 0.5em 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .comment_info{
-    padding: 0.5em 0.5em 0.5em 1em;
-    border-bottom: #E6E6E6 1px solid;
+    margin-top: 0.4em;
 }
 
 .comment_report{
-    padding: 0.5em 0.5em 0.5em 1em;
     font-size: 0.8em;
     font-weight: lighter;
     color: #A4A4A4;
@@ -281,29 +289,32 @@ nav a{
     float: right;
 }
 
-.comment_add{
-    padding: 1em;
-    padding-top: 0em;
-    background-color: #E6E6E6;
-}
-
 .cmt_addmnt_btn{
-    background-color: #11A642;
-    border: #11A642 1px solid;
-    color:white;
+    background-color: white;
+    border: #848484 1px solid;
+    color:#848484;
+    font-size: 0.7em;
 }
 
 .cmt_like{
-    background-color: #819FF7;
+    background-color: #EFF2FB;
     border: #819FF7 1px solid;
-    color:#EFF2FB;
+    color:#819FF7;
+    font-size: 0.7em;
 }
 
-
 .cmt_dislike{
-    background-color: #F78181;
+    background-color: #FBEFEF;
     border: #F78181 1px solid;
-    color:#FBEFEF;
+    color: #F78181;
+    font-size: 0.7em;
+}
+
+.comment_add{
+    padding: 0.5em;
+    padding-top: 0em;
+    background-color: #FAFAFA;
+
 }
 
 #comment_form{
@@ -328,12 +339,13 @@ nav a{
 }
 
 .add_comment{
-    border-top: #BDBDBD 1px solid;
-    background-color: #E6E6E6;
-    padding: 1em;
+    background-color: #FAFAFA;
+    padding: 0.5em;
     padding-left: 2em;
-    border-bottom: #BDBDBD 1px solid;
+    border-bottom: #E6E6E6 1px solid;
 }
+
+
 
 .add_comment_header{
     color: #424242;
@@ -354,7 +366,6 @@ nav a{
 
 .add_comment_info{
     padding: 0.5 0em;
-    border-bottom: #E6E6E6 1px solid;
 }
 
 .add_cmt_btn_set{
@@ -443,14 +454,19 @@ nav a{
         padding-left: 1em;
     }
 
+    .comment_add{
+        border-left: #E6E6E6 1px solid;
+        border-right: #E6E6E6 1px solid;
+    }
+
     .comment_main{
-        border-left: #BDBDBD 1px solid;
-        border-right: #BDBDBD 1px solid;
+        border-left: #E6E6E6 1px solid;
+        border-right: #E6E6E6 1px solid;
     }
 
     .add_comment{
-        border-left: #BDBDBD 1px solid;
-        border-right: #BDBDBD 1px solid;
+        border-left: #E6E6E6 1px solid;
+        border-right: #E6E6E6 1px solid;
     }
 
 
