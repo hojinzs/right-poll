@@ -99,7 +99,8 @@ nav a{
 }
 
 .wr_panel{
-    border: #E6E6E6 1px solid;
+    border-top: #E6E6E6 1px solid;
+    border-bottom: #E6E6E6 1px solid;
     margin-bottom: 0.5em;
 }
 
@@ -112,6 +113,13 @@ nav a{
     margin: 0px;
 }
 
+.wr_panel-left{
+    padding: 0px
+}
+
+.wr_panel-right{
+    padding: 0px
+}
 .progress_per{
     background-color: #848484;
     color:#F2F2F2;
@@ -138,6 +146,7 @@ nav a{
 
 .wr_list-group-item a{
     text-decoration: none;
+    padding-left: 1em;
     color:black;
 }
 
@@ -418,6 +427,12 @@ nav a{
 
     .wr_contents{
         padding: 1em;
+    }
+
+    .wr_panel{
+        border-left: #E6E6E6 1px solid;
+        border-right: #E6E6E6 1px solid;
+        margin-bottom: 0.5em;
     }
 
     .wr_panel-left{

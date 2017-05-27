@@ -30,7 +30,7 @@ foreach ($policy as $polnum) {
                     <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
                     <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
                 </div>
-                <div class="wr_panel-right col-md-4 col-xs-3">
+                <div class="wr_panel-right coㅈl-md-4 col-xs-3">
                     <span class="evl">준비중</span>
                 </div>
             </div>
