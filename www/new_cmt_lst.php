@@ -41,14 +41,14 @@ foreach ($cmts as $cmt)
                 </div>
             </div>
         </div>
-        <div class="comment_add comment_add_<?php echo $cmt['id']?>">
+        <div class="comment_add" id="comment_add_<?php echo $cmt['id']?>">
 <?php $prt_cmt=$cmt['id']; include 'new_addcmt_summit.php'; ?>
         </div>
 <?php
     } else {
 // 대댓글일 경우
 ?>
-        <div class="add_comment add_comment_<?php echo $cmt['comment_id'] ?>">
+        <div class="add_comment" id="add_comment_<?php echo $cmt['comment_id'] ?>">
             <div class="add_comment_header">
 <?php echo $cmt['nick'] ?>
                 <div class="wr_user_ip go_right">

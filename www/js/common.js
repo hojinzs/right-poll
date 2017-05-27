@@ -43,21 +43,20 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-    $(".comment_add").hide();
-    $(".add_comment").hide();
+    $('.comment_add').hide();
+    $('.add_comment').hide();
 
 })
 
-// $.fn.sh_add_click = function(comment_id){
-//
-//     $('.comment_add').hide();
-//     $('.add_comment').hide();
-//
-//     $('.comment_add_'+comment_id).show();
-//     $('.add_comment_'+comment_id).show();
-//         },
-//     })
-// };
+$.fn.sh_add_click = function(comment_id){
+
+    $('#comment_add_'+comment_id).toggle();
+    $('#add_comment_'+comment_id).toggle();
+
+    // $('.comment_add').hide();
+    // $('.add_comment').hide();
+
+};
 
 
 $.fn.addComment_click = function(comment_id){

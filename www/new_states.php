@@ -8,11 +8,6 @@ $title = "공약정보::".$elected['chair']."-".$elected['name'];
 
 <HTML>
 <?php include 'head.php'; ?>
-<head>
-    <link rel="stylesheet" href="style/n_site.css">
-    <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
-    <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
-</head>
 
 <BODY>
 
