@@ -418,6 +418,15 @@ nav a{
     width: 6em;
 }
 
+.wr_pol_menu li:hover{
+    background-color: #E6E6E6;
+}
+
+.wr_pol_menu a:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
+
 .wr_pol_menu .active{
     border-top: #E6E6E6 1px solid;
     border-left: #E6E6E6 1px solid;
