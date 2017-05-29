@@ -162,10 +162,24 @@ class Common
     public static function getElctCommentList($elected_id)
     {
         $stmt = \db()->prepare(
-            "SELECT *
-            FROM rightpoll.comment
-            WHERE elected_id=:id
-            order by comment_id desc, id asc
+            "SELECT
+            c.id,
+            c.comment_id,
+            c.elected_id,
+            c.policy_id,
+            c.user_id,
+            c.nick,
+            c.content,
+            c.ip,
+            c.created_at,
+            ifnull(r.like,0) 'like',
+            ifnull(r.dislike,0) 'dislike'
+            FROM rightpoll.comment c
+            	LEFT OUTER JOIN rightpoll.comment_rate_c r
+            	ON r.cmt_id = c.id
+            WHERE c.elected_id=:id
+            AND c.policy_id is NULL
+            order by c.comment_id desc, c.id asc
         ") ;
         $stmt->bindValue(':id', $elected_id);
         $stmt->execute();
@@ -182,10 +196,23 @@ class Common
     public static function getPolCommentList($pol_id)
     {
         $stmt = \db()->prepare(
-            "SELECT *
-            FROM rightpoll.comment
-            WHERE policy_id=:id
-            order by comment_id desc, id asc
+            "SELECT
+            c.id,
+            c.comment_id,
+            c.elected_id,
+            c.policy_id,
+            c.user_id,
+            c.nick,
+            c.content,
+            c.ip,
+            c.created_at,
+            ifnull(r.like,0) 'like',
+            ifnull(r.dislike,0) 'dislike'
+            FROM rightpoll.comment c
+            	LEFT OUTER JOIN rightpoll.comment_rate_c r
+            	ON r.cmt_id = c.id
+            WHERE c.policy_id=2
+            order by c.comment_id desc, c.id asc
         ");
         $stmt->bindValue(':id', $pol_id);
         $stmt->execute();

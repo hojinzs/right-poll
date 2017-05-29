@@ -36,8 +36,8 @@ foreach ($cmts as $cmt)
                     <button class="cmt_addmnt_btn" onclick="$(this).sh_add_click('<?php echo $cmt['id'] ?>');">대댓글</button>
                 </div>
                 <div class="comment_recommend">
-                    <button class="cmt_like">좋아요</button>
-                    <button class="cmt_dislike">싫어요</button>
+                    <button class="cmt_like">좋아요<?php echo $cmt['like']?></button>
+                    <button class="cmt_dislike">싫어요<?php echo $cmt['dislike']?></button>
                 </div>
             </div>
         </div>

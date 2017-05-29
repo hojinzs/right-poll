@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
 
     <link rel="stylesheet" href="style/n_site.css">
-    <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
+    <link rel="stylesheet" href="css/w3.css">
     <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
 
     <title><?php echo $title; ?></title>
