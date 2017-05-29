@@ -211,7 +211,7 @@ class Common
             FROM rightpoll.comment c
             	LEFT OUTER JOIN rightpoll.comment_rate_c r
             	ON r.cmt_id = c.id
-            WHERE c.policy_id=2
+            WHERE c.policy_id=:id
             order by c.comment_id desc, c.id asc
         ");
         $stmt->bindValue(':id', $pol_id);
