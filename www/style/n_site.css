@@ -98,6 +98,18 @@ nav a{
     overflow: hidden;
 }
 
+.wr_box{
+    margin: 0px;
+    padding: 1em;
+    background-color: white;
+    border: #E6E6E6 1px solid;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+.wr_box h3{
+    margin-top: 0em;
+}
 .wr_panel{
     border-top: #E6E6E6 1px solid;
     border-bottom: #E6E6E6 1px solid;
@@ -286,7 +298,7 @@ nav a{
 
 
 .cmt_window{
-    margin: 1em;
+    padding: 1em;
 }
 
 .cmt_addmnt_btn{
@@ -493,6 +505,8 @@ nav a{
     }
 
     .cmt_window{
+        padding: 0em;
+        padding-left: 1em;
         max-width: 600px;
     }
 

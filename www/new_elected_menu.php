@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12 col-xs-2">
                     <div class="row wr_elc_profile">
-                        <img class="wr_profile" src="https://pbs.twimg.com/profile_images/798463233774350336/KlHqUNgL.jpg">
+                        <img class="wr_profile" src="<?php echo $elected['profile']?>">
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-10">

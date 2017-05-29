@@ -28,7 +28,7 @@ $title = "공약정보".$elected['chair']."-".$elected['name'];
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-<?php include 'new_elected_menu.php' ?>
+<?php include 'new_elected_menu.php'; ?>
         </div>
         <div class="col-md-10">
             <div class="row">
@@ -39,33 +39,14 @@ $title = "공약정보".$elected['chair']."-".$elected['name'];
     좋아요</button> <?php echo $policy['likesum'] ?>명이 이 공약을 좋아합니다.
     <?php include 'planlist.php' ?>
                     </div>
-                <!-- <div class="col-md-12 col-xs-12"> -->
-                <ul class="wr_pol_menu col-md-12 col-xs-12">
-                    <li class="active"><a href="#">한마디</a></li>
-                    <li><a href="#">소식</a></li>
-                    <li><a href="#">이행평가</a></li>
-                </ul>
-                <!-- </div> -->
-                <div class="wr_contents col-md-12 col-xs-12">
-<?php
+                <div class="wr_box col-md-12 col-xs-12">
+                    <h3>공약 평가</h3>
+<?php include 'new_policy_rate.php'; ?>
+                </div>
 
-switch ($menu) {
-    case 'comment':
-        # 코멘트 페이지를 출력
-
-        include 'new_policy_cmt.php';
-
-        break;
-
-    default:
-        # 기본: 코멘트 페이지를 출력
-
-        include 'new_policy_cmt.php';
-
-        break;
-}
-
-?>
+                <div class="wr_box col-md-12 col-xs-12">
+                    <h3>한마디</h3>
+<?php include 'new_policy_cmt.php'; ?>
                 </div>
             </div>
         </div>
