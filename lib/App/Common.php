@@ -172,8 +172,8 @@ class Common
             c.content,
             c.ip,
             c.created_at,
-            ifnull(r.like,0) 'like',
-            ifnull(r.dislike,0) 'dislike'
+            ifnull(r.lke,0) 'like',
+            ifnull(r.dislke,0) 'dislike'
             FROM rightpoll.comment c
             	LEFT OUTER JOIN rightpoll.comment_rate_c r
             	ON r.cmt_id = c.id
