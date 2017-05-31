@@ -3,30 +3,8 @@
 $title = "TEST";
 include 'head.php';
 
-$cmt1 = "10.1.1.1";
-$cmt1 = \App\Str::replaceIpAddress($cmt1);
+$text = 'abcdefg\n<iframe width="560" height="315" src="https://www.youtube.com/embed/r05qQdpY2nY" frameborder="0" allowfullscreen></iframe>';
+echo strip_tags($text);
 
-echo $cmt1;
-echo "<hr>";
-
-$array = array(
-    "10.1.1.1",
-    "10.2.1.1",
-    "10.3.1.1",
-    "10.4.1.1",
-    "10.5.1.1");
-
-print_r($array);
-
-echo "<hr>";
-
-foreach ($array as $cmt) {
-# IP주소 가림 처리
-echo "$cmt ->";
-$cmt = \App\Str::replaceIpAddress($cmt);
-echo "$cmt <br>";
-}
-
-echo "<hr>";
-
-print_r($array);
+// <p>,<a>,<br>을 제외한 HTML 코드를 제거
+echo strip_tags($text, '<p><a><br>');

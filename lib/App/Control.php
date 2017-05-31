@@ -102,6 +102,9 @@ class Control
                 return $error;
         }
 
+        // <p>,<a>,<br>을 제외한 HTML 코드를 제거
+        $stdContent = strip_tags($postComment['content'], '<p><a><br>');
+
         $query =
         "INSERT INTO rightpoll.comment(
             elected_id,
@@ -129,7 +132,7 @@ class Control
 
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':elected_id', $postComment['elected_id']);
-        $stmt->bindParam(':content', $postComment['content']);
+        $stmt->bindParam(':content', $stdContent);
         $stmt->bindParam(':nick', $postComment['nickname']);
         $stmt->bindParam(':comment_id', $postComment['comment_id']);
         $stmt->bindParam(':policy_id', $postComment['policy_id']);
