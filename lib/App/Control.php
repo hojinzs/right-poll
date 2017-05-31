@@ -49,7 +49,7 @@ class Control
         $success[0] = "success";
 
 
-        // 값이 전달되지 않았을 경우의 예외 처리
+        // 값이 전달되지 않았을 경우의 예외 처리(에러로 되돌림)
 
         if (array_key_exists ('elected_id',$postComment)) {
         } else {
