@@ -48,6 +48,9 @@ class Control
     {
         $success[0] = "success";
 
+
+        // 값이 전달되지 않았을 경우의 예외 처리
+
         if (array_key_exists ('elected_id',$postComment)) {
         } else {
             $error[0] = "error";
@@ -102,8 +105,13 @@ class Control
                 return $error;
         }
 
-        // <p>,<a>,<br>을 제외한 HTML 코드를 제거
-        $stdContent = strip_tags($postComment['content'], '<p><a><br>');
+
+        // 댓글 내용을 가공함.
+        $stdContent = $postComment['content'];
+            // <p>,<a>,<br>을 제외한 HTML 코드를 제거
+            $stdContent = strip_tags($stdContent, '<p><a><br>');
+            // 줄바꿈 처리
+            $stdContent = nl2br($stdContent);
 
         $query =
         "INSERT INTO rightpoll.comment(
