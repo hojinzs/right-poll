@@ -36,8 +36,10 @@ foreach ($cmts as $cmt)
                     <button class="cmt_addmnt_btn" onclick="$(this).sh_add_click('<?php echo $cmt['id'] ?>');">대댓글</button>
                 </div>
                 <div class="comment_recommend">
-                    <button class="cmt_like">좋아요<?php echo $cmt['like']?></button>
-                    <button class="cmt_dislike">싫어요<?php echo $cmt['dislike']?></button>
+                    <button class="cmt_like" onclick="$(this).postCommentLike_click('<?php echo $cmt['id']?>')">
+                        좋아요<?php echo $cmt['lke']?></button>
+                    <button class="cmt_dislike" onclick="$(this).postCommentDislike_click('<?php echo $cmt['id']?>')">
+                    싫어요<?php echo $cmt['dislke']?></button>
                 </div>
             </div>
         </div>
@@ -63,8 +65,10 @@ foreach ($cmts as $cmt)
             </div>
             <div class="add_cmt_btn_set">
                 <div class="add_comment_recommend">
-                    <button class="cmt_like">좋아요</button>
-                    <button class="cmt_dislike">싫어요</button>
+                    <button class="cmt_like" onclick="$(this).postCommentLike_click('<?php echo $cmt['id']?>')">
+                        좋아요<?php echo $cmt['lke']?></button>
+                    <button class="cmt_dislike" onclick="$(this).postCommentDislike_click('<?php echo $cmt['id']?>')">
+                        싫어요<?php echo $cmt['dislke']?></button>
                 </div>
             </div>
         </div>

@@ -123,7 +123,7 @@ class Common
     }
 
     /**
-     * 공약의 좋아요 가능 여부 (이미 좋아요를 하였는가?)
+     * 공약의 좋아요 여부 (이미 좋아요를 하였는가?)
      * @param  int $policy_id 공약 번호
      * @return bool        좋아요 가능 여부(TRUE/FALSE)
      */
@@ -142,6 +142,40 @@ class Common
 
         $stmt = \db()->prepare($query);
         $stmt->bindValue(':id', $policy_id);
+        $stmt->bindValue(':session', $_SESSION['id']);
+        $stmt->execute();
+        $result = $stmt->fetchALL();
+
+        if ($result != null){
+            return false;
+        }
+
+        return true;
+
+    }
+
+    /**
+     * 코멘트 평가 가능 여부 (이미 코멘트를 평가 하였는가?)
+     * @param [type] $cmt_id [description]
+     * @return bool 코멘트 평가 가능 여부(TRUE/FALSE)
+     */
+    public static function isCommentRateAvailable($cmt_id)
+    {
+
+        $query =
+            "SELECT
+                comment_rate.id,
+                comment_rate.cmt_id,
+                comment_rate.session
+            FROM
+                rightpoll.comment_rate
+            WHERE
+                comment_rate.cmt_id = :id
+            AND comment_rate.session = :session
+            ";
+
+        $stmt = \db()->prepare($query);
+        $stmt->bindValue(':id', $cmt_id);
         $stmt->bindValue(':session', $_SESSION['id']);
         $stmt->execute();
         $result = $stmt->fetchALL();
@@ -206,8 +240,8 @@ class Common
             c.content,
             c.ip,
             c.created_at,
-            ifnull(r.like,0) 'like',
-            ifnull(r.dislike,0) 'dislike'
+            ifnull(r.lke,0) 'lke',
+            ifnull(r.dislke,0) 'dislke'
             FROM rightpoll.comment c
             	LEFT OUTER JOIN rightpoll.comment_rate_c r
             	ON r.cmt_id = c.id

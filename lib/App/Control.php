@@ -151,4 +151,80 @@ class Control
         return $success;
     }
 
+    /**
+     * 코멘트 추천/비추 여부 POST
+     * @param int $cmt_id 대상 코멘트 ID
+     * @param int $stt 좋아요/비추 여부 1=좋아요, 2=싫어요
+     * @return var success(성공) / recommended(평가됨) / error(에러)
+     */
+    public static function postCommentRecommend($cmt_id,$stt)
+    {
+
+        # 공약을 평가 하였는지 확인
+
+        $i = \App\Common::isCommentRateAvailable($cmt_id);
+
+        if ($i != true) {
+            # 공약 평가 가능 여부가 true가 아닐 경우
+
+            return "recommended";
+        }
+
+        switch ($stt) {
+            case 1:
+                # 좋아요일 경우
+
+                # rate에 status=1 기록 추가
+
+                $query1="INSERT INTO rightpoll.comment_rate (cmt_id,status,session,ip)
+                        VALUES (:id, 1,:session,:ip)";
+
+                # rate_c에 like를 +1
+
+                $query2="INSERT INTO rightpoll.comment_rate_c (cmt_id, lke)
+                        VALUES (:id, '1') ON DUPLICATE KEY
+                        UPDATE lke = lke + 1";
+
+                break;
+
+            case 2:
+                # 싫어요일 경우
+
+                # rate에 status=2 기록 추가
+
+                $query1="INSERT INTO rightpoll.comment_rate (cmt_id,status,session,ip)
+                        VALUES (:id, 2,:session,:ip)";
+
+                # rate_c에 dislike를 +1
+
+                $query2="INSERT INTO rightpoll.comment_rate_c (cmt_id, lke)
+                        VALUES (:id, '1') ON DUPLICATE KEY
+                        UPDATE dislke = dislke + 1";
+
+                break;
+
+            default:
+                # 지정이 없을 경우, 에러 리턴
+                return 'error';
+                break;
+        }
+
+        # DB에 rate 기록 추가
+
+        $stmt1 = \db()->prepare($query1);
+        $stmt1->bindParam(':id', $cmt_id);
+        $stmt1->bindParam(':ip', $_SESSION['ip']);
+        $stmt1->bindParam(':session', $_SESSION['id']);
+        $stmt1->execute();
+
+        # DB에 해당 코멘트의 rate 여부 카운트
+
+        $stmt2 = \db()->prepare($query2);
+        $stmt2->bindParam(':id', $cmt_id);
+        $stmt2->execute();
+
+        return "success";
+    }
+
+
 }
