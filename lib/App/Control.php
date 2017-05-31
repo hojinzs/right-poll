@@ -109,6 +109,7 @@ class Control
             comment_id,
             nick,
             content,
+            ip_blind,
             ip,
             session)
         VALUES (
@@ -117,9 +118,14 @@ class Control
             :comment_id,
             :nick,
             :content,
+            :ip_blind,
             :ip,
             :session)
         ";
+
+        # ip주소를 가려서 저장
+
+        $blind_ip = \App\Str::replaceIpAddress($_SESSION['ip']);
 
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':elected_id', $postComment['elected_id']);
@@ -127,6 +133,7 @@ class Control
         $stmt->bindParam(':nick', $postComment['nickname']);
         $stmt->bindParam(':comment_id', $postComment['comment_id']);
         $stmt->bindParam(':policy_id', $postComment['policy_id']);
+        $stmt->bindParam(':ip_blind', $blind_ip);
         $stmt->bindParam(':ip', $_SESSION['ip']);
         $stmt->bindParam(':session', $_SESSION['id']);
         $stmt->execute();

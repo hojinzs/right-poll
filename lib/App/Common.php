@@ -195,6 +195,9 @@ class Common
      */
     public static function getElctCommentList($elected_id)
     {
+
+        # 당선자의 댓글 목록을 DB에서 가져옴
+
         $stmt = \db()->prepare(
             "SELECT
             c.id,
@@ -204,10 +207,10 @@ class Common
             c.user_id,
             c.nick,
             c.content,
-            c.ip,
+            c.ip_blind 'ip',
             c.created_at,
-            ifnull(r.lke,0) 'like',
-            ifnull(r.dislke,0) 'dislike'
+            ifnull(r.lke,0) 'lke',
+            ifnull(r.dislke,0) 'dislke'
             FROM rightpoll.comment c
             	LEFT OUTER JOIN rightpoll.comment_rate_c r
             	ON r.cmt_id = c.id
@@ -218,6 +221,11 @@ class Common
         $stmt->bindValue(':id', $elected_id);
         $stmt->execute();
         $array = $stmt->fetchAll();
+
+        foreach ($array as $cmt) {
+        # IP주소 가림 처리
+        $cmt['ip'] = \App\Str::replaceIpAddress($cmt['ip']);
+        }
 
         return $array;
     }
@@ -238,7 +246,7 @@ class Common
             c.user_id,
             c.nick,
             c.content,
-            c.ip,
+            c.ip_blind 'ip',
             c.created_at,
             ifnull(r.lke,0) 'lke',
             ifnull(r.dislke,0) 'dislke'
