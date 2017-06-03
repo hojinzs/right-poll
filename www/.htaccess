@@ -1,0 +1,18 @@
+## Options -MultiViews
+## Options All -Indexes
+
+## Turn mod_rewrite on
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteBase /
+
+    RewriteRule ^/?id/([0-9]+)$ new_states.php?id=$1
+
+    RewriteRule ^(.+)/css/(.*) ./css/$2 [L]
+    RewriteRule ^(.+)/js/(.*) ./js/$2 [L]
+    RewriteRule ^(.+)/style/(.*) ./style/$2 [L]
+    RewriteRule ^(.+)/fonts/(.*) ./fonts/$2 [L]
+
+</IfModule>

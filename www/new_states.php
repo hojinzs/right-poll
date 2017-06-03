@@ -2,7 +2,12 @@
 <?php
 
 $elected = \App\Common::getElectedInfo($_GET['id']);
-$mnu = $_GET['mnu'];
+$mnu = null;
+
+if(isset($_GET['mnu'])){
+    $mnu = $_GET['mnu'];
+}
+
 $title = "공약정보::".$elected['chair']."-".$elected['name'];
 ?>
 
