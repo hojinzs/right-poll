@@ -13,8 +13,8 @@ $title = "약속을 했으면 지켜야지?";
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 id="pagetitle">(NEW INDEX)약속을 했으면 지켜야지?<h1>
-                    <h4>(NEW INDEX) 우리가 직접 감시하는 당선자 공약 이행 현황</h4>
+                    <h1 id="pagetitle">(NEW)약속을 했으면 지켜야지?<h1>
+                    <h4>우리가 직접 감시하는 당선자 공약 이행 현황</h4>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@ foreach ($elected_list as $num)
                     <div id="info">
                         <h4><?php echo ($num['name']); ?></h4>
                         <p><?php echo ($num['chair']); ?></p>
-                        <a href="/new_states.php?id=<?php echo ($num['id']);?>&mnu=pol" class="btn btn-primary" role="button">공약 보기</a>
+                        <a href="/@<?php echo ($num['url']);?>" class="btn btn-primary" role="button">공약 보기</a>
                     </div>
                 </div>
               </div>

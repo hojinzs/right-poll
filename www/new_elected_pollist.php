@@ -26,7 +26,7 @@ foreach ($policy as $polnum) {
 ?>
          <li class="wr_list-group-item">
             <div class="row">
-                <div class="wr_panel-left col-md-8 col-xs-9"><a href="/new_policy.php?id=<?php echo $polnum['elected_id']?>&pol=<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
+                <div class="wr_panel-left col-md-8 col-xs-9"><a href="/@<?php echo $elected['url']?>/pol<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
                     <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
                     <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
                 </div>

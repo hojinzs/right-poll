@@ -6,13 +6,19 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteBase /
+    ## RewriteCond %{REQUEST_FILENAME} !-f // 나중을 위한 라우팅 옵션
+    ## RewriteRule ^ Route.php [QSA,L]  // 나중을 위한 라우팅 옵션
 
-    RewriteRule ^/?id/([0-9]+)$ new_states.php?id=$1
+    DirectoryIndex ./new_home.php
 
-    RewriteRule ^(.+)/css/(.*) ./css/$2 [L]
-    RewriteRule ^(.+)/js/(.*) ./js/$2 [L]
-    RewriteRule ^(.+)/style/(.*) ./style/$2 [L]
-    RewriteRule ^(.+)/fonts/(.*) ./fonts/$2 [L]
+    RewriteRule ^/?@([A-Za-z0-9]+)$ ./new_states.php?id=$1
+    RewriteRule ^/?@([A-Za-z0-9]+)/?comment$ ./new_states.php?id=$1&mnu=cmt
+    RewriteRule ^/?@([A-Za-z0-9]+)/?pol([0-9]+)$ ./new_policy.php?id=$1&pol=$2
+
+    RewriteRule ^(.+)/pst/(.*) /pst/$2 [L]
+    RewriteRule ^(.+)/css/(.*) /css/$2 [L]
+    RewriteRule ^(.+)/js/(.*) /js/$2 [L]
+    RewriteRule ^(.+)/style/(.*) /style/$2 [L]
+    RewriteRule ^(.+)/fonts/(.*) /fonts/$2 [L]
 
 </IfModule>

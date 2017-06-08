@@ -14,10 +14,25 @@ class Common
      */
     public static function getElectedInfo($id)
     {
-        $stmt = \db()->prepare("SELECT * FROM rightpoll.elected WHERE id = :id");
-        $stmt->bindValue(':id', $id);
+
+        // 일단 URL(영숫자)로 검색
+
+        $stmt = \db()->prepare("SELECT * FROM rightpoll.elected WHERE url = :url");
+        $stmt->bindValue(':url', $id);
         $stmt->execute();
         $row = $stmt->fetch();
+
+        // 만약 검색이 안될 경우
+        if($row==null){
+
+            // id(숫자)값으로 검색
+            $stmt = \db()->prepare("SELECT * FROM rightpoll.elected WHERE id = :id");
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+            $row = $stmt->fetch();
+
+        }
+
         return $row;
     }
 

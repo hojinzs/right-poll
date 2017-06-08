@@ -1,18 +1,7 @@
 <?php require_once __DIR__ . '/../core/init.php';?>
 
 <?php
-$menu; // 메뉴명 파라미터
-
 $policy = \App\Common::getPolicyInfo($_GET['pol']);
-
-// mnu 파라미터 정의
-if(isset($_GET['mnu'])){
-    # 파라미터 값이 전달 되었을 경우
-    $menu = $_GET['mnu'];
-} else {
-    # 파라미터 값이 전달되지 않았을 경우 = 기본값(코멘트)
-    $menu = "comment";
-}
 
 $elected = \App\Common::getElectedInfo($policy['elected_id']);
 $plans = \App\Common::getPlanList($policy['id']);
