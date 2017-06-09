@@ -125,6 +125,7 @@ class Common
         $stmt = \db()->prepare(
             "SELECT
                 id,
+                parents_id,
                 name,
                 pol_id
             FROM rightpoll.plan

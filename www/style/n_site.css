@@ -99,8 +99,9 @@ nav a{
 }
 
 .wr_box{
-    margin: 0px;
-    padding: 1em;
+    padding: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
     background-color: white;
     border: #E6E6E6 1px solid;
     margin-bottom: 1em;
@@ -446,6 +447,17 @@ nav a{
     background-color: white;
 }
 
+.wr_breadcrumb {
+    padding-left: 0px;
+}
+
+.wr_breadcrumb .planname{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 5px;
+}
+
 
 
 @media (min-width: 800px) {
@@ -537,5 +549,10 @@ nav a{
 
     .plan_info{
         padding: 1em;
+    }
+
+    .wr_box{
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }
