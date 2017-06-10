@@ -5,7 +5,18 @@ $policy = \App\Common::getPolicyInfo($_GET['pol']);
 
 $elected = \App\Common::getElectedInfo($policy['elected_id']);
 $plans = \App\Common::getPlanList($policy['id']);
-$title = "공약정보".$elected['chair']."-".$elected['name'];
+
+// 기본 메타데이터 (타이틀, 설명) 세팅
+$title = $elected['name']."님의 공약";
+$desc = $policy['title'];
+
+//오픈그래프 데이터 세팅 (head.php에서 사용)
+
+$og['title'] = $title;
+$og['desc'] = $desc;
+$og['url'] = "http://policy.kr/@".$elected['url'].$policy['id'];
+$og['img'] = $elected['profile'];
+
 ?>
 
 <HTML>

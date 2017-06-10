@@ -29,7 +29,7 @@ foreach ($cmts as $cmt):
                 <?=$cmt['content'] ?>
             </div>
             <div class="comment_report">
-                <?=$cmt['created_at']?> | 신고
+                <?=$cmt['created_at']?> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5amQrq50d50l8_vrfiOi0xAx9yxVijGmhb-pZalrzy4BKrw/viewform?usp=pp_url&entry.205279347=<?=$cmt['id']?>&entry.2128441167=<?=$cmt['nick'] ?>&entry.2064394676=<?=$cmt['content']?>" target="_blank">신고</a>
             </div>
             <div class="comment_info">
                 <div class="comment_openaddbtn">
@@ -62,7 +62,7 @@ foreach ($cmts as $cmt):
                 <?=$cmt['content']?>
             </div>
             <div class="add_comment_report">
-                <?=$cmt['created_at']?> | 신고
+                <?=$cmt['created_at']?> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5amQrq50d50l8_vrfiOi0xAx9yxVijGmhb-pZalrzy4BKrw/viewform?usp=pp_url&entry.205279347=<?=$cmt['id']?>&entry.2128441167=<?=$cmt['nick'] ?>&entry.2064394676=<?=$cmt['content']?>" target="_blank">신고</a>
             </div>
             <div class="add_cmt_btn_set">
                 <div class="add_comment_recommend">

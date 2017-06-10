@@ -1,14 +1,26 @@
 <?php require_once __DIR__ . '/../core/init.php';?>
 <?php
 
+// 당선자 정보를 가져옴
 $elected = \App\Common::getElectedInfo($_GET['id']);
-$mnu = null;
 
+// 메뉴 세팅
+$mnu = null;
 if(isset($_GET['mnu'])){
     $mnu = $_GET['mnu'];
 }
 
-$title = "공약정보::".$elected['chair']."-".$elected['name'];
+// 기본 메타데이터 (타이틀, 설명) 세팅
+$title = "공약이행:".$elected['chair']."-".$elected['name'];
+$desc = $elected['chair'].$elected['name']."님의 n개의 공약중 n개 이행 완료(진행률 x%)";
+
+//오픈그래프 데이터 세팅 (head.php에서 사용)
+
+$og['title'] = $title;
+$og['desc'] = $desc;
+$og['url'] = "http://policy.kr/@".$elected['url'];
+$og['img'] = $elected['profile'];
+
 ?>
 
 <HTML>

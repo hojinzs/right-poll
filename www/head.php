@@ -14,6 +14,30 @@
     <link rel="stylesheet" href="css/w3.css">
     <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
 
-    <title><?php echo $title; ?></title>
+    <title><?=$title?></title>
+    <meta name="description" content="<?=$desc?>">
+
+    <!-- 오픈그래프 설정 -->
+    <?php
+    if (isset($og)):
+        # 설정이 되어 있을 경우($og 값이 넘어왔다면)
+    ?>
+        <meta property="og:title" content="<?=$og['title']?>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="<?=$og['desc']?>">
+        <meta property="og:url" content="<?=$og['url']?>" />
+        <meta property="og:image" content="<?=$og['img']?>" />
+    <?php
+    else:
+        # 설정이 안되어 있을 경우
+    ?>
+        <meta property="og:title" content="공약이행률" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="공약을 얼마나 이행하였는지 확인해주세요.">
+        <meta property="og:url" content="http://policy.kr" />
+        <meta property="og:image" content="http://i1.ruliweb.daumcdn.net/uf/image/U01/ruliweb/576299D84B6F630005" />
+    <?php
+    endif;
+    ?>
 
 </HEAD>

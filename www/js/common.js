@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
+    // 시작시, 대댓글 영역 감춤
+
     $('.comment_add').hide();
     $('.add_comment').hide();
+
+    // 좋아요 버튼 클릭시 좋아요 +1 POST 전송
 
     $("#set_thumbsup").click(function(){
         // var id = "id="+$("#set_thumbsup;").val();
@@ -20,6 +24,8 @@ $(document).ready(function(){
         })
 
     })
+
+    // 댓글 클릭시, 댓글 내용 POST 전송
 
     $("#summit_comment").click(function(){
         var queryString = $('#comment_form').serialize();
@@ -40,6 +46,8 @@ $(document).ready(function(){
         })
     })
 
+    // 대댓글 영역 숨기기 / 보이기
+
     $('.cmt_addmnt_btn').click(function () {
         var cmtId = $(this).attr('data-cmt-id');
 
@@ -48,13 +56,6 @@ $(document).ready(function(){
     });
 
 })
-
-$('.cmt_addmnt_btn').click(function () {
-    var cmtId = $(this).attr('data-cmt-id');
-
-    $(this).toggle();
-    $('.add_comment[data-parent-cmt-id="' + cmtId + '"]').toggle();
-});
 
 // 대댓글 달기 클릭시 ajax POST 전송
 
