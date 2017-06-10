@@ -14,7 +14,7 @@ $desc = $policy['title'];
 
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.kr/@".$elected['url'].$policy['id'];
+$og['url'] = "http://policy.lenscat.in/@".$elected['url'].$policy['id'];
 $og['img'] = $elected['profile'];
 
 ?>

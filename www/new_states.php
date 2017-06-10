@@ -18,7 +18,7 @@ $desc = $elected['chair'].$elected['name']."님의 n개의 공약중 n개 이행
 
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.kr/@".$elected['url'];
+$og['url'] = "http://policy.lenscat.in/@".$elected['url'];
 $og['img'] = $elected['profile'];
 
 ?>

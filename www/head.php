@@ -34,7 +34,7 @@
         <meta property="og:title" content="공약이행률" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="공약을 얼마나 이행하였는지 확인해주세요.">
-        <meta property="og:url" content="http://policy.kr" />
+        <meta property="og:url" content="http://policy.lenscat.in" />
         <meta property="og:image" content="http://i1.ruliweb.daumcdn.net/uf/image/U01/ruliweb/576299D84B6F630005" />
     <?php
     endif;
