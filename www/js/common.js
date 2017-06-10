@@ -39,19 +39,22 @@ $(document).ready(function(){
             },
         })
     })
+
+    $('.cmt_addmnt_btn').click(function () {
+        var cmtId = $(this).attr('data-cmt-id');
+
+        $('#comment_add_'+cmtId).toggle();
+        $('.add_comment[data-parent-cmt-id="' + cmtId + '"]').toggle();
+    });
+
 })
 
-// 대댓글 보기 클릭시 Action
+$('.cmt_addmnt_btn').click(function () {
+    var cmtId = $(this).attr('data-cmt-id');
 
-$.fn.sh_add_click = function(comment_id){
-
-
-    // 해당 코멘트의 Visible 상태를 토글한다.
-
-    $('#comment_add_'+comment_id).toggle();
-    $('#add_comment_'+comment_id).toggle();
-
-};
+    $(this).toggle();
+    $('.add_comment[data-parent-cmt-id="' + cmtId + '"]').toggle();
+});
 
 // 대댓글 달기 클릭시 ajax POST 전송
 

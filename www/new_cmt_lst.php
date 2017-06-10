@@ -1,11 +1,11 @@
 <?php
 switch ($tg) {
     case 'elct': # 당선자에 달리는 댓글일 경우
-        $cmts = \App\Common::getElctCommentList($elected['id']);
+        $cmts = \App\Common::getCommentList('elected',$elected['id']);
         break;
 
     case 'pol':  # 공약에 달리는 댓글일 경우
-        $cmts = \App\Common::getPolCommentList($policy['id']);
+        $cmts = \App\Common::getCommentList('policy',$policy['id']);
         break;
 }
 ?>
@@ -13,67 +13,70 @@ switch ($tg) {
 <!-- PRINT COMMENT LIST -->
 <div class="comment_list">
 <?php
-foreach ($cmts as $cmt)
-{
-
-    if ($cmt['comment_id'] == $cmt['id']) // 댓글일 경우
-    { ?>
+foreach ($cmts as $cmt):
+?>
+    <?php
+    if ($cmt['parents_id'] == $cmt['id']) : // 댓글일 경우
+    ?>
         <div class="comment_main">
             <div class="comment_header">
-<?php echo $cmt['nick'] ?>
+                <?=$cmt['nick'] ?>
                 <div class="wr_user_ip go_right">
-                    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?php echo $cmt['ip'] ?>
+                    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?=$cmt['ip'] ?>
                 </div>
             </div>
             <div class="comment_area">
-<?php echo $cmt['content'] ?>
+                <?=$cmt['content'] ?>
             </div>
             <div class="comment_report">
-<?php echo $cmt['created_at']?> | 신고
+                <?=$cmt['created_at']?> | 신고
             </div>
             <div class="comment_info">
                 <div class="comment_openaddbtn">
-                    <button class="cmt_addmnt_btn" onclick="$(this).sh_add_click('<?php echo $cmt['id'] ?>');">대댓글</button>
+                    <button class="cmt_addmnt_btn" data-cmt-id="<?=$cmt['id']?>" _onclick="$(this).sh_add_click('<?=$cmt['id'] ?>');">
+                        대댓글
+                    </button>
                 </div>
                 <div class="comment_recommend">
-                    <button class="cmt_like" onclick="$(this).postCommentLike_click('<?php echo $cmt['id']?>')">
-                        좋아요<?php echo $cmt['lke']?></button>
-                    <button class="cmt_dislike" onclick="$(this).postCommentDislike_click('<?php echo $cmt['id']?>')">
-                    싫어요<?php echo $cmt['dislke']?></button>
+                    <button class="cmt_like" onclick="$(this).postCommentLike_click('<?=$cmt['id']?>')">
+                        좋아요<?=$cmt['lke']?>
+                    </button>
+                    <button class="cmt_dislike" onclick="$(this).postCommentDislike_click('<?=$cmt['id']?>')">
+                        싫어요<?=$cmt['dislke']?>
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="comment_add" id="comment_add_<?php echo $cmt['id']?>">
-<?php $prt_cmt=$cmt['id']; include 'new_addcmt_summit.php'; ?>
+        <div class="comment_add" id="comment_add_<?=$cmt['id']?>">
+            <?php $prt_cmt=$cmt['id']; include 'new_addcmt_summit.php'; ?>
         </div>
-<?php
-    } else {
-// 대댓글일 경우
-?>
-        <div class="add_comment" id="add_comment_<?php echo $cmt['comment_id'] ?>">
+            <?php else: ?>
+        <div class="add_comment" data-parent-cmt-id="<?=$cmt['parents_id']?>" _id="add_comment_<?=$cmt['parents_id'] ?>">
             <div class="add_comment_header">
-<?php echo $cmt['nick'] ?>
+                <?=$cmt['nick'] ?>
                 <div class="wr_user_ip go_right">
-                    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?php echo $cmt['ip'] ?>
+                    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?=$cmt['ip'] ?>
                 </div>
             </div>
             <div class="add_comment_area">
-<?php echo $cmt['content']?>
+                <?=$cmt['content']?>
             </div>
             <div class="add_comment_report">
-<?php echo $cmt['created_at']?> | 신고
+                <?=$cmt['created_at']?> | 신고
             </div>
             <div class="add_cmt_btn_set">
                 <div class="add_comment_recommend">
-                    <button class="cmt_like" onclick="$(this).postCommentLike_click('<?php echo $cmt['id']?>')">
-                        좋아요<?php echo $cmt['lke']?></button>
-                    <button class="cmt_dislike" onclick="$(this).postCommentDislike_click('<?php echo $cmt['id']?>')">
-                        싫어요<?php echo $cmt['dislke']?></button>
+                    <button class="cmt_like" onclick="$(this).postCommentLike_click('<?=$cmt['id']?>')">
+                        좋아요<?=$cmt['lke']?></button>
+                    <button class="cmt_dislike" onclick="$(this).postCommentDislike_click('<?=$cmt['id']?>')">
+                        싫어요<?=$cmt['dislke']?></button>
                 </div>
             </div>
         </div>
     <?php
-    }
-}
+    endif;
+    ?>
+<?php
+endforeach;
 ?>
 </div>

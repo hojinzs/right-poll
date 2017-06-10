@@ -5,12 +5,13 @@ $setComment['target'] = $_POST['target'];
 
 switch ($setComment['target']) {
     case 'elct':
-        $setComment['elected_id'] = $_POST['elected_id'];
+        $setComment['owner_type'] = "elected";
+        $setComment['owner_id'] = $_POST['elected_id'];
         break;
 
     case 'pol':
-        $setComment['elected_id'] = $_POST['elected_id'];
-        $setComment['policy_id'] = $_POST['policy_id'];
+        $setComment['owner_type'] = "policy";
+        $setComment['owner_id'] = $_POST['policy_id'];
         break;
 
     default:
@@ -20,7 +21,7 @@ switch ($setComment['target']) {
 
 $setComment['nickname'] = $_POST['nickname'];
 $setComment['content'] = $_POST['content'];
-$setComment['comment_id'] = $_POST['parents'];
+$setComment['parents_id'] = $_POST['parents'];
 
 $return = \App\Control::setComment($setComment);
 

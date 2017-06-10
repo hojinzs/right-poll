@@ -30,7 +30,10 @@ class Control
         $stmt->bindParam(':id', $pol_id);
         $stmt->execute();
 
-        $stmt2 = \db()->prepare("INSERT INTO rightpoll.like(pol_id, ip, session) VALUES (:id, :ip, :session)");
+        $query="INSERT INTO rightpoll.like(pol_id, ip, session)
+                VALUES (:id, :ip, :session)
+                ";
+        $stmt2 = \db()->prepare($query);
         $stmt2->bindParam(':id', $pol_id);
         $stmt2->bindParam(':ip', $_SESSION['ip']);
         $stmt2->bindParam(':session', $_SESSION['id']);
@@ -41,22 +44,23 @@ class Control
 
     /**
      * 댓글 등록하기
-     * @param  array $postComment array[elected_id,content,policy_id(opt),comment_id(opt)]
-     * @return var              post_result
+     * @param  array $postComment array[elected_id,content,policy_id(opt),parents_id(opt)]
+     * @return var post_result
      */
     public static function setComment($postComment)
     {
         $success[0] = "success";
 
-
         // 값이 전달되지 않았을 경우의 예외 처리(에러로 되돌림)
 
-        if (array_key_exists ('elected_id',$postComment)) {
+        // owner_id 가 전달되었는가?
+        if (array_key_exists ('owner_id',$postComment)) {
         } else {
             $error[0] = "error";
             $error[] = "not set elected_id";
         }
 
+        // nickname이 전달되었는가?
         if(array_key_exists ('nickname',$postComment)) {
             if ($postComment['nickname'] == "")
             {
@@ -68,6 +72,7 @@ class Control
             $error[] = "not set nickname";
         }
 
+        // contents 내용이 있는가?
         if(array_key_exists ('content',$postComment)) {
             if ($postComment['content'] == "")
             {
@@ -79,54 +84,43 @@ class Control
             $error[] = "not set content";
         }
 
-        if (array_key_exists ('policy_id',$postComment))
+        // 부모 코멘트 ID가 지정되었다면, 해당 부모 코멘트가 존재하는가??
+        if ($postComment['parents_id'] != null)
         {
-            $findPolicy = \App\Common::getPolicyInfo($postComment['policy_id']);
-            if ($findPolicy['id'] == null)
-            {
-                $error[0] = "error";
-                $error[] = "can not find policy_id";
-            }
-        } else {
-            $postComment['policy_id']=null;
-        }
-
-        if ($postComment['comment_id'] != null)
-        {
-            $findComment = \App\Common::getCommentInfo($postComment['comment_id']);
+            $findComment = \App\Common::getCommentInfo($postComment['parents_id']);
             if ($findComment['id'] == null)
             {
                 $error[] = "can not find parents comment";
             }
         }
 
+        // 하나라도 ERROR 가 발생한다면 ERROR 리턴 처리
         if(isset($error))
         {
                 return $error;
         }
 
-
         // 댓글 내용을 가공함.
         $stdContent = $postComment['content'];
-            // <p>,<a>,<br>을 제외한 HTML 코드를 제거
-            $stdContent = strip_tags($stdContent, '<p><a><br>');
-            // 줄바꿈 처리
-            $stdContent = nl2br($stdContent);
+        // <p>,<a>,<br>을 제외한 HTML 코드를 제거 -> html special c
+        $stdContent = strip_tags($stdContent, '<p><a><br>');
+        // 줄바꿈 처리
+        $stdContent = nl2br($stdContent);
 
         $query =
         "INSERT INTO rightpoll.comment(
-            elected_id,
-            policy_id,
-            comment_id,
+            parents_id,
+            owner,
+            owner_id,
             nick,
             content,
             ip_blind,
             ip,
             session)
         VALUES (
-            :elected_id,
-            :policy_id,
-            :comment_id,
+            :parents_id,
+            :owner,
+            :owner_id,
             :nick,
             :content,
             :ip_blind,
@@ -135,33 +129,51 @@ class Control
         ";
 
         # ip주소를 가려서 저장
-
         $blind_ip = \App\Str::replaceIpAddress($_SESSION['ip']);
 
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':elected_id', $postComment['elected_id']);
+        $stmt->bindParam(':parents_id', $postComment['parents_id']);
+        $stmt->bindParam(':owner', $postComment['owner_type']);
+        $stmt->bindParam(':owner_id', $postComment['owner_id']);
         $stmt->bindParam(':content', $stdContent);
         $stmt->bindParam(':nick', $postComment['nickname']);
-        $stmt->bindParam(':comment_id', $postComment['comment_id']);
-        $stmt->bindParam(':policy_id', $postComment['policy_id']);
         $stmt->bindParam(':ip_blind', $blind_ip);
         $stmt->bindParam(':ip', $_SESSION['ip']);
         $stmt->bindParam(':session', $_SESSION['id']);
         $stmt->execute();
 
-        $pstd = \db()->lastInsertId();
-        $pstdComment = \App\Common::getCommentInfo($pstd);
+        // 등록에 성공한 댓글 정보 가져오기
 
-        if($pstdComment['comment_id'] == null){
+        $pstd = \db()->lastInsertId();
+        $pstdCmt = \App\Common::getCommentInfo($pstd);
+
+        // parents_id가 없는 부모 댓글일 경우, parents_id를 id로 설정해줌.
+
+        if($pstdCmt['parents_id'] == null):
             $query =
             "UPDATE rightpoll.comment
-            SET comment_id =:id
+            SET parents_id =:id
             WHERE id=:where_id;
             ";
 
             $stmt = \db()->prepare($query);
-            $stmt->bindParam(':id', $pstdComment['id']);
-            $stmt->bindParam(':where_id', $pstdComment['id']);
+            $stmt->bindParam(':id', $pstdCmt['id']);
+            $stmt->bindParam(':where_id', $pstdCmt['id']);
+            $stmt->execute();
+
+        endif;
+
+        // owner가 (policy)인, 공약에 달린 댓글일 경우 => policy_cmt_c의 sum을 카운트업 하여 댓글 수 +1
+
+        if($pstdCmt['owner'] == "policy"){
+            $query =
+            "INSERT INTO rightpoll.policy_cmt_c (pol_id, cmt_sum)
+            VALUES (:id, '1') ON DUPLICATE KEY
+            UPDATE cmt_sum = cmt_sum + 1
+            ";
+
+            $stmt = \db()->prepare($query);
+            $stmt->bindParam(':id', $pstdCmt['owner_id']);
             $stmt->execute();
         }
 
@@ -243,6 +255,5 @@ class Control
 
         return "success";
     }
-
 
 }

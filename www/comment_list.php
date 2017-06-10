@@ -2,11 +2,11 @@
 
 switch ($tg) {
     case 'elct': # 당선자에 달리는 댓글일 경우
-        $cmts = \App\Common::getElctCommentList($elected['id']);
+        $cmts = \App\Common::getCommentList('elected',$elected['id']);
         break;
 
     case 'pol':  # 공약에 달리는 댓글일 경우
-        $cmts = \App\Common::getPolCommentList($policy['id']);
+        $cmts = \App\Common::getCommentList('policy',$policy['id']);
         break;
 }
 ?>
@@ -18,7 +18,7 @@ switch ($tg) {
 foreach ($cmts as $cmt)
 {
 
-    if ($cmt['comment_id'] == $cmt['id']) // 댓글일 경우
+    if ($cmt['parents_id'] == $cmt['id']) // 댓글일 경우
     { ?>
         <div class="comment_main">
             <div class="comment_header">

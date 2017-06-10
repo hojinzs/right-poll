@@ -16,8 +16,13 @@ class Common
     {
 
         // 일단 URL(영숫자)로 검색
+        $query =
+                "SELECT *
+                FROM rightpoll.elected
+                WHERE url = :url
+                ";
 
-        $stmt = \db()->prepare("SELECT * FROM rightpoll.elected WHERE url = :url");
+        $stmt = \db()->prepare($query);
         $stmt->bindValue(':url', $id);
         $stmt->execute();
         $row = $stmt->fetch();
@@ -25,8 +30,14 @@ class Common
         // 만약 검색이 안될 경우
         if($row==null){
 
+            $query =
+                    "SELECT *
+                    FROM rightpoll.elected
+                    WHERE id = :id
+                    ";
+
             // id(숫자)값으로 검색
-            $stmt = \db()->prepare("SELECT * FROM rightpoll.elected WHERE id = :id");
+            $stmt = \db()->prepare($query);
             $stmt->bindValue(':id', $id);
             $stmt->execute();
             $row = $stmt->fetch();
@@ -69,10 +80,25 @@ class Common
      */
     public static function getPolicyList($polcat_id)
     {
-        $query="SELECT policy.id,polecat.label,title,policy.elected_id, polcat_id,like_c.likesum
-                FROM rightpoll.policy
-                INNER JOIN rightpoll.like_c, rightpoll.polecat
-                WHERE policy.polcat_id=:id AND rightpoll.like_c.pol_id = rightpoll.policy.id AND rightpoll.polecat.id = rightpoll.policy.polcat_id
+        $query="SELECT
+                    policy.id,
+                    polecat.label,
+                    policy.title,
+                    policy.elected_id,
+                    policy.polcat_id,
+                    like_c.likesum,
+                    policy_cmt_c.cmt_sum
+                FROM
+                    rightpoll.policy
+                INNER JOIN
+                    rightpoll.like_c,
+                    rightpoll.policy_cmt_c,
+                    rightpoll.polecat
+                WHERE
+                    policy.polcat_id=:id
+                AND rightpoll.like_c.pol_id = rightpoll.policy.id
+                AND rightpoll.polecat.id = rightpoll.policy.polcat_id
+                AND rightpoll.policy_cmt_c.pol_id = rightpoll.policy.id
         ";
 
         $stmt = \db()->prepare($query);
@@ -205,21 +231,20 @@ class Common
     }
 
     /**
-     * 당선자의 코멘트 리스트 불러오기
-     * @param  int $elected_id 당선자 ID
-     * @return array     {id|comment_id|elected_id|text}
+     * 댓글 목록 가져오기
+     * @param var $owner_type 댓글 오너 타입(elected,policy)
+     * @param int $owner_id 댓글 오너 ID
+     * @return array {id|parents_id/nickname/ip/content/like/dislike/create_at}
      */
-    public static function getElctCommentList($elected_id)
+    public static function getCommentList($owner_type,$owner_id)
     {
 
-        # 당선자의 댓글 목록을 DB에서 가져옴
+        # 정해진 owner의 댓글 목록을 DB에서 가져옴
 
         $stmt = \db()->prepare(
             "SELECT
             c.id,
-            c.comment_id,
-            c.elected_id,
-            c.policy_id,
+            c.parents_id,
             c.user_id,
             c.nick,
             c.content,
@@ -228,57 +253,18 @@ class Common
             ifnull(r.lke,0) 'lke',
             ifnull(r.dislke,0) 'dislke'
             FROM rightpoll.comment c
-            	LEFT OUTER JOIN rightpoll.comment_rate_c r
-            	ON r.cmt_id = c.id
-            WHERE c.elected_id=:id
-            AND c.policy_id is NULL
-            order by c.comment_id desc, c.id asc
+            	LEFT OUTER JOIN rightpoll.comment_rate_c r ON r.cmt_id = c.id
+            WHERE c.owner = :type
+            AND c.owner_id = :id
+            order by c.parents_id desc, c.id asc
         ") ;
-        $stmt->bindValue(':id', $elected_id);
-        $stmt->execute();
-        $array = $stmt->fetchAll();
-
-        foreach ($array as $cmt) {
-        # IP주소 가림 처리
-        $cmt['ip'] = \App\Str::replaceIpAddress($cmt['ip']);
-        }
-
-        return $array;
-    }
-
-    /**
-     * 공약의 코멘트 리스트 불러오기
-     * @param  int $pol_id 공약ID
-     * @return array     {id|comment_id|elected_id|text}
-     */
-    public static function getPolCommentList($pol_id)
-    {
-        $stmt = \db()->prepare(
-            "SELECT
-            c.id,
-            c.comment_id,
-            c.elected_id,
-            c.policy_id,
-            c.user_id,
-            c.nick,
-            c.content,
-            c.ip_blind 'ip',
-            c.created_at,
-            ifnull(r.lke,0) 'lke',
-            ifnull(r.dislke,0) 'dislke'
-            FROM rightpoll.comment c
-            	LEFT OUTER JOIN rightpoll.comment_rate_c r
-            	ON r.cmt_id = c.id
-            WHERE c.policy_id=:id
-            order by c.comment_id desc, c.id asc
-        ");
-        $stmt->bindValue(':id', $pol_id);
+        $stmt->bindValue(':type', $owner_type);
+        $stmt->bindValue(':id', $owner_id);
         $stmt->execute();
         $array = $stmt->fetchAll();
 
         return $array;
     }
-
 
     /**
      * 댓글 정보 가져오기

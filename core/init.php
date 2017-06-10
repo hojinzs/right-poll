@@ -13,11 +13,11 @@ getDbInfo();
 /** getSession */
 
 session_start();
-$id=session_id();
 
+$id=session_id();
 $_SESSION['id'] = $id;
 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-
+// + session_set_cookie_params(0, '/', '.xxx.com');
 
 /**
  * getDBinfo
