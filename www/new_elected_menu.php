@@ -4,13 +4,13 @@
             <div class="row">
                 <div class="col-md-12 col-xs-2">
                     <div class="row wr_elc_profile">
-                        <img class="wr_profile" src="<?php echo $elected['profile']?>">
+                        <img class="wr_profile" src="<?=FILE.$elected['profile']?>">
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-10">
                     <div class="row">
-                        <p class="col-md-12 col-xs-12 name">이호진</p>
-                        <p class="col-md-12 col-xs-12 chair">제1대 세계 대통령</p>
+                        <p class="col-md-12 col-xs-12 name"><?=$elected['name']?></p>
+                        <p class="col-md-12 col-xs-12 chair"><?=$elected['chair']?></p>
                     </div>
                 </div>
             </div>

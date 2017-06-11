@@ -9,6 +9,7 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
 $whoops->register();
 
 getDbInfo();
+getServerInfo();
 
 /** getSession */
 
@@ -69,3 +70,16 @@ function db(): \PDO
 
     return $pdo;
 }
+
+/**
+ * get server info (File, batch etc...)
+ */
+function getServerInfo()
+{
+    $dir= __DIR__;
+    $inipath = '/../config.ini';
+    $ini_array = parse_ini_file($dir.$inipath);
+
+    define("FILE", $ini_array['FILESERVER'].$ini_array['FILESERVER_DIR']."/");
+
+};

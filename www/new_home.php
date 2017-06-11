@@ -31,7 +31,7 @@ foreach ($elected_list as $num)
 ?>
               <div class="col-xs-12 col-md-3">
                   <div id="wb_ElectedCard">
-                    <img class="thum_img img-responsive" src="http://placehold.it/500x500">
+                    <img class="thum_img img-responsive" src="<?=FILE.$num['profile']?>">
                     <div id="info">
                         <h4><?php echo ($num['name']); ?></h4>
                         <p><?php echo ($num['chair']); ?></p>
