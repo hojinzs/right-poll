@@ -14,8 +14,15 @@
     <link rel="stylesheet" href="css/w3.css">
     <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
 
-    <title><?=$title?></title>
-    <meta name="description" content="<?=$desc?>">
+    <?php if (isset($title)): ?>
+        <title><?=$title?></title>
+    <?php else: ?>
+        <title>공약 이행률</title>
+    <?php endif; ?>
+
+    <?php if(isset($desc)): ?>
+        <meta name="description" content="<?=$desc?>">
+    <?php endif; ?>
 
     <!-- 오픈그래프 설정 -->
     <?php

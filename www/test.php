@@ -3,17 +3,20 @@
 $title = "TEST";
 include 'head.php';
 
-function foo($pstdCmt){
-    $query =
-    "INSERT INTO rightpoll.policy_cmt_c (pol_id, cmt_sum)
-    VALUES (:id, '1') ON DUPLICATE KEY
-    UPDATE cmt_sum = cmt_sum + 1
-    ";
+function getServerInfo()
+{
+    $dir= __DIR__;
+    $inipath = '/../config.ini';
+    $ini_array = parse_ini_file($dir.$inipath);
 
-    $stmt = \db()->prepare($query);
-    $stmt->bindParam(':id', $pstdCmt);
-    $stmt->execute();
-}
+    define("FILE", $ini_array['FILESERVER'].$ini_array['FILESERVER_DIR']."/");
 
-$pstdCmt=3;
-foo($pstdCmt);
+};
+
+getServerInfo();
+
+$file = "profile_stevelee.jpg";
+
+?>
+
+<img src="<?=FILE.$file?>">
