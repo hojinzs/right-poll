@@ -17,6 +17,14 @@ if ! [ -L /var/www/html ]; then
   ln -fs /vagrant/www /var/www/html
 fi
 
+## apache2 Virtual Hosts Setting
+
+echo "Virtual Host Setting: www.policy.dev"
+
+sudo cp /vagrant/vagrant_policy.dev.conf /etc/apache2/sites-available/policy.dev.conf
+sudo a2ensite policy.dev
+sudo service apache2 restart
+
 ## install php7.0
 
 echo "install php7"
