@@ -14,7 +14,7 @@ echo "install apache2"
 sudo apt-get install -y apache2
 if ! [ -L /var/www/html ]; then
   rm -rf /var/www/html
-  ln -fs /vagrant/www /var/www/html
+  ln -fs /vagrant/wp /var/www/html
 fi
 
 ## apache2 Virtual Hosts Setting
@@ -49,3 +49,7 @@ sudo sed -i "s/^[#\s]*bind-address\s*=.*/bind-address = 0.0.0.0/" /etc/mysql/my.
 sudo service mysql restart
 
 mysql --user=root --password=root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+
+echo "composer setting"
+
+cd /vagrant
