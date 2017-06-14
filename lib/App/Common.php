@@ -81,25 +81,21 @@ class Common
     public static function getPolicyList($polcat_id)
     {
         $query="SELECT
-                    policy.id,
-                    polecat.label,
-                    policy.title,
-                    policy.elected_id,
-                    policy.polcat_id,
-                    like_c.likesum,
-                    policy_cmt_c.cmt_sum
+                	policy.id,
+                	policy.title,
+                	policy.elected_id,
+                	policy.polcat_id,
+                    ifnull(like_c.likesum,0) 'likesum',
+                	ifnull(policy_cmt_c.cmt_sum,0) 'cmt_sum'
                 FROM
-                    rightpoll.policy
-                INNER JOIN
-                    rightpoll.like_c,
-                    rightpoll.policy_cmt_c,
-                    rightpoll.polecat
+                	rightpoll.policy
+                	LEFT OUTER JOIN rightpoll.like_c
+                	ON rightpoll.like_c.pol_id = rightpoll.policy.id
+                	LEFT OUTER JOIN rightpoll.policy_cmt_c
+                	ON rightpoll.policy_cmt_c.pol_id = rightpoll.policy.id
                 WHERE
-                    policy.polcat_id=:id
-                AND rightpoll.like_c.pol_id = rightpoll.policy.id
-                AND rightpoll.polecat.id = rightpoll.policy.polcat_id
-                AND rightpoll.policy_cmt_c.pol_id = rightpoll.policy.id
-        ";
+                	policy.polcat_id=:id
+                    ";
 
         $stmt = \db()->prepare($query);
         $stmt->bindValue(':id', $polcat_id);
@@ -118,19 +114,19 @@ class Common
     {
         $query =
             "SELECT
-                p.id,
-                c.label,
-                p.title,
-                p.elected_id,
-                p.polcat_id,
-                l.likesum
+            	p.id,
+            	c.label,
+            	p.title,
+            	p.elected_id,
+            	p.polcat_id,
+            	ifnull(l.likesum,0) 'likesum'
             FROM rightpoll.policy p
-            JOIN rightpoll.like_c l
-            JOIN rightpoll.polecat c
+            	LEFT OUTER JOIN rightpoll.like_c l
+            	ON l.pol_id = p.id
+            	LEFT OUTER JOIN rightpoll.polecat c
+            	ON c.id = p.polcat_id
             WHERE
-                p.id = :id
-                AND l.pol_id = p.id
-                AND c.id = p.polcat_id
+            	p.id =:id
             ";
 
         $stmt = \db()->prepare($query) ;
