@@ -610,4 +610,13 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
         padding-left: 1em;
         padding-right: 1em;
     }
+
+    .wr_box.np{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .wr_box.np h3{
+        padding-left: 0px;
+    }
 }

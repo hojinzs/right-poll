@@ -14,7 +14,7 @@ $desc = $policy['title'];
 
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.lenscat.in/@".$elected['url'].$policy['id'];
+$og['url'] = "http://policy.lenscat.in/el/".$elected['url'].$policy['id'];
 $og['img'] = $elected['profile'];
 
 ?>
@@ -35,7 +35,7 @@ $og['img'] = $elected['profile'];
 
                 <div class="plan_info col-md-12 col-xs-12">
                     <ol class="wr_breadcrumb">
-                        <il><a href="/@<?php echo $elected['url']?>">공약 목록</a></il>
+                        <il><a href="/el/<?php echo $elected['url']?>">공약 목록</a></il>
                         <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                         <il class="planname"><?php echo $policy['title']?></il>
                     </ol>

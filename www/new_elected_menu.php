@@ -17,10 +17,10 @@
         </div>
         <div class="wr_menu_list-group col-md-12 col-xs-12">
             <div class="row">
-                <a href="/@<?php echo $elected['url']?>" class="wr_menu_list col-md-12 col-xs-6">
+                <a href="/el/<?php echo $elected['url']?>" class="wr_menu_list col-md-12 col-xs-6">
                     공약목록
                 </a>
-                <a href="/@<?php echo $elected['url']?>/comment" class="wr_menu_list col-md-12 col-xs-6">
+                <a href="/el/<?php echo $elected['url']?>/comment" class="wr_menu_list col-md-12 col-xs-6">
                     한마디
                 </a>
             </div>

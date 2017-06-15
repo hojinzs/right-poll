@@ -35,7 +35,7 @@ foreach ($elected_list as $num)
                     <div id="info">
                         <h4><?php echo ($num['name']); ?></h4>
                         <p><?php echo ($num['chair']); ?></p>
-                        <a href="/@<?php echo ($num['url']);?>" class="btn btn-primary" role="button">공약 보기</a>
+                        <a href="/el/<?php echo ($num['url']);?>" class="btn btn-primary" role="button">공약 보기</a>
                     </div>
                 </div>
               </div>

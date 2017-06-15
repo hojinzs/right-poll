@@ -45,7 +45,7 @@ foreach ($polecat as $num) {
           <ul class="wr_list-group">
             <?php foreach ($num['child'] as $polnum): ?>
                  <li class="wr_list-group-item">
-                     <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
+                     <a href="/el/<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
                      <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
                      <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
                 </li>

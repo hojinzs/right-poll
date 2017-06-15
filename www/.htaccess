@@ -11,9 +11,9 @@
 
     DirectoryIndex ./new_home.php
 
-    RewriteRule ^/?@([A-Za-z0-9]+)$ ./new_states.php?id=$1
-    RewriteRule ^/?@([A-Za-z0-9]+)/?comment$ ./new_states.php?id=$1&mnu=cmt
-    RewriteRule ^/?@([A-Za-z0-9]+)/?policy/([0-9]+)$ ./new_policy.php?id=$1&pol=$2
+    RewriteRule ^/?el/([A-Za-z0-9]+)$ ./new_states.php?id=$1
+    RewriteRule ^/?el/([A-Za-z0-9]+)/?comment$ ./new_states.php?id=$1&mnu=cmt
+    RewriteRule ^/?el/([A-Za-z0-9]+)/?policy/([0-9]+)$ ./new_policy.php?id=$1&pol=$2
 
     RewriteRule ^(.+)/pst/(.*) /pst/$2 [L]
     RewriteRule ^(.+)/css/(.*) /css/$2 [L]
