@@ -1,9 +1,15 @@
 <h4>우리 이니, 하고 싶은거 목록</h4>
 
 <?php
+
+// 당선자의 공약 카테고리 목록을 가져옴
 $polecat = \App\Common::getPolecatList($elected['id']);
+
+// 당선자의 공약 목록을 가져옴
 $policy_list = \App\Common::getPolicyListByElected($elected['id']);
 
+
+// $tmp_policy에 출력을 위한 배열을 생성
 foreach ($polecat as $num) {
 
     $tmp_policy[$num['id']] = $num;
@@ -35,15 +41,17 @@ foreach ($polecat as $num) {
           </div>
       </div>
 
-      <ul class="wr_list-group">
-        <?php foreach ($num['child'] as $polnum): ?>
-             <li class="wr_list-group-item">
-                 <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
-                 <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
-                 <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
-            </li>
-        <?php endforeach; ?>
-      </ul>
+      <?php if (isset($num['child'])): //카테고리에 공약이 있는지 확인. 없으면 출력 안함. ?>
+          <ul class="wr_list-group">
+            <?php foreach ($num['child'] as $polnum): ?>
+                 <li class="wr_list-group-item">
+                     <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
+                     <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
+                     <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
+                </li>
+            <?php endforeach; ?>
+          </ul>
+      <?php endif;?>
 
     </div>
 <?php endforeach; ?>
