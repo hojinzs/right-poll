@@ -2,6 +2,21 @@
 
 <?php
 $polecat = \App\Common::getPolecatList($elected['id']);
+$policy_list = \App\Common::getPolicyListByElected($elected['id']);
+
+foreach ($polecat as $num) {
+
+    foreach ($policy_list as $policy) {
+
+        if ($policy['polcat_id'] == $num['id']) {
+
+        $polecat[$num['id']]['child'] = $policy;
+
+        }
+
+    }
+}
+
 foreach ($polecat as $num)
 {
 ?>
@@ -21,8 +36,7 @@ foreach ($polecat as $num)
 
       <ul class="wr_list-group">
 <?php
-$policy = \App\Common::getPolicyList($num['id']);
-foreach ($policy as $polnum) {
+foreach ($polecat['child'] as $polnum) {
 ?>
          <li class="wr_list-group-item">
              <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>

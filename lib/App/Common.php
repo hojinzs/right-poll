@@ -74,11 +74,43 @@ class Common
     }
 
     /**
-     * 공약 카테고리의 상세 공약 목록 / 내용 가져오기
+     * 당선자의 상세 공약 목록 / 내용 가져오기
+     * @param int $elected_id 당선자ID
+     * @return array array(id|label|desc|...)
+     */
+    public static function getPolicyListByElected($elected_id)
+        {
+            $query="SELECT
+                    	policy.id,
+                    	policy.title,
+                    	policy.elected_id,
+                    	policy.polcat_id,
+                        ifnull(like_c.likesum,0) 'likesum',
+                    	ifnull(policy_cmt_c.cmt_sum,0) 'cmt_sum'
+                    FROM
+                    	rightpoll.policy
+                    	LEFT OUTER JOIN rightpoll.like_c
+                    	ON rightpoll.like_c.pol_id = rightpoll.policy.id
+                    	LEFT OUTER JOIN rightpoll.policy_cmt_c
+                    	ON rightpoll.policy_cmt_c.pol_id = rightpoll.policy.id
+                    WHERE
+                    	policy.elected_id=:id
+                        ";
+
+            $stmt = \db()->prepare($query);
+            $stmt->bindValue(':id', $elected_id);
+            $stmt->execute();
+            $array = $stmt->fetchAll();
+
+            return $array;
+        }
+
+    /**
+     * 공약 카테고리의 상세 공약 목록 / 내용 가져오기  --> 2017.06.16 기준 쓰이는 페이지 없음.
      * @param int $polcat_id 공약 카테고리 ID
      * @return array array(id|label|desc|...)
      */
-    public static function getPolicyList($polcat_id)
+    public static function getPolicyListByPolcat($polcat_id)
     {
         $query="SELECT
                 	policy.id,

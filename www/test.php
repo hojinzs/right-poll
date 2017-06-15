@@ -3,20 +3,22 @@
 $title = "TEST";
 include 'head.php';
 
-$policy = \App\Common::getPolicyInfo($_GET['pol']);
+$elected=1;
 
-$elected = \App\Common::getElectedInfo($policy['elected_id']);
-$plans = \App\Common::getPlanList($policy['id']);
+$polecat = \App\Common::getPolecatList($elected);
+$policy_list = \App\Common::getPolicyListByElected($elected);
 
-// 기본 메타데이터 (타이틀, 설명) 세팅
-$title = $elected['name']."님의 공약";
-$desc = $policy['title'];
+foreach ($polecat as $num) {
 
-//오픈그래프 데이터 세팅 (head.php에서 사용)
+    foreach ($policy_list as $policy) {
 
-$og['title'] = $title;
-$og['desc'] = $desc;
-$og['url'] = "http://policy.lenscat.in/@".$elected['url'].$policy['id'];
-$og['img'] = $elected['profile'];
+        if ($policy['polcat_id'] == $num['id']) {
 
-print_r($policy);
+        $polecat[$num['id']]['child'] = $policy;
+
+        }
+
+    }
+}
+
+print_r($polecat);
