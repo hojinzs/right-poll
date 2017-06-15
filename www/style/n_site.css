@@ -108,9 +108,21 @@ nav a{
     overflow: hidden;
 }
 
+.wr_box.np{
+    padding: 0em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
 .wr_box h3{
     margin-top: 0em;
 }
+
+.wr_box.np h3{
+    padding-left:0.5em;
+    margin-top: 0em;
+}
+
 .wr_panel{
     border-top: #E6E6E6 1px solid;
     border-bottom: #E6E6E6 1px solid;
@@ -149,6 +161,7 @@ nav a{
     list-style: none;
     padding-left: 0px;
     margin-bottom: 0px;
+    font-size:  0.9em;
 }
 
 .wr_list-group-item{
@@ -159,7 +172,6 @@ nav a{
 
 .wr_list-group-item a{
     text-decoration: none;
-    padding-left: 1em;
     color:black;
 }
 
@@ -169,16 +181,13 @@ nav a{
 
 
 .wr_like_c{
-    background-color: #F78181;
-    color:#FBEFEF;
-    padding:0.4em;
+    color:#F78181;
     font-size: 0.8em;
+    vertical-align: middle;
 }
 
 .wr_comment_c{
-    background-color: #819FF7;
-    color:#EFF2FB;
-    padding:0.4em;
+    color:#819FF7;
     font-size: 0.8em;
 }
 
@@ -230,6 +239,26 @@ nav a{
     border-top: #E6E6E6 1px solid;
     border-radius: 0px;
     resize: none;
+}
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
+  color:transparent;
+}
+
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:transparent;
+}
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:transparent;
+}
+
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:transparent;
 }
 
 .wr_form_comment_btn{
@@ -300,6 +329,8 @@ nav a{
 
 .cmt_window{
     padding: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
 }
 
 .cmt_addmnt_btn{
@@ -417,6 +448,32 @@ nav a{
     margin-bottom: 1em;
 }
 
+.plan_info p {
+    margin-top: 1em;
+    word-break: break-all;
+    font-size: 0.9em;
+}
+
+.plan_info h2{
+    font-size: 1.5em;
+    color: #0B2161;
+}
+
+.plan_info hr{
+    margin: 1em 0em;
+}
+
+.wr_label{
+    padding: 0.2em 0.5em;
+    font-weight: 400;
+}
+
+.wr_label.wr_label_blue{
+    color: white;
+    background: #1F5597;
+    border: #15447D 1px solid;
+}
+
 .wr_pol_menu{
     margin: 0px;
     padding: 0px;
@@ -449,15 +506,12 @@ nav a{
 
 .wr_breadcrumb {
     padding-left: 0px;
-}
-
-.wr_breadcrumb .planname{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 5px;
+    width: 70%;
+    font-size: 0.8em;
 }
-
 
 
 @media (min-width: 800px) {
@@ -499,8 +553,9 @@ nav a{
         margin-bottom: 0.5em;
     }
 
-    .wr_panel-left{
-        border-right: #E6E6E6 1px solid;
+    .wr_panel-right{
+        border-left: #E6E6E6 1px solid;
+        padding-left: 0.5em;
     }
 
     .wr_panel-body{

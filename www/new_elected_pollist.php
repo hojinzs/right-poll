@@ -25,15 +25,9 @@ $policy = \App\Common::getPolicyList($num['id']);
 foreach ($policy as $polnum) {
 ?>
          <li class="wr_list-group-item">
-            <div class="row">
-                <div class="wr_panel-left col-md-8 col-xs-9"><a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
-                    <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
-                    <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
-                </div>
-                <div class="wr_panel-right col-md-4 col-xs-3">
-                    <span class="evl">준비중</span>
-                </div>
-            </div>
+             <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
+             <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
+             <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
         </li>
 <?php
 }

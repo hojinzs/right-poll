@@ -40,7 +40,7 @@ $og['img'] = $elected['profile'];
                         <il class="planname"><?php echo $policy['title']?></il>
                     </ol>
                     <hr>
-                    <span class="label label-primary"><?php echo $policy['label']; ?></span>
+                    <span class="wr_label wr_label_blue"><?php echo $policy['label']; ?></span>
                     <h2><?php echo $policy['title']?></h2>
                     <button type="button" class="btn btn-primary" id="set_thumbsup" value="<?php echo $policy['id'] ?>">
                         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>좋아요
@@ -54,9 +54,13 @@ $og['img'] = $elected['profile'];
 <?php include 'new_policy_rate.php'; ?>
                 </div>
 
-                <div class="wr_box col-md-12 col-xs-12">
+                <div class="wr_box np col-md-12 col-xs-12 ">
                     <h3>한마디</h3>
-<?php include 'new_policy_cmt.php'; ?>
+<?php
+$tg="pol"; $prt_cmt=null;
+include 'new_cmt_summit.php';
+include 'new_cmt_lst.php';
+?>
                 </div>
 
             </div>
