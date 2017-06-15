@@ -6,50 +6,44 @@ $policy_list = \App\Common::getPolicyListByElected($elected['id']);
 
 foreach ($polecat as $num) {
 
+    $tmp_policy[$num['id']] = $num;
+
     foreach ($policy_list as $policy) {
 
         if ($policy['polcat_id'] == $num['id']) {
 
-        $polecat[$num['id']]['child'] = $policy;
+        $tmp_policy[$num['id']]['child'][] = $policy;
 
         }
 
     }
 }
-
-foreach ($polecat as $num)
-{
 ?>
-<div class="wr_panel">
-  <div class="wr_panel-body row">
-      <div class="wr_panel-left col-md-8">
-        <h4><?php echo $num['label']?></h4>
-        <p><?php echo $num['desc']?></p>
+
+<?php foreach ($tmp_policy as $num): ?>
+    <div class="wr_panel">
+      <div class="wr_panel-body row">
+          <div class="wr_panel-left col-md-8">
+            <h4><?php echo $num['label']?></h4>
+            <p><?php echo $num['desc']?></p>
+          </div>
+          <div class="wr_panel-right col-md-4">
+            이행률<span class="progress_per">0%</span>
+            <div class="w3-progress-container">
+              <div class="w3-progressbar w3-blue" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 0.3em;"></div>
+            </div>
+          </div>
       </div>
-      <div class="wr_panel-right col-md-4">
-        이행률<span class="progress_per">0%</span>
-        <div class="w3-progress-container">
-          <div class="w3-progressbar w3-blue" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 0.3em;"></div>
-        </div>
-      </div>
-  </div>
 
       <ul class="wr_list-group">
-<?php
-foreach ($polecat['child'] as $polnum) {
-?>
-         <li class="wr_list-group-item">
-             <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
-             <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
-             <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
-        </li>
-<?php
-}
-?>
+        <?php foreach ($num['child'] as $polnum): ?>
+             <li class="wr_list-group-item">
+                 <a href="/@<?php echo $elected['url']?>/policy/<?php echo $polnum['id']?>"> <?php echo $polnum['title'];?></a>
+                 <span class="wr_like_c"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $polnum['likesum'];?></span>
+                 <span class="wr_comment_c"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $polnum['cmt_sum'];?></span>
+            </li>
+        <?php endforeach; ?>
       </ul>
 
-  </div>
-
-<?php
-}
-?>
+    </div>
+<?php endforeach; ?>

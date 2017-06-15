@@ -10,15 +10,21 @@ $policy_list = \App\Common::getPolicyListByElected($elected);
 
 foreach ($polecat as $num) {
 
+    $tmp_policy[$num['id']] = $num;
+
     foreach ($policy_list as $policy) {
 
         if ($policy['polcat_id'] == $num['id']) {
 
-        $polecat[$num['id']]['child'] = $policy;
+        $tmp_policy[$num['id']]['child'][] = $policy;
 
         }
 
     }
 }
 
-print_r($polecat);
+foreach ($tmp_policy as $num) {
+
+    print_r($num);
+    echo "<hr>";
+}
