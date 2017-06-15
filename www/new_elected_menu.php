@@ -1,3 +1,36 @@
+<?php
+
+$mnu_list = [
+    [
+        'id' => 0,
+        'mnu' => "pol",
+        'name' => "공약목록",
+        'url' => "/el/".$elected['url'],
+    ],
+    [
+        'id' => 1,
+        'mnu' => "cmt",
+        'name' => "한마디",
+        'url' => "/el/".$elected['url']."/comment",
+    ],
+];
+
+foreach ($mnu_list as $menu) {
+    # code...
+    if($menu["mnu"] == $mnu){
+        # 일치할 경우 클래스 지정
+
+        $mnu_list[$menu['id']]['class']="active";
+
+    } else {
+
+        $mnu_list[$menu['id']]['class']="non_active";
+    }
+}
+
+?>
+
+
 <div class="wr_menu">
     <div class="row">
         <div class="wr_elc_info col-md-12 col-xs-12">
@@ -17,12 +50,11 @@
         </div>
         <div class="wr_menu_list-group col-md-12 col-xs-12">
             <div class="row">
-                <a href="/el/<?php echo $elected['url']?>" class="wr_menu_list col-md-12 col-xs-6">
-                    공약목록
-                </a>
-                <a href="/el/<?php echo $elected['url']?>/comment" class="wr_menu_list col-md-12 col-xs-6">
-                    한마디
-                </a>
+                <?php foreach ($mnu_list as $menu): ?>
+                    <a href="<?=$menu['url']?>" class="wr_menu_list <?=$menu['class']?> col-md-12 col-xs-6">
+                        <?=$menu['name']?>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

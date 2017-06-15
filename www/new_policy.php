@@ -1,10 +1,12 @@
-<?php require_once __DIR__ . '/../core/init.php';?>
+<?php require_once __DIR__ . '/../core/init.php';
 
-<?php
 $policy = \App\Common::getPolicyInfo($_GET['pol']);
 
 $elected = \App\Common::getElectedInfo($policy['elected_id']);
 $plans = \App\Common::getPlanList($policy['id']);
+
+//매뉴 세팅
+$mnu = "pol";
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = $elected['name']."님의 공약";
@@ -20,7 +22,6 @@ $og['img'] = $elected['profile'];
 ?>
 
 <HTML>
-
 <?php include 'head.php';?>
 <BODY>
 <?php include 'new_nav.php'; ?>
@@ -28,7 +29,7 @@ $og['img'] = $elected['profile'];
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-<?php include 'new_elected_menu.php'; ?>
+            <?php include 'new_elected_menu.php'; ?>
         </div>
         <div class="col-md-10">
             <div class="row">

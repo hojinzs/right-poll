@@ -28,6 +28,37 @@ nav a{
     color:white;
 }
 
+nav a:hover{
+    text-decoration: none;
+    color:white;
+}
+
+
+/* home */
+
+
+.wr_ElectedCard {
+    border: 1px solid #ddd;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.wr_ElectedCard:hover{
+    box-shadow: 1px 1px 5px lightgray;
+}
+
+.wr_ElectedCard .thum_img{
+    border-radius: 5px 5px 0px 0px;
+}
+
+.wr_ElectedCard .info{
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+/* left-menu */
+
 .wr_elc_info{
     margin-bottom: 0.5em;
 }
@@ -82,9 +113,10 @@ nav a{
     padding: 0px;
 }
 
-.wr_menu_list:hover{
+.wr_menu_list.active{
     background-color: #FFFFFF;
     border-left: #5882FA 3px solid;
+
 }
 
 .wr_contents{
@@ -550,7 +582,11 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     .wr_panel{
         border-left: #E6E6E6 1px solid;
         border-right: #E6E6E6 1px solid;
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
+    }
+
+    .wr_panel:hover{
+        box-shadow: 1px 1px 5px lightgray;
     }
 
     .wr_panel-right{
@@ -619,4 +655,24 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     .wr_box.np h3{
         padding-left: 0px;
     }
+
+    .wr_menu_list:hover{
+        background-color: #FFFFFF;
+        border-left: #5882FA 3px solid;
+        font-weight: 600;
+    }
+
+    .wr_menu_list.active:hover{
+        background-color: #FFFFFF;
+        border-left: #5882FA 3px solid;
+        font-weight: 600;
+    }
+
+    .wr_menu_list.active{
+        background-color: inherit;
+        border-left: #5882FA 3px solid;
+        font-weight: 600;
+
+    }
+
 }
