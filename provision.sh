@@ -17,7 +17,11 @@ if ! [ -L /var/www/html ]; then
   ln -fs /vagrant/wp /var/www/html
 fi
 
-## apache2 Virtual Hosts Setting
+## enable apache2 mod_rewrite
+sudo a2enmod rewrite
+service apache2 restart
+
+
 
 echo "Virtual Host Setting: www.policy.dev"
 
