@@ -21,6 +21,9 @@ foreach ($polecat as $num) {
 
     }
 }
+
+if(isset($tmp_policy)):
+
 ?>
 
 <h4>우리 이니, 하고 싶은거 목록</h4>
@@ -54,3 +57,5 @@ foreach ($polecat as $num) {
 
     </div>
 <?php endforeach; ?>
+
+<?php endif; ?>

@@ -1,11 +1,22 @@
 <?php require_once __DIR__ . '/../core/init.php';
 
 $policy = \App\Common::getPolicyInfo($_GET['pol']);
+//공약 번호가 올바르지 않다면, 404 페이지로 이동
+if($policy==null){
+     header('Location:/');
+     return;
+}
 
-$elected = \App\Common::getElectedInfo($policy['elected_id']);
+$elected = \App\Common::getElectedInfo($_GET['id']);
+//후보자 정보와 공약 정보가 일치하지 않다면, 404 페이지로 이동.
+if($policy['elected_id']!=$elected['id']){
+    header('Location:/');
+}
+
+//세부 공약 내용을 불러옴
 $plans = \App\Common::getPlanList($policy['id']);
 
-//매뉴 세팅
+//메뉴 세팅
 $mnu = "pol";
 
 // 기본 메타데이터 (타이틀, 설명) 세팅

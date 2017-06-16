@@ -3,10 +3,12 @@
 $title = "TEST";
 include 'head.php';
 
-$policy = \App\Common::getPolicyInfo(10000);
+// 당선자 정보를 가져옴
+$elected = \App\Common::getElectedInfo(4);
 
-if($policy['id']==null){
-     header('Location:http://naver.com');
+// 당선자가 존재하는지 않는다면, 404 페이지로 이동
+if($elected==null){
+    header('Location:/');
 }
 
-print_r($policy);
+print_r($elected);
