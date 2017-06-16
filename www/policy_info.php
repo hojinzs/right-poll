@@ -3,6 +3,10 @@
 <?php
 $policy = \App\Common::getPolicyInfo($_GET['pol']);
 
+if($policy['id']==null){
+     header('Location:http://naver.com');
+}
+
 $elected = \App\Common::getElectedInfo($policy['elected_id']);
 $plans = \App\Common::getPlanList($policy['id']);
 $title = "공약정보".$elected['chair']."-".$elected['name'];
