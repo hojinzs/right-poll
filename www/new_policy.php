@@ -57,7 +57,7 @@ $og['img'] = $elected['profile'];
                         <h2><?php echo $policy['title']?></h2>
                         <span class="wr_comment_c">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                            <?php echo $policy['cmt_c'] ?>명이 이 공약에 대해 이야기하고 있으며,
+                            <?php echo $policy['cmt_c'] ?>명이 이 공약에 대해 이야기하고 있으며
                         </span><br>
                         <span class="wr_like_c">
                             <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
@@ -69,7 +69,14 @@ $og['img'] = $elected['profile'];
                         </button>
                     </div>
                     <hr>
-<?php include 'new_planlist.php' ?>
+                        <?php include 'new_planlist.php' ?>
+                    <hr>
+                    <div class="plan_report">
+                        공약 내용에 문제가 있나요? 잘못된 내용이나 오타가 있나요?<br>
+                        <a class="wr_btn wr_btn_caution" href="https://docs.google.com/forms/d/e/1FAIpQLScq4yO2P8PvuDL2DKlgmA7w4hOkRxFHkBgpX42t77BR1YI4Fg/viewform?usp=pp_url&entry.1471402073=<?=$policy['id']?>" target="_blank">
+                            <i class="fa fa-bug" aria-hidden="true"></i>의견 보내기
+                        </a>
+                    </div>
                 </div>
 
                 <div class="wr_box col-md-12 col-xs-12">

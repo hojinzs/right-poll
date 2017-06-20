@@ -537,11 +537,11 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 }
 
 .plan_detail .wr_like_c{
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .plan_detail .wr_comment_c{
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .plan_detail .wr_btn_heart{
@@ -549,15 +549,8 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     font-size: 0.7em;
 }
 
-.wr_label{
-    padding: 0.2em 0.5em;
-    font-weight: 400;
-}
-
-.wr_label.wr_label_blue{
-    color: white;
-    background: #1F5597;
-    border: #15447D 1px solid;
+.plan_report{
+    font-size: 0.8em;
 }
 
 .wr_pol_menu{

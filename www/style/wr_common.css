@@ -1,10 +1,18 @@
+/*버튼(wr.btn)*/
+
 .wr_btn{
     line-height: normal;
-    background-color: white;
+    background-color: inherit;
     border: #424242 1px solid;
+    border-radius: 3px;
     color: #424242;
     padding: 0.5em;
     font-weight: bold;
+    box-shadow: 1px 1px 1px #D8D8D8;
+}
+
+a.wr_btn{
+    display: inline-block;
 }
 
 .wr_btn:hover{
@@ -13,13 +21,48 @@
 }
 
 .wr_btn.wr_btn_heart{
+    border: #F78181 1px solid;
+    color: #F78181;
+}
+
+.wr_btn.wr_btn_heart:hover{
     background-color: #F78181;
     border: red 1px solid;
     color: white;
 }
 
 .wr_btn.wr_btn_blue{
+    border: #5983D7 1px solid;
+    color: #5983D7;
+}
+
+.wr_btn.wr_btn_blue:hover{
     background-color: #5983D7;
     border: #4067B5 1px solid;
     color: white;
+}
+
+.wr_btn.wr_btn_caution{
+    border: #FF8000 1px solid;
+    color: #FF8000;
+}
+
+.wr_btn.wr_btn_caution:hover{
+    background-color: #FF8000;
+    border: #FF8000 1px solid;
+    color: white;
+}
+
+
+/*라벨(wr_label)*/
+
+.wr_label{
+    padding: 0.2em 0.5em;
+    font-weight: 400;
+}
+
+.wr_label.wr_label_blue{
+    color: white;
+    background: #1F5597;
+    border: #15447D 1px solid;
 }
