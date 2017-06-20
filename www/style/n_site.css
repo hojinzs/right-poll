@@ -1,19 +1,19 @@
 body {
     background-color: #F2F2F2;
+    min-height: 100%
 }
 
 body .contents-box{
-    min-height: 100%
+
 }
 
 /*Footer*/
 
 footer{
-    background: #BDBDBD;
     padding: 1em 0em;
     font-size: 0.8em;
     color: #6E6E6E;
-    border-top: #848484 1px solid;
+
 }
 
 footer .section_bt{
@@ -208,8 +208,8 @@ header.home .welcome .fa-check{
     padding: 0em;
     padding-top: 1em;
     background-color: white;
-    border-left: #E6E6E6 1px solid;
-    border-right: #E6E6E6 1px solid;
+    border: #E6E6E6 1px solid;
+    border-top: none;
     overflow: hidden;
 }
 
