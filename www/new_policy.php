@@ -3,14 +3,14 @@
 $policy = \App\Common::getPolicyInfo($_GET['pol']);
 //공약 번호가 올바르지 않다면, 404 페이지로 이동
 if($policy==null){
-     header('Location:/');
+     header('Location:/404.php');
      return;
 }
 
 $elected = \App\Common::getElectedInfo($_GET['id']);
 //후보자 정보와 공약 정보가 일치하지 않다면, 404 페이지로 이동.
 if($policy['elected_id']!=$elected['id']){
-    header('Location:/');
+    header('Location:/404.php');
 }
 
 //세부 공약 내용을 불러옴

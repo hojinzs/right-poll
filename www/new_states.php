@@ -5,7 +5,7 @@ $elected = \App\Common::getElectedInfo($_GET['id']);
 
 // 당선자가 존재하는지 않는다면, 404 페이지로 이동
 if($elected==null){
-    header('Location:/');
+    header('Location:/404.php');
 }
 
 // 메뉴 세팅

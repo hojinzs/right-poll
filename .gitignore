@@ -5,15 +5,19 @@
 #OSX systemfile
 
 */.DS_Store
+.DS_Store
 
 #composer
 
 /composer.phar
 /composer.lock
 /vendor
+/log
+
 
 #server config
 
 /config.ini
 
-ubuntu-xenial-16.04-cloudimg-console
+ubuntu-xenial-16.04-cloudimg-console.log
+*.log
