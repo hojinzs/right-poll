@@ -21,7 +21,7 @@ $mnu = "pol";
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = $elected['name']."님의 공약";
-$desc = $policy['title'];
+$desc = $policy['like_c']."명이 이 공약을 좋아하며, ".$policy['cmt_c']."명이 이 공약에 대해 이야기하고 있습니다.";
 
 //오픈그래프 데이터 세팅 (head.php에서 사용)
 

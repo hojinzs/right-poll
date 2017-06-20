@@ -6,13 +6,16 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/common.js"></script>
 
-    <link rel="stylesheet" href="style/site.css">
+    <!-- bootstrap.css intro:: http://bootstrapk.com -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
 
-    <link rel="stylesheet" href="style/n_site.css">
-    <link rel="stylesheet" href="css/w3.css">
     <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
+    <link rel="stylesheet" href="css/w3.css">
+
+    <!-- custom css stylesheet -->
+    <link rel="stylesheet" href="style/wr_common.css">
+    <link rel="stylesheet" href="style/site.css">
+    <link rel="stylesheet" href="style/n_site.css">
 
     <?php if (isset($title)): ?>
         <title><?=$title?></title>
@@ -36,7 +39,7 @@
         <meta property="og:image:url" content="<?=$og['img']?>" />
     <?php
     else:
-        # 설정이 안되어 있을 경우
+        # 설정이 안되어 있을 경우 (기본값)
     ?>
         <meta property="og:title" content="공약이행률" />
         <meta property="og:type" content="website" />

@@ -1,0 +1,15 @@
+.wr_btn{
+    line-height: normal;
+    background-color: white;
+    border: #424242 1px solid;
+    color: #424242;
+    padding: 0.4em;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.wr_btn.wr_btn_heart{
+    background-color: #F78181;
+    border: red 1px solid;
+    color: white;
+}
