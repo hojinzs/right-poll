@@ -26,5 +26,16 @@ class Str
         return preg_replace("/([0-9]+).([0-9]+).([0-9]+).([0-9]+)/", "\\1.\\2.&#9825;.&#9825;", $ip);
     }
 
+    /**
+     * 마크다운 -> HTML 변환
+     * @param [type] $file_dir [description]
+     * @return [type] [description]
+     */
+    public static function translateMarkDown($file_dir)
+    {
+        $file = file_get_contents($file_dir);
+        use Michelf\MarkdownExtra;
+        $html = MarkdownExtra::defaultTransform($file);
+    }
 
 }

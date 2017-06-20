@@ -5,7 +5,7 @@
                 <p>소개</p>
                 <ul>
                     <li>
-                        <a href="/about.php">ABOUT</a>
+                        <a href="/docs/about.md">ABOUT</a>
                     </li>
                 </ul>
             </div>
@@ -13,10 +13,10 @@
                 <p>HELP</p>
                 <ul>
                     <li>
-                        <a href="/about.php">공약 평가자가 되어주세요.</a>
+                        <a href="/docs/about.md">공약 평가자가 되어주세요.</a>
                     </li>
                     <li>
-                        <a href="/about.php">의견을 보내주세요.</a>
+                        <a href="/docs/about.md">의견을 보내주세요.</a>
                     </li>
                 </ul>
             </div>
