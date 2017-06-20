@@ -1,4 +1,5 @@
 <?php
+use App;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -15,10 +16,15 @@ getServerInfo();
 
 session_start();
 
-$id=session_id();
+$id = session_id();
 $_SESSION['id'] = $id;
 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
 // + session_set_cookie_params(0, '/', '.xxx.com');
+
+if (!isset($_SESSION['login_type'])) {
+    # login 상태가 아니라면
+    App\User::setNewGuestUser();
+}
 
 /**
  * getDBinfo
@@ -81,5 +87,22 @@ function getServerInfo()
     $ini_array = parse_ini_file($dir.$inipath);
 
     define("FILE", $ini_array['FILESERVER'].$ini_array['FILESERVER_DIR']."/");
+
+    switch ($ini_array['SERVICE']) {
+        case 'product':
+            # 서비스 타입이 'product'일 경우
+            define("SERVICE","product");
+            break;
+
+        case 'develop':
+            # 서비스 타입이 'develop'일 경우
+            define("SERVICE","develop");
+            break;
+
+        default:
+            # 서비스 타입이 이상할 경우
+            define("SERVICE","develop");
+            break;
+    }
 
 };

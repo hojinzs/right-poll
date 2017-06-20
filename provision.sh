@@ -13,15 +13,12 @@ echo "install apache2"
 
 sudo apt-get install -y apache2
 if ! [ -L /var/www/html ]; then
-  rm -rf /var/www/html
-  ln -fs /vagrant/wp /var/www/html
+v  ln -fs /vagrant/wp /var/www/html
 fi
 
 ## enable apache2 mod_rewrite
 sudo a2enmod rewrite
 service apache2 restart
-
-
 
 echo "Virtual Host Setting: www.policy.dev"
 
@@ -33,10 +30,7 @@ sudo service apache2 restart
 
 echo "install php7"
 
-sudo apt-get install -y php7.0
-sudo apt-get install -y php7.0-fpm
-sudo apt-get install -y php7.0-gd php7.0-curl php7.0-mbstring php7.0-xml php7.0-mysql
-sudo apt-get install -y libapache2-mod-php7.0
+sudo apt-get install -y php7.0 php7.0-fpm php7.0-gd php7.0-curl php7.0-mbstring php7.0-xml php7.0-mysql libapache2-mod-php7.0
 
 ## install mariadb
 

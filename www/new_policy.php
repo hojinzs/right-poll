@@ -39,10 +39,10 @@ $og['img'] = $elected['profile'];
 
 <div class="container contents-box">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             <?php include 'new_elected_menu.php'; ?>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
             <div class="row">
 
                 <div class="plan_info col-md-12 col-xs-12">

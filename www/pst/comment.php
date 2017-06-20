@@ -25,6 +25,8 @@ $setComment['parents_id'] = $_POST['parents'];
 
 $return = \App\Control::setComment($setComment);
 
+\App\User::setGuestUserNick($setComment['nickname']);
+
 $msg ="Message\nResult:";
 
 foreach ($return as $i) {
