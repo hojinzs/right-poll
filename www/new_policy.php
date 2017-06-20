@@ -37,7 +37,7 @@ $og['img'] = $elected['profile'];
 <BODY>
 <?php include 'new_nav.php'; ?>
 
-<div class="container">
+<div class="container contents-box">
     <div class="row">
         <div class="col-md-2">
             <?php include 'new_elected_menu.php'; ?>
@@ -97,8 +97,6 @@ include 'new_cmt_lst.php';
         </div>
     </div>
 </div>
-
-    <footer>
-    </footer>
+<?php include 'new_footer.php'; ?>
 </BODY>
 </HTML>

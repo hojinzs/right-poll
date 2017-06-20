@@ -2,24 +2,62 @@ body {
     background-color: #F2F2F2;
 }
 
+body .contents-box{
+    min-height: 100%
+}
+
+/*Footer*/
+
+footer{
+    background: #BDBDBD;
+    padding: 1em 0em;
+    font-size: 0.8em;
+    color: #6E6E6E;
+    border-top: #848484 1px solid;
+}
+
+footer .section_bt{
+    margin-top: 1em;
+}
+
+footer a:hover{
+    text-decoration: none;
+    color: #8A0808;
+}
+
+footer .section{
+    font-size: 1em;
+}
+
+footer ul{
+    padding-left: 0em;
+}
+
+footer li{
+    list-style: none;
+    border-left: #848484 1px solid;
+    padding-left: 0.5em;
+}
+
+/*navigation*/
+
 nav{
     background: #1C1C1C;
-    height: 2.8em;
-    padding: 0.5em;
+    height: 2.5em;
+    padding: 0.5em 0em;
+    font-size: 1.2em;
+    color: white;
+    vertical-align: middle;
 }
 
 nav .brand{
-    font-size: 1.2em;
-    color: white;
-    display: inline-block;
+    display: inline;
     vertical-align: middle;
     font-weight:bold;
 }
 
 nav .nav-right{
-    font-size: 1.2em;
-    color: white;
-    display: inline-block;
+    display: inline;
     float: right;
 }
 
@@ -31,6 +69,17 @@ nav a{
 nav a:hover{
     text-decoration: none;
     color:white;
+}
+
+nav .wr_btn{
+    max-height: 100%;
+    font-size: 1em;
+    padding: 0.1em 0.3em;
+    box-shadow: none;
+}
+
+nav .wr_btn i{
+    font-size: 1em;
 }
 
 

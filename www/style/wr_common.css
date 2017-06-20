@@ -53,6 +53,30 @@ a.wr_btn{
     color: white;
 }
 
+.wr_btn.wr_btn_mono_bk{
+    background-color: black;
+    border: white 1px solid;
+    color: white;
+}
+
+.wr_btn.wr_btn_mono_bk:hover{
+    background-color: white;
+    border: white 1px solid;
+    color: black;
+}
+
+.wr_btn.wr_btn_mono_wt{
+    background-color: white;
+    border: black 1px solid;
+    color: black;
+}
+
+.wr_btn.wr_btn_mono_wt:hover{
+    background-color: black;
+    border: black 1px solid;
+    color: white;
+}
+
 
 /*라벨(wr_label)*/
 

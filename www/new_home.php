@@ -12,6 +12,7 @@ $desc = "우리가 직접 감시하는 당선자 공약 이행 현황";
 <BODY>
 <?php include 'new_nav.php'; ?>
 
+<div class="contents-box">
     <header class="home">
         <div class="welcome">
             <i class="fa fa-check" aria-hidden="true"></i>
@@ -39,7 +40,7 @@ $desc = "우리가 직접 감시하는 당선자 공약 이행 현황";
             <?php endforeach;?>
         </div>
     </div>
-  <footer>
-  </footer>
+</div>
+<?php include 'new_footer.php'; ?>
 </BODY>
 </HTML>
