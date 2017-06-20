@@ -381,6 +381,13 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     font-size: 0.7em;
 }
 
+.cmt_addmnt{
+    background-color: white;
+    border: #848484 1px solid;
+    color:#848484;
+    font-size: 0.7em;
+}
+
 .cmt_like{
     background-color: #EFF2FB;
     border: #819FF7 1px solid;

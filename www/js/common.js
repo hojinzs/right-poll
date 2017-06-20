@@ -3,7 +3,7 @@ $(document).ready(function(){
     // 시작시, 대댓글 영역 감춤
 
     $('.comment_add').hide();
-    $('.add_comment').hide();
+    // $('.add_comment').hide();
 
     // 좋아요 버튼 클릭시 좋아요 +1 POST 전송
 
@@ -52,7 +52,7 @@ $(document).ready(function(){
         var cmtId = $(this).attr('data-cmt-id');
 
         $('#comment_add_'+cmtId).toggle();
-        $('.add_comment[data-parent-cmt-id="' + cmtId + '"]').toggle();
+        // $('.add_comment[data-parent-cmt-id="' + cmtId + '"]').toggle();
     });
 
 })
