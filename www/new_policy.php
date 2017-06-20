@@ -52,11 +52,22 @@ $og['img'] = $elected['profile'];
                         <il class="planname"><?php echo $policy['title']?></il>
                     </ol>
                     <hr>
-                    <span class="wr_label wr_label_blue"><?php echo $policy['label']; ?></span>
-                    <h2><?php echo $policy['title']?></h2>
-                    <button type="button" class="btn btn-primary" id="set_thumbsup" value="<?php echo $policy['id'] ?>">
-                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>좋아요
-                    </button> <?php echo $policy['likesum'] ?>명이 이 공약을 좋아합니다.
+                    <div class="plan_detail">
+                        <span class="wr_label wr_label_blue"><?php echo $policy['label']; ?></span>
+                        <h2><?php echo $policy['title']?></h2>
+                        <span class="wr_comment_c">
+                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                            <?php echo $policy['cmt_c'] ?>명이 이 공약에 대해 이야기하고 있으며,
+                        </span><br>
+                        <span class="wr_like_c">
+                            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                            <?php echo $policy['like_c'] ?>명이 이 공약을 좋아합니다.
+                        </span><br>
+                        <button type="button" class="wr_btn wr_btn_heart" id="set_thumbsup" value="<?php echo $policy['id'] ?>">
+                            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                            공약 좋아요
+                        </button>
+                    </div>
                     <hr>
 <?php include 'new_planlist.php' ?>
                 </div>

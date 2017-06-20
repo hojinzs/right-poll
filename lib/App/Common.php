@@ -151,14 +151,17 @@ class Common
             	p.title,
             	p.elected_id,
             	p.polcat_id,
-            	ifnull(l.likesum,0) 'likesum'
+            	ifnull(l.likesum,0) 'like_c',
+            	ifnull(cc.cmt_sum,0) 'cmt_c'
             FROM rightpoll.policy p
             	LEFT OUTER JOIN rightpoll.like_c l
             	ON l.pol_id = p.id
+            	LEFT OUTER JOIN rightpoll.policy_cmt_c cc
+            	ON cc.pol_id = p.id
             	LEFT OUTER JOIN rightpoll.polecat c
             	ON c.id = p.polcat_id
             WHERE
-            	p.id =:id
+            	p.id = :id
             ";
 
         $stmt = \db()->prepare($query) ;
