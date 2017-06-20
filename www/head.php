@@ -12,6 +12,9 @@
     <!-- w3.css intro:: http://www.w3im.com/ko/w3css/default.html -->
     <link rel="stylesheet" href="css/w3.css">
 
+    <!-- Font Awesome intro:: http://fontawesome.io -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <!-- custom css stylesheet -->
     <link rel="stylesheet" href="style/wr_common.css">
     <link rel="stylesheet" href="style/site.css">

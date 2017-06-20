@@ -1,20 +1,3 @@
-
-.wr_ElectedCard {
-    border: 1px solid #ddd;
-    margin-bottom: 1em;
-    border-radius: 5px;
-}
-
-.wr_ElectedCard .thum_img{
-    border-radius: 5px 5px 0px 0px;
-}
-
-.wr_ElectedCard .info{
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: 1em;
-}
-
 .like {
     color:#FF0000;
 }

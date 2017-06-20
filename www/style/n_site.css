@@ -36,8 +36,42 @@ nav a:hover{
 
 /* home */
 
+header.home {
+    overflow: hidden;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    display: table;
+
+    box-shadow: , ,inset 15px 15px blue, ;
+}
+
+header.home .welcome{
+    display: table-cell;
+    vertical-align: middle;
+    color: #11A642;
+}
+
+header.home h1{
+    font-weight: bolder;
+}
+
+header.home h4{
+    font-weight:normal;
+}
+
+header.home .welcome .fa-check{
+    font-size: 8em;
+    text-shadow: 1px 1px 80px #034002;
+}
+
+.slide{
+    text-align: center;
+    margin-bottom: 1em;
+}
 
 .wr_ElectedCard {
+    background-color: white;
     border: 1px solid #ddd;
     margin-bottom: 1em;
     border-radius: 5px;
@@ -512,6 +546,7 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 
 .plan_detail .wr_btn_heart{
     margin-top: 0.5em;
+    font-size: 0.7em;
 }
 
 .wr_label{
@@ -565,7 +600,16 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 }
 
 
-@media (min-width: 800px) {
+@media (min-width: 990px) {
+
+    header{
+        max-height: 250px;
+    }
+
+    .slide{
+        visibility: hidden;
+    }
+
     .wr_menu{
         margin: 1em;
     }

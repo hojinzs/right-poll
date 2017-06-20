@@ -3,13 +3,23 @@
     background-color: white;
     border: #424242 1px solid;
     color: #424242;
-    padding: 0.4em;
-    font-size: 0.8em;
+    padding: 0.5em;
     font-weight: bold;
+}
+
+.wr_btn:hover{
+    text-decoration: none;
+    color: #424242;
 }
 
 .wr_btn.wr_btn_heart{
     background-color: #F78181;
     border: red 1px solid;
+    color: white;
+}
+
+.wr_btn.wr_btn_blue{
+    background-color: #5983D7;
+    border: #4067B5 1px solid;
     color: white;
 }
