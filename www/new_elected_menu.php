@@ -28,6 +28,8 @@ foreach ($mnu_list as $menu) {
     }
 }
 
+$elected_info_url = "/el/".$elected['url']."/info"
+
 ?>
 
 
@@ -43,7 +45,10 @@ foreach ($mnu_list as $menu) {
                 <div class="col-md-12 col-xs-10">
                     <div class="row">
                         <p class="col-md-12 col-xs-12 name"><?=$elected['name']?></p>
-                        <p class="col-md-12 col-xs-12 chair"><?=$elected['chair']?></p>
+                        <a href="<?=$elected_info_url?>">
+                            <p class="col-md-12 col-xs-12 chair"><?=$elected['chair']?><i class="fa fa-info-circle" aria-hidden="true"></i>
+                            </p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -51,7 +56,7 @@ foreach ($mnu_list as $menu) {
         <div class="wr_menu_list-group col-md-12 col-xs-12">
             <div class="row">
                 <?php foreach ($mnu_list as $menu): ?>
-                    <a href="<?=$menu['url']?>" class="wr_menu_list <?=$menu['class']?> col-md-12 col-xs-6">
+                    <a href="<?=$menu['url']?>" class="wr_menu_list <?=$menu['class']?> col-md-12 col-xs-4">
                         <?=$menu['name']?>
                     </a>
                 <?php endforeach; ?>

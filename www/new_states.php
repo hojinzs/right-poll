@@ -47,6 +47,11 @@ $og['img'] = $elected['profile'];
                             include 'new_elected_pollist.php';
                             break;
 
+                        case 'info':
+                            # 정보일 경우, 당선자 정보를 include
+                            include 'new_elected_info.php';
+                            break;
+
                         case 'cmt':
                             # 한마디일 경우, 댓글 리스트를 include
                             $tg="elct"; $prt_cmt=null;

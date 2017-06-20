@@ -26,7 +26,7 @@ if(isset($tmp_policy)):
 
 ?>
 
-<h4>우리 이니, 하고 싶은거 목록</h4>
+<h3>우리 이니, 하고 싶은거 목록</h3>
 
 <?php foreach ($tmp_policy as $num): ?>
     <div class="wr_panel">
