@@ -44,10 +44,11 @@ switch ($for) {
                 <?=$_SESSION['ip'];?>
             </div>
             <label for="content" class="sr-only">한마디 내용</label>
-            <textarea type="text" id="content" name="content" class="wr_comment_input" rows="4" resize="none" placeholder="나의 한마디"></textarea>
+            <textarea type="text" id="content" name="content" class="wr_comment_input wr_comment_input_<?=$cmt_target?>" rows="4" resize="none" placeholder="나의 한마디"></textarea>
         </div>
         <div class="wr_form_comment_btn col-md-2 col-xs-12">
             <button type="button" id="summit_comment" class="wr_comment_btn submit_comment" cmt-target="<?=$cmt_target?>">남기기</button>
+            <div class="wr_content_count remaining" count-target="<?=$cmt_target?>"><span class="count">300</span>/300</div>
         </div>
     </form>
 </div>
