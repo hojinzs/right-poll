@@ -87,7 +87,7 @@ $og['img'] = $elected['profile'];
                 <div class="wr_box np col-md-12 col-xs-12 ">
                     <h3>한마디</h3>
                         <?php
-                        $tg="pol"; $prt_cmt=null; $cmt_target="pol".$policy['id']; include 'new_cmt_submit.php';
+                        $for="pol"; $prt_cmt=null; $cmt_target="pol".$policy['id']; include 'new_cmt_submit.php';
                         include 'new_cmt_lst.php';
                         ?>
                 </div>
