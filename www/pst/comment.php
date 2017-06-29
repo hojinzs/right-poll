@@ -20,7 +20,8 @@ switch ($setComment['target']) {
 }
 
 $setComment['nickname'] = $_POST['nickname'];
-$setComment['content'] = $_POST['content'];
+$prepareComment = mb_strimwidth($_POST['content'],0,300,'','utf-8');
+$setComment['content'] = $prepareComment;
 $setComment['parents_id'] = $_POST['parents'];
 
 $return = \App\Control::setComment($setComment);
