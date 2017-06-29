@@ -282,7 +282,7 @@ header.home .welcome .fa-check{
 .wr_list-group-item{
     border-top: #E6E6E6 1px solid;
     background-color: #F2F2F2;
-    padding: 0.3em;
+    padding: 0.5em;
     color:black;
 }
 
@@ -427,6 +427,7 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 .comment_area{
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    word-wrap: break-word;
 }
 
 .comment_info{
