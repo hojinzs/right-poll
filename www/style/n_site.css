@@ -427,6 +427,7 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 .comment_area{
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    word-wrap: break-word;
 }
 
 .comment_info{
