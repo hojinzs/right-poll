@@ -11,10 +11,16 @@ $return = \App\Control::setComment($setComment);
 
 \App\User::setGuestUserNick($setComment['nickname']);
 
-$msg ="Message\nResult:";
+if($return=="success"){
+    # setComment가 success를 반환했다면
+    echo $return;
+    
+} else {
+    # setComment가 success가 아니라면 반환했다면
 
-foreach ($return as $i) {
-    $msg = $msg.$i."\n";
+    $msg ="Message\nResult:";
+    foreach ($return as $i) {
+        $msg = $msg.$i."\n";
+    }
+    echo $msg;
 }
-
-echo $msg;

@@ -177,8 +177,8 @@ class Control
             $stmt->execute();
         }
 
-        $success[] = "댓글이 정상적으로 등록되었습니다.";
-        return $success;
+        $success[] = "success";
+        return "success";
     }
 
     /**

@@ -27,7 +27,6 @@ $(document).ready(function(){
     })
 
     // 대댓글 영역 숨기기 / 보이기
-
     $('.cmt_addmnt_btn').click(function () {
         var cmtId = $(this).attr('data-cmt-id');
 
@@ -35,26 +34,48 @@ $(document).ready(function(){
         // $('.add_comment[data-parent-cmt-id="' + cmtId + '"]').toggle();
     });
 
-    // 댓글 클릭시, 댓글 alert
+    // 댓글 클릭시 댓글 내용을 POST 전송
     $('.submit_comment').click(function(){
-        var target = $(this).attr('cmt-target')
+        var target = $(this).attr('cmt-target');
+        var nickname = $('#comment_form_'+target).find('#nickname').val();
+        var content = $('#comment_form_'+target).find('#content').val();
+        // alert("nickname:"+nickname+"\n"+"content:"+content)
+
+        // 닉네임을 입력하였는지 확인
+        if (!nickname) {
+            alert("닉네임을 입력해주세요!");
+            return;
+        }
+
+        // 내용을 입력하였는지 확인
+        if (!content) {
+            alert("내용을 입력해주세요!");
+            return;
+        }
+
+        // form의 입력값을 serialize로 인코딩
         var queryString = $('#comment_form_'+target).serialize();
 
-        // alert(queryString);
-
-            $.ajax({
-                type : 'POST',
-                url : './pst/comment.php',
-                data: queryString,
-                success : function(data){
-                    // alert(data);
+        // ajax POST 전송
+        $.ajax({
+            type : 'POST',
+            url : './pst/comment.php',
+            data: queryString,
+            success : function(data){
+                if(data=="success"){
+                    // return이 success라면
+                    alert("댓글이 정상적으로 등록되었습니다.");
                     location.reload(true);
-                },
-                error:function(request,status,error){
-                    // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-                    alert("실패하였습니다");
-                },
-            })
+                } else {
+                    // return이 success가 아니라면 (서버에서 에러가 있을 경우)
+                    alert(data);
+                }
+            },
+            error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                alert("실패하였습니다");
+            },
+        })
 
     })
 
