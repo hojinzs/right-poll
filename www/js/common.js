@@ -1,12 +1,10 @@
 $(document).ready(function(){
 
     // 시작시, 대댓글 영역 감춤
-
-    $('.comment_add').hide();
-    // $('.add_comment').hide();
+    $('.comment_add').hide(); // 댓글 작성 감추기
+    // $('.add_comment').hide(); //댓글 내용 감추기
 
     // 좋아요 버튼 클릭시 좋아요 +1 POST 전송
-
     $("#set_thumbsup").click(function(){
         var pol_id = "pol_id="+$("#set_thumbsup").val();
 
@@ -82,7 +80,6 @@ $(document).ready(function(){
 })
 
 // 코멘트 평가 '좋아요' 클릭시 ajax POST 전송
-
 $.fn.postCommentLike_click = function(comment_id){
 
     var pst_msg = "cmt_id="+comment_id+"&"+"stt=1"
@@ -105,7 +102,6 @@ $.fn.postCommentLike_click = function(comment_id){
 };
 
 // 코멘트 평가 ''싫어요' 클릭시 ajax POST 전송
-
 $.fn.postCommentDislike_click = function(comment_id){
 
     var pst_msg = "cmt_id="+comment_id+"&"+"stt=2"
