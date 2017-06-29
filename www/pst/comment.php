@@ -1,24 +1,7 @@
-<?php require_once __DIR__ . '/../../core/init.php';?>
-<?php
+<?php require_once __DIR__ . '/../../core/init.php';
 
-$setComment['target'] = $_POST['target'];
-
-switch ($setComment['target']) {
-    case 'elct':
-        $setComment['owner_type'] = "elected";
-        $setComment['owner_id'] = $_POST['elected_id'];
-        break;
-
-    case 'pol':
-        $setComment['owner_type'] = "policy";
-        $setComment['owner_id'] = $_POST['policy_id'];
-        break;
-
-    default:
-        # 타겟이 잘못되었을 경우
-        break;
-}
-
+$setComment['owner_type'] = $_POST['target'];
+$setComment['owner_id'] = $_POST['target_id'];
 $setComment['nickname'] = $_POST['nickname'];
 $prepareComment = mb_strimwidth($_POST['content'],0,300,'','utf-8');
 $setComment['content'] = $prepareComment;

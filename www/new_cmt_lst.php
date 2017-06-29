@@ -1,6 +1,6 @@
 <?php
 // 공약 목록 컨트롤러
-switch ($tg) {
+switch ($for) {
     case 'elct': # 당선자에 달리는 댓글일 경우
         $get_cmts = \App\Common::getCommentList('elected',$elected['id']);
         break;
@@ -68,7 +68,7 @@ unset($get_cmts);
             </div>
         </div>
         <div class="comment_add" id="comment_add_<?=$cmt['id']?>">
-            <?php $prt_cmt=$cmt['id']; include 'new_addcmt_summit.php'; ?>
+            <?php $cmt_target=$cmt['id'];$prt_cmt=$cmt['id']; include 'new_cmt_submit.php'; ?>
         </div>
             <?php foreach ($c_cmt_list[$cmt['id']] as $c_cmt):?>
                 <div class="add_comment" data-parent-cmt-id="<?=$c_cmt['parents_id']?>" _id="add_comment_<?=$c_cmt['parents_id'] ?>">

@@ -490,8 +490,8 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 
 .comment_add{
     padding: 0.5em;
-    padding-top: 0em;
     background-color: #FAFAFA;
+    padding-left: 1.5em;
 
 }
 
@@ -731,7 +731,8 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     }
 
     .comment_add{
-        padding: 0em;
+        padding: 1em;
+        padding-left: 1.5em;
         border-left: #E6E6E6 1px solid;
         border-right: #E6E6E6 1px solid;
     }
