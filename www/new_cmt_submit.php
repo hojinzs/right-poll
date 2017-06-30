@@ -3,9 +3,9 @@
 // POST COMMENT CONTROLLER
 /**
  * 코멘트 작성 폼.
- * @var var $for 댓글이 달리는 곳 (elct,pol,...)
- * @var int $prt_cmt 상위 코멘트 ID (기본 NULL)
- * @var var $cmt_target 코멘트 폼 제출시, 폼 식별자
+ * @param var $for 댓글이 달리는 곳 (elct,pol,...)
+ * @param int $prt_cmt 상위 코멘트 ID (기본 NULL)
+ * @param var $cmt_target 코멘트 폼 제출시, 폼 식별자
  * $for = elct일 경우, $elected(당선자 정보)필요
  * $for = pol일 경우, $policy(공약 정보)
  */

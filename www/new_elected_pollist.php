@@ -1,3 +1,4 @@
+<!--Policy List Controller -->
 <?php
 
 // 당선자의 공약 카테고리 목록을 가져옴
@@ -22,11 +23,10 @@ foreach ($polecat as $num) {
     }
 }
 
-if(isset($tmp_policy)):
-
 ?>
 
-<h3>우리 이니, 하고 싶은거 목록</h3>
+<!--Policy List View -->
+<?php if(isset($tmp_policy)): //공약 목록이 있을 경우에만 목록을 출력 ?>
 
 <?php foreach ($tmp_policy as $num): ?>
     <div class="wr_panel">

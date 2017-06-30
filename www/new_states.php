@@ -16,7 +16,7 @@ if(isset($_GET['mnu'])){
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = "공약이행:".$elected['chair']."-".$elected['name'];
-$desc = $elected['chair'].$elected['name']."님의 n개의 공약중 n개 이행 완료(진행률 x%)";
+$desc = $elected['chair'].$elected['name']."님의 공약 정보를 확인해보세요!";
 
 //오픈그래프 데이터 세팅 (head.php에서 사용)
 

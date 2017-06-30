@@ -24,5 +24,6 @@
     RewriteRule ^(.+)/js/(.*) /js/$2 [L]
     RewriteRule ^(.+)/style/(.*) /style/$2 [L]
     RewriteRule ^(.+)/fonts/(.*) /fonts/$2 [L]
+    RewriteRule ^(.+)/asset/(.*) /asset/$2 [L]
 
 </IfModule>

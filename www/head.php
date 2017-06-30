@@ -30,6 +30,9 @@
         <meta name="description" content="<?=$desc?>">
     <?php endif; ?>
 
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="/asset/favicon.ico"/>
+
     <!-- 오픈그래프 설정 -->
     <?php
     if (isset($og)):
