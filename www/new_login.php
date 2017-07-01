@@ -7,14 +7,12 @@ $desc = "로그인";
 <?php include 'head.php'; ?>
 <head>
     <!-- CryptoJS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.js"></script>
-
+    <script src="js/cryptojs.core.js"></script>
+    <script src="js/cryptojs.enc-base64.js"></script>
     <!-- reffernce: https://github.com/travist/jsencrypt -->
     <script src="js/jsencrypt.min.js"></script>
 
     <script src="js/login.js"></script>
-
 </head>
 
 <BODY>
@@ -23,7 +21,7 @@ $desc = "로그인";
 <div class="container contents-box">
     <div class="row">
         <div class="wr_contents col-md-12">
-            
+
             <h1>비번 암호화 테스트</h1>
             <form id="login">
                 닉네임: <input name="id" id="id" type="text"><br>
