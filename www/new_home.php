@@ -27,7 +27,7 @@ $desc = "우리가 직접 감시하는 당선자 공약 이행 현황";
     <div class="wr-wrapper container">
         <div class="row">
             <?php foreach ($elected_list as $num): ?>
-              <div class="col-xs-12 col-sm-3">
+              <div class="col-xs-12 col-sm-6 col-md-3">
                   <div class="wr_ElectedCard">
                     <img class="thum_img img-responsive" src="<?=FILE.$num['profile']?>">
                     <div class="info">

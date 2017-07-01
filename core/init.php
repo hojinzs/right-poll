@@ -11,19 +11,22 @@ $whoops->register();
 
 getDbInfo();
 getServerInfo();
+getUserInfo();
 
-/** getSession */
+/**
+ * [getUserInfo description]
+ */
+function getUserInfo(){
 
-session_start();
-
-$id = session_id();
-$_SESSION['id'] = $id;
-$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-// + session_set_cookie_params(0, '/', '.xxx.com');
-
-if (!isset($_SESSION['login_type'])) {
-    # login 상태가 아니라면
-    App\User::setNewGuestUser();
+    if (!isset($_SESSION['login_type'])) {
+        # login 상태가 아니라면
+        session_start();
+        $id = session_id();
+        // session_set_cookie_params(0, '/', '.xxx.com'); 넣어야 함.
+        $_SESSION['id'] = $id;
+        $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+        App\User::setNewGuestUser();
+    }
 }
 
 /**

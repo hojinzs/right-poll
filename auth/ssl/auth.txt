@@ -1,0 +1,4 @@
+openssl 개인키 / 공개키 위치.
+
+* $ openssl genrsa -out rightpoll.pem 1024
+* $ openssl rsa -in rightpoll.pem -out rightpoll_pub.pem -pubout
