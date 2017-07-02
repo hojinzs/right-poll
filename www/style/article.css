@@ -1,0 +1,25 @@
+article.wr_contents {
+    font-size: 1.1em;
+    font-weight:lighter;
+    font-family: 'Nanum Gothic';
+    line-height: 1.8em;
+    color: #354149;
+    padding: 2em 5em;
+}
+
+article.wr_contents h1 {
+    font-size: 2.2em;
+    text-align: center;
+    color: #043E67;
+}
+
+article.wr_contents h2 {
+    font-size: 1.7em;
+    text-align: center;
+    color: #084B8A;
+}
+
+article.wr_contents h3 {
+    font-size: 1.4em;
+    color: #084B8A;
+}

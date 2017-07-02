@@ -54,5 +54,5 @@ cd /vagrant
 
 echo "## Openssl keygen"
 
-openssl genrsa -out /vagrant/auth/ssl/rightpoll.pem 1024
-openssl rsa -in /vagrant/auth/ssl/rightpoll.pem -out /vagrant/auth/ssl/rightpoll_pub.pem -pubout
+openssl genrsa -out /vagrant/rightpoll/auth/ssl/rightpoll.pem 1024
+openssl rsa -in /vagrant/rightpoll/auth/ssl/rightpoll.pem -out /vagrant/auth/ssl/rightpoll_pub.pem -pubout

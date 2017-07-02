@@ -42,8 +42,6 @@ switch ($file_type) {
 //오픈그래프 데이터 세팅 (head.php에서 사용)
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.lenscat.in/about.php";
-$og['img'] = "";
 
 ?>
 
@@ -54,9 +52,9 @@ $og['img'] = "";
 
 <div class="container contents-box">
     <div class="row">
-        <div class="wr_contents col-md-12">
+        <article class="wr_contents col-md-12">
             <?=$html;?>
-        </div>
+        </article>
     </div>
 </div>
 <?php include 'new_footer.php'; ?>
