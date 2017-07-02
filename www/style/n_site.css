@@ -29,7 +29,13 @@ footer a:hover{
 
 footer .section{
     font-size: 1em;
+    color: #454F57;
 }
+
+footer .section p{
+    font-weight: bold;
+}
+
 
 footer ul{
     padding-left: 0em;

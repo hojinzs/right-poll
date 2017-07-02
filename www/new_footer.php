@@ -9,7 +9,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-sm-4 section section_2">
+            <div class="col-xs-12 col-sm-4 section section_2 hidden">
                 <p>HELP</p>
                 <ul>
                     <li>
@@ -33,8 +33,8 @@
                 '공약 지킴이' Since - June 2017
                 <br>
                 Lenscat Studio <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ::
-                <a href="#" target="_blank">BLOG</a> |
-                <a href="#" target="_blank">개발일지</a>
+                <a href="http://studio.lenscat.in" target="_blank">BLOG</a> |
+                <a href="http://studio.lenscat.in/archives/category/개발일지" target="_blank">개발일지</a>
             </div>
         </div>
     </div>
