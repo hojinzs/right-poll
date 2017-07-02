@@ -11,6 +11,8 @@ $whoops->register();
 
 getDbInfo();
 getServerInfo();
+
+session_start();
 getUserInfo();
 
 /**
@@ -19,9 +21,9 @@ getUserInfo();
 function getUserInfo(){
 
     if (!isset($_SESSION['login_type'])) {
-        # login 상태가 아니라면
-        session_start();
         $id = session_id();
+
+        # login 상태가 아니라면
         // session_set_cookie_params(0, '/', '.xxx.com'); 넣어야 함.
         $_SESSION['id'] = $id;
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];

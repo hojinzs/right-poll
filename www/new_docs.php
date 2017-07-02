@@ -52,9 +52,11 @@ $og['desc'] = $desc;
 
 <div class="container contents-box">
     <div class="row">
-        <article class="wr_contents col-md-12">
-            <?=$html;?>
-        </article>
+        <div class="wr_contents col-md-12">
+            <article>
+                <?=$html;?>
+            </article>
+        </div>
     </div>
 </div>
 <?php include 'new_footer.php'; ?>

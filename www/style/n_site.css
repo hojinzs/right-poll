@@ -109,7 +109,6 @@ header.home {
     height: 80%;
     text-align: center;
     display: table;
-
     box-shadow: , ,inset 15px 15px blue, ;
 }
 
@@ -129,7 +128,6 @@ header.home h4{
 
 header.home .welcome .fa-check{
     font-size: 8em;
-    text-shadow: 1px 1px 80px #034002;
 }
 
 .slide{
@@ -665,7 +663,7 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 }
 
 
-@media (min-width: 990px) {
+@media (min-width: 768px) {
 
     header{
         max-height: 250px;

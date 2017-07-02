@@ -21,21 +21,37 @@ class Control
             return "liked";
         }
 
-
-        $query="INSERT INTO rightpoll.like_c (pol_id, likesum)
-                VALUES (:id, '1') ON DUPLICATE KEY
-                UPDATE likesum = likesum + 1";
+        $query =
+        "INSERT INTO rightpoll.like_c (
+            pol_id,
+            likesum)
+        VALUES (
+            :id,
+            '1')
+            ON DUPLICATE KEY
+        UPDATE
+            likesum = likesum + 1";
 
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':id', $pol_id);
         $stmt->execute();
 
-        $query="INSERT INTO rightpoll.like(pol_id, ip, session)
-                VALUES (:id, :ip, :session)
-                ";
+        $query=
+        "INSERT INTO rightpoll.like(
+            pol_id,
+            user_type,
+            user_id,
+            session)
+        VALUES (
+            :id,
+            :user_type,
+            :user_id,
+            :session)";
+
         $stmt2 = \db()->prepare($query);
         $stmt2->bindParam(':id', $pol_id);
-        $stmt2->bindParam(':ip', $_SESSION['ip']);
+        $stmt2->bindParam(':user_type', $_SESSION['login_type']);
+        $stmt2->bindParam(':user_id', $_SESSION['user_id']);
         $stmt2->bindParam(':session', $_SESSION['id']);
         $stmt2->execute();
 
@@ -112,20 +128,20 @@ class Control
             parents_id,
             owner,
             owner_id,
+            user_type,
+            user_id,
             nick,
             content,
-            ip_blind,
-            ip,
-            session)
+            ip_blind)
         VALUES (
             :parents_id,
             :owner,
             :owner_id,
+            :user_type,
+            :user_id,
             :nick,
             :content,
-            :ip_blind,
-            :ip,
-            :session)
+            :ip_blind)
         ";
 
         # ip주소를 가려서 저장
@@ -136,10 +152,10 @@ class Control
         $stmt->bindParam(':owner', $postComment['owner_type']);
         $stmt->bindParam(':owner_id', $postComment['owner_id']);
         $stmt->bindParam(':content', $stdContent);
-        $stmt->bindParam(':nick', $postComment['nickname']);
+        $stmt->bindParam(':nick', $_SESSION['user_nick']);
         $stmt->bindParam(':ip_blind', $blind_ip);
-        $stmt->bindParam(':ip', $_SESSION['ip']);
-        $stmt->bindParam(':session', $_SESSION['id']);
+        $stmt->bindParam(':user_type', $_SESSION['login_type']);
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
         $stmt->execute();
 
         // 등록에 성공한 댓글 정보 가져오기
@@ -196,7 +212,6 @@ class Control
 
         if ($i != true) {
             # 공약 평가 가능 여부가 true가 아닐 경우
-
             return "recommended";
         }
 
@@ -206,8 +221,19 @@ class Control
 
                 # rate에 status=1 기록 추가
 
-                $query1="INSERT INTO rightpoll.comment_rate (cmt_id,status,session,ip)
-                        VALUES (:id, 1,:session,:ip)";
+                $query1 =
+                    "INSERT INTO rightpoll.comment_rate (
+                        cmt_id,
+                        status,
+                        user_type,
+                        user_id,
+                        session)
+                    VALUES (
+                        :id,
+                        1,
+                        :user_type,
+                        :user_id,
+                        :session)";
 
                 # rate_c에 like를 +1
 
@@ -221,14 +247,23 @@ class Control
                 # 싫어요일 경우
 
                 # rate에 status=2 기록 추가
-
-                $query1="INSERT INTO rightpoll.comment_rate (cmt_id,status,session,ip)
-                        VALUES (:id, 2,:session,:ip)";
+                $query1 =
+                "INSERT INTO rightpoll.comment_rate (
+                    cmt_id,
+                    status,
+                    user_type,
+                    user_id,
+                    session)
+                VALUES (
+                    :id,
+                    2,
+                    :user_type,
+                    :user_id,
+                    :session)";
 
                 # rate_c에 dislike를 +1
-
                 $query2="INSERT INTO rightpoll.comment_rate_c (cmt_id, lke)
-                        VALUES (:id, '1') ON DUPLICATE KEY
+                        VALUES (:id, '2') ON DUPLICATE KEY
                         UPDATE dislke = dislke + 1";
 
                 break;
@@ -243,8 +278,9 @@ class Control
 
         $stmt1 = \db()->prepare($query1);
         $stmt1->bindParam(':id', $cmt_id);
-        $stmt1->bindParam(':ip', $_SESSION['ip']);
         $stmt1->bindParam(':session', $_SESSION['id']);
+        $stmt1->bindParam(':user_type', $_SESSION['login_type']);
+        $stmt1->bindParam(':user_id', $_SESSION['user_id']);
         $stmt1->execute();
 
         # DB에 해당 코멘트의 rate 여부 카운트

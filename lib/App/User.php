@@ -12,14 +12,17 @@ class User
      * @return [type] [description]
      */
     public static function setNewGuestUser(){
+        $nickname = "";
         $query =
         "INSERT INTO rightpoll.user_guest
         (
+            nick,
             session,
             ip
         )
         VALUES
         (
+            :nick,
             :session,
             :ip
         )
@@ -28,11 +31,12 @@ class User
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':session', $_SESSION['id']);
         $stmt->bindParam(':ip', $_SESSION['ip']);
+        $stmt->bindParam(':nick',$nickname);
         $stmt->execute();
 
         // 등록된 유저 정보 가져오기
-
         $pstd = \db()->lastInsertId();
+        $_SESSION['login'] = 1;
         $_SESSION['login_type'] = 'guest';
         $_SESSION['user_id'] = $pstd;
         $_SESSION['user_nick'] = '';

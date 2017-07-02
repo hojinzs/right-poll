@@ -13,7 +13,7 @@ $(document).ready(function(){
             url:"./pst/like.php",
             data:pol_id,
             success:function(data){
-                // alert (data);
+                alert (data);
                 location.reload(true);
             },
             error:function(request,status,error){
@@ -70,7 +70,7 @@ $(document).ready(function(){
                 }
             },
             error:function(request,status,error){
-                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                 alert("실패하였습니다");
             },
         })
@@ -91,7 +91,7 @@ $.fn.postCommentLike_click = function(comment_id){
         url : './pst/cmt_rate.php',
         data: pst_msg,
         success : function(data){
-            // alert(data);
+            alert(data);
             location.reload(true);
         },
         error:function(request,status,error){
@@ -113,7 +113,7 @@ $.fn.postCommentDislike_click = function(comment_id){
         url : './pst/cmt_rate.php',
         data: pst_msg,
         success : function(data){
-            // alert(data);
+            alert(data);
             location.reload(true);
         },
         error:function(request,status,error){
