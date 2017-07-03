@@ -40,19 +40,16 @@ class Control
         "INSERT INTO rightpoll.like(
             pol_id,
             user_type,
-            user_id,
-            session)
+            user_id)
         VALUES (
             :id,
             :user_type,
-            :user_id,
-            :session)";
+            :user_id)";
 
         $stmt2 = \db()->prepare($query);
         $stmt2->bindParam(':id', $pol_id);
         $stmt2->bindParam(':user_type', $_SESSION['login_type']);
         $stmt2->bindParam(':user_id', $_SESSION['user_id']);
-        $stmt2->bindParam(':session', $_SESSION['id']);
         $stmt2->execute();
 
         return "success";
@@ -226,14 +223,12 @@ class Control
                         cmt_id,
                         status,
                         user_type,
-                        user_id,
-                        session)
+                        user_id)
                     VALUES (
                         :id,
                         1,
                         :user_type,
-                        :user_id,
-                        :session)";
+                        :user_id)";
 
                 # rate_c에 like를 +1
 
@@ -252,14 +247,12 @@ class Control
                     cmt_id,
                     status,
                     user_type,
-                    user_id,
-                    session)
+                    user_id)
                 VALUES (
                     :id,
                     2,
                     :user_type,
-                    :user_id,
-                    :session)";
+                    :user_id)";
 
                 # rate_c에 dislike를 +1
                 $query2="INSERT INTO rightpoll.comment_rate_c (cmt_id, lke)
@@ -278,7 +271,6 @@ class Control
 
         $stmt1 = \db()->prepare($query1);
         $stmt1->bindParam(':id', $cmt_id);
-        $stmt1->bindParam(':session', $_SESSION['id']);
         $stmt1->bindParam(':user_type', $_SESSION['login_type']);
         $stmt1->bindParam(':user_id', $_SESSION['user_id']);
         $stmt1->execute();

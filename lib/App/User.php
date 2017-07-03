@@ -38,7 +38,7 @@ class User
         $pstd = \db()->lastInsertId();
         $_SESSION['login'] = 1;
         $_SESSION['login_type'] = 'guest';
-        $_SESSION['user_id'] = $pstd;
+        $_SESSION['user_id'] = 'guest_'.$pstd;
         $_SESSION['user_nick'] = '';
     }
 

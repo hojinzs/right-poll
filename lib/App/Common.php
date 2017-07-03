@@ -207,15 +207,15 @@ class Common
             "SELECT
                 like.id,
                 like.pol_id,
-                like.session
+                like.user_id
             FROM rightpoll.like
             WHERE like.pol_id=:id
-                AND like.session=:session
+                AND like.user_id=:user_id
             ";
 
         $stmt = \db()->prepare($query);
         $stmt->bindValue(':id', $policy_id);
-        $stmt->bindValue(':session', $_SESSION['id']);
+        $stmt->bindValue(':user_id', $_SESSION['user_id']);
         $stmt->execute();
         $result = $stmt->fetchALL();
 
@@ -239,17 +239,17 @@ class Common
             "SELECT
                 comment_rate.id,
                 comment_rate.cmt_id,
-                comment_rate.session
+                comment_rate.user_id
             FROM
                 rightpoll.comment_rate
             WHERE
                 comment_rate.cmt_id = :id
-            AND comment_rate.session = :session
+            AND comment_rate.user_id = :user_id
             ";
 
         $stmt = \db()->prepare($query);
         $stmt->bindValue(':id', $cmt_id);
-        $stmt->bindValue(':session', $_SESSION['id']);
+        $stmt->bindValue(':user_id', $_SESSION['user_id']);
         $stmt->execute();
         $result = $stmt->fetchALL();
 
