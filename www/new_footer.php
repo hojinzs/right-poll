@@ -9,14 +9,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-sm-4 section section_2 hidden">
+            <div class="col-xs-12 col-sm-4 section section_2">
                 <p>HELP</p>
                 <ul>
                     <li>
-                        <a href="/docs/about.md">공약 평가자가 되어주세요.</a>
-                    </li>
-                    <li>
-                        <a href="/docs/about.md">의견을 보내주세요.</a>
+                        <a href="/docs/opinion.md">평가방식에 대한 의견이 필요합니다.</a>
                     </li>
                 </ul>
             </div>
