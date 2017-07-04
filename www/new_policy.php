@@ -29,7 +29,6 @@ $desc = $policy['title'].$policy['like_c']."명이 이 공약을 좋아하며, "
 
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.lenscat.in/el/".$elected['url'].$policy['id'];
 $og['img'] = $elected['profile'];
 
 ?>

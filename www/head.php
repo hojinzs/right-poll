@@ -1,29 +1,49 @@
 <?php
 
-// 기본 설정
-
+// (오픈그래프) 기본 설정
 $opengraph['title'] = "공약이행률";
 $opengraph['type'] = "website";
 $opengraph['description'] = "누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
 $opengraph['url'] = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $opengraph['image'] = $_SERVER['HTTP_HOST']."/asset/logo.png";
 
+// (오픈그래프) 오픈그래프 설정값이 넘어올 경우 변경 ($og로 설정한다.)
+if(isset($og['title'])){
+    $opengraph['title'] = $og['title'];
+}
+if(isset($og['type'])){
+    $opengraph['type'] = $og['type'];
+}
+if(isset($og['desc'])){
+    $opengraph['description'] = $og['desc'];
+}
+if(isset($og['url'])){
+    $opengraph['url'] = $og['url'];
+}
+if(isset($og['image'])){
+    $opengraph['image'] = $og['image'];
+}
+
+// 타이틀 및 메타데이터 설정
 if(!isset($title)){
     $title="공약이행률";
 }
-
 if(!isset($desc)){
     $dec="누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
-}
-
-if(isset($og)){
-    # $og 값이 넘어왔다면 덮어쓰기
 }
 ?>
 
 
 <HEAD>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N7VLQPB');</script>
+    <!-- End Google Tag Manager -->
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

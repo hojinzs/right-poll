@@ -7,8 +7,6 @@ $desc = "404 ERROR";
 //오픈그래프 데이터 세팅 (head.php에서 사용)
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.lenscat.in/about.php";
-$og['img'] = "";
 
 ?>
 

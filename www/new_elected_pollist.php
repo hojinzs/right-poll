@@ -9,17 +9,11 @@ $policy_list = \App\Common::getPolicyListByElected($elected['id']);
 
 // $tmp_policy에 출력을 위한 배열을 생성
 foreach ($polecat as $num) {
-
     $tmp_policy[$num['id']] = $num;
-
     foreach ($policy_list as $policy) {
-
         if ($policy['polcat_id'] == $num['id']) {
-
         $tmp_policy[$num['id']]['child'][] = $policy;
-
         }
-
     }
 }
 

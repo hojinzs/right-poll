@@ -19,11 +19,8 @@ foreach ($mnu_list as $menu) {
     # code...
     if($menu["mnu"] == $mnu){
         # 일치할 경우 클래스 지정
-
         $mnu_list[$menu['id']]['class']="active";
-
     } else {
-
         $mnu_list[$menu['id']]['class']="non_active";
     }
 }

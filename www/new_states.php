@@ -22,8 +22,7 @@ $desc = $elected['chair'].$elected['name']."님의 공약 정보를 확인해보
 
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['url'] = "http://policy.lenscat.in/el/".$elected['url'];
-$og['img'] = $elected['profile'];
+$og['img'] = FILE.$num['profile'];
 
 ?>
 
