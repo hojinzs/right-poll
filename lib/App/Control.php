@@ -97,8 +97,8 @@ class Control
             $error[] = "not set content";
         }
 
-        // 부모 코멘트 ID가 지정되었다면, 해당 부모 코멘트가 존재하는가??
-        if ($postComment['parents_id'] != null)
+        // 부모 코멘트 ID가 전달 되었다면, 해당 부모 코멘트가 존재하는가??
+        if (isset($postComment['parents_id']))
         {
             $findComment = \App\Common::getCommentInfo($postComment['parents_id']);
             if ($findComment['id'] == null)

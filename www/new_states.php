@@ -53,7 +53,7 @@ $og['img'] = FILE.$elected['profile'];
 
                         case 'cmt':
                             # 한마디일 경우, 댓글 리스트를 include
-                            $for="elct"; $prt_cmt=null; $cmt_target=$elected['url']; include 'new_cmt_submit.php';
+                            $for="elct"; $cmt_target=$elected['url']; include 'new_cmt_submit.php';
                             include 'new_cmt_lst.php';
                             break;
 

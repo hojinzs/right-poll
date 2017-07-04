@@ -4,7 +4,7 @@
 /**
  * 코멘트 작성 폼.
  * @param var $for 댓글이 달리는 곳 (elct,pol,...)
- * @param int $prt_cmt 상위 코멘트 ID (기본 NULL)
+ * @param int $prt_cmt 상위 코멘트 ID
  * @param var $cmt_target 코멘트 폼 제출시, 폼 식별자
  * $for = elct일 경우, $elected(당선자 정보)필요
  * $for = pol일 경우, $policy(공약 정보)
@@ -35,7 +35,9 @@ switch ($for) {
     <form name="comment_form" id="comment_form_<?=$cmt_target?>">
         <input type="hidden" id="target" name="target" value="<?=$target_type?>">
         <input type="hidden" id="target_id" name="target_id" value="<?=$target_id?>">
-        <input type="hidden" id="parents" name="parents" value="<?=$prt_cmt; ?>">
+        <?php if(isset($prt_cmt)):?>
+            <input type="hidden" id="parents" name="parents" value="<?=$prt_cmt; ?>">
+        <?php endif;?>
         <div class="wr_form_comment col-md-10 col-xs-12">
             <label for="nickname" class="sr-only">닉네임</label>
             <input id="nickname" class="wr_nick_input" name="nickname" placeholder="닉네임" value="<?=$_SESSION['user_nick']?>">
