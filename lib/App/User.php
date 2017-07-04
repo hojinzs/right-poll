@@ -69,7 +69,7 @@ class User
         }
 
         // 12자가 넘어가면 자름
-        $mb_nick = mb_strimwidth($nick, '0', '12','','utf-8');
+        $mb_nick = mb_strimwidth($nick, '0', '30','','utf-8');
 
         // 세선샹의 닉네임 변경
         $_SESSION['user_nick'] = $mb_nick;

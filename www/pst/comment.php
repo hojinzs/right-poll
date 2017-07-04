@@ -4,7 +4,7 @@
 $setComment['owner_type'] = $_POST['target'];
 $setComment['owner_id'] = $_POST['target_id'];
 $setComment['nickname'] = $_POST['nickname'];
-$prepareComment = mb_strimwidth($_POST['content'],0,300,'','utf-8');
+$prepareComment = mb_strimwidth($_POST['content'],0,600,'','utf-8');
 $setComment['content'] = $prepareComment;
 
 // 부모 코멘트가 있을 경우
