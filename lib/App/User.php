@@ -28,17 +28,32 @@ class User
         )
         ";
 
-        $stmt = \db()->prepare($query);
-        $stmt->bindParam(':session', $_SESSION['id']);
-        $stmt->bindParam(':ip', $_SESSION['ip']);
-        $stmt->bindParam(':nick',$nickname);
-        $stmt->execute();
+        $stmt1 = \db()->prepare($query);
+        $stmt1->bindParam(':session', $_SESSION['id']);
+        $stmt1->bindParam(':ip', $_SESSION['ip']);
+        $stmt1->bindParam(':nick',$nickname);
+        $stmt1->execute();
 
         // 등록된 유저 정보 가져오기
         $pstd = \db()->lastInsertId();
-        $_SESSION['login'] = 1;
+
+        // USER_ID 등록 (guest_12344 형식)
+        $user_id = 'guest_'.$pstd;
+
+        //user_id 저장
+        $query =
+            "UPDATE rightpoll.user_guest
+                SET user_id =:id
+            WHERE id=:where_id;
+            ";
+        $stmt1 = \db()->prepare($query);
+        $stmt1->bindParam(':id', $user_id);
+        $stmt1->bindParam(':where_id', $pstd);
+        $stmt1->execute();
+
+        // 세션에 게스트 유저 정보 저장
         $_SESSION['login_type'] = 'guest';
-        $_SESSION['user_id'] = 'guest_'.$pstd;
+        $_SESSION['user_id'] = $user_id;
         $_SESSION['user_nick'] = '';
     }
 
@@ -65,7 +80,6 @@ class User
             SET nick=:nick
             WHERE id=:id
             ";
-
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':nick', $mb_nick);
         $stmt->bindParam(':id', $_SESSION['user_id']);
