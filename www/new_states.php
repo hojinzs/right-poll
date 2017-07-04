@@ -22,7 +22,7 @@ $desc = $elected['chair'].$elected['name']."님의 공약 정보를 확인해보
 
 $og['title'] = $title;
 $og['desc'] = $desc;
-$og['img'] = FILE.$num['profile'];
+$og['img'] = FILE.$elected['profile'];
 
 ?>
 
