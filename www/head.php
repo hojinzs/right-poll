@@ -1,14 +1,14 @@
 <?php
 
 // 타이틀 및 메타데이터 설정
-$meta['desc']="누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
+$meta['title']="공약이행률";
 $meta['desc']="누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
 
 // 메타데이터 설정값이 넘어왔을 경우 변경
-if(!isset($title)){
+if(isset($title)){
     $meta['title']=$title;
 }
-if(!isset($desc)){
+if(isset($desc)){
     $meta['desc']=$desc;
 }
 
