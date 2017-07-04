@@ -7,7 +7,7 @@
 #
 # Host: www.policy.dev (MySQL 5.5.5-10.1.23-MariaDB-1~xenial)
 # Database: rightpoll
-# Generation Time: 2017-07-04 01:55:12 +0000
+# Generation Time: 2017-07-04 10:15:12 +0000
 # ************************************************************
 
 
