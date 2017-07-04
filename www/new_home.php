@@ -2,9 +2,6 @@
 
 $elected_list = \App\Common::getElectedList();
 
-$title = "약속을 했으면 지켜야지?";
-$desc = "우리가 직접 감시하는 당선자 공약 이행 현황";
-
 ?>
 
 <HTML>

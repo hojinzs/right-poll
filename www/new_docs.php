@@ -4,7 +4,6 @@
 use Michelf\MarkdownExtra;
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
-$title = "실시간 공약이행률";
 $desc = "여러분의 도움이 필요합니다.";
 
 // 파일 경로 저장

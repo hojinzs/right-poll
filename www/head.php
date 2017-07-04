@@ -1,11 +1,24 @@
 <?php
 
+// 타이틀 및 메타데이터 설정
+$meta['desc']="누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
+$meta['desc']="누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
+
+// 메타데이터 설정값이 넘어왔을 경우 변경
+if(!isset($title)){
+    $meta['title']=$title;
+}
+if(!isset($desc)){
+    $meta['desc']=$desc;
+}
+
 // (오픈그래프) 기본 설정
-$opengraph['title'] = "공약이행률";
+$opengraph['title'] = $meta['title'];
 $opengraph['type'] = "website";
-$opengraph['description'] = "누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
+$opengraph['description'] = $meta['desc'];
 $opengraph['url'] = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $opengraph['image'] = $_SERVER['HTTP_HOST']."/asset/logo.png";
+$apple_touch_icon = $opengraph['image'];
 
 // (오픈그래프) 오픈그래프 설정값이 넘어올 경우 변경 ($og로 설정한다.)
 if(isset($og['title'])){
@@ -22,14 +35,6 @@ if(isset($og['url'])){
 }
 if(isset($og['image'])){
     $opengraph['image'] = $og['image'];
-}
-
-// 타이틀 및 메타데이터 설정
-if(!isset($title)){
-    $title="공약이행률";
-}
-if(!isset($desc)){
-    $dec="누구나 참여하는 공약 이행 평가, 직접 민주주의 실현";
 }
 ?>
 
@@ -68,11 +73,12 @@ if(!isset($desc)){
     <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
 
     <!-- 기본 메타정보 -->
-    <title><?=$title?></title>
-    <meta name="description" content="<?=$desc?>">
+    <title><?=$meta['title']?></title>
+    <meta name="description" content="<?=$meta['desc']?>">
 
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="/asset/favicon.ico"/>
+    <link rel="apple-touch-icon" href="<?=$apple_touch_icon?>"/>
 
     <!-- 오픈그래프 설정 -->
     <meta property="og:title" content="<?=$opengraph['title']?>" />
