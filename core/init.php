@@ -1,5 +1,6 @@
 <?php
 use App;
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -12,6 +13,7 @@ $whoops->register();
 getDbInfo();
 getServerInfo();
 
+session_set_cookie_params(7200, '/', DOMAIN);
 session_start();
 getUserInfo();
 
@@ -24,7 +26,6 @@ function getUserInfo(){
         $id = session_id();
 
         # login 상태가 아니라면
-        // session_set_cookie_params(0, '/', '.xxx.com'); 넣어야 함.
         $_SESSION['id'] = $id;
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
         App\User::setNewGuestUser();
@@ -91,7 +92,8 @@ function getServerInfo()
     $inipath = '/../config.ini';
     $ini_array = parse_ini_file($dir.$inipath);
 
-    define("FILE", $ini_array['FILESERVER'].$ini_array['FILESERVER_DIR']."/");
+    define("DOMAIN",$ini_array['DOMAIN']);
+    define("FILE", $ini_array['HTTP'].$ini_array['FILE_SUBDOMAIN'].".".$ini_array['DOMAIN'].$ini_array['FILE_DIR']);
 
     switch ($ini_array['SERVICE']) {
         case 'product':

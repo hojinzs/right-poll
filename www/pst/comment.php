@@ -1,4 +1,9 @@
 <?php require_once __DIR__ . '/../../core/init.php';
+/**
+ * 코멘트 POST 처리 PHP ($_POST)
+ * @param var $target 댓글 등록 대상
+ * @param var $target_id 댓글 등록 대상 ID
+ */
 
 // 필수값 세팅
 $setComment['owner_type'] = $_POST['target'];
@@ -12,15 +17,18 @@ if(isset($_POST['parents'])){
         $setComment['parents_id'] = $_POST['parents'];
 }
 
-// 유저 닉네임을 변경
-\App\User::setGuestUserNick($setComment['nickname']);
+// 게스트일 경우 유저 닉네임을 변경
+if ($_SESSION['login_type'] == 'guest') {
+    $user_nick = \App\User::setGuestUserNick($_POST['nickname']);
+}
 
+// setComment에 코멘트 내용 전달
 $return = \App\Control::setComment($setComment);
 
+// 반환 처리
 if($return=="success"){
     # setComment가 success를 반환했다면
     echo $return;
-
 } else {
     # setComment가 success가 아니라면 반환했다면
 
@@ -30,3 +38,5 @@ if($return=="success"){
     }
     echo $msg;
 }
+
+return;

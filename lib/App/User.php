@@ -71,18 +71,18 @@ class User
         // 12자가 넘어가면 자름
         $mb_nick = mb_strimwidth($nick, '0', '30','','utf-8');
 
-        // 세선샹의 닉네임 변경
+        // 세션상의 닉네임 변경
         $_SESSION['user_nick'] = $mb_nick;
 
         // DB에 변경된 닉네임 저장
         $query =
             "UPDATE rightpoll.user_guest
             SET nick=:nick
-            WHERE id=:id
+            WHERE user_id=:user_id
             ";
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':nick', $mb_nick);
-        $stmt->bindParam(':id', $_SESSION['user_id']);
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
         $stmt->execute();
 
     }
