@@ -1,6 +1,4 @@
 <?php
-use App;
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -12,6 +10,7 @@ $whoops->register();
 
 getDbInfo();
 getServerInfo();
+getMailSetting();
 
 session_set_cookie_params(7200, '/', DOMAIN);
 session_start();
@@ -83,14 +82,25 @@ function db(): \PDO
     return $pdo;
 }
 
+function getMailSetting()
+{
+    $inipath = '/../config.ini';
+    $ini_array = parse_ini_file(__DIR__.$inipath);
+
+    define("SMTP_USER",$ini_array['SMTP_USER']);
+    define("SMTP_NAME",$ini_array['SMTP_NAME']);
+    define("SMTP_PASSWORD",$ini_array['SMTP_PASSWORD']);
+
+}
+
 /**
  * get server info (File, batch etc...)
  */
 function getServerInfo()
 {
-    $dir= __DIR__;
+    // $dir= __DIR__;
     $inipath = '/../config.ini';
-    $ini_array = parse_ini_file($dir.$inipath);
+    $ini_array = parse_ini_file(__DIR__.$inipath);
 
     define("DOMAIN",$ini_array['DOMAIN']);
     define("FILE", $ini_array['HTTP'].$ini_array['FILE_SUBDOMAIN'].".".$ini_array['DOMAIN'].$ini_array['FILE_DIR']);
