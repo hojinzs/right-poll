@@ -52,7 +52,7 @@ footer li{
 nav{
     background: #354149;
     height: 2.5em;
-    padding: 0.2em 0em;
+    padding: 0em;
     font-size: 1.2em;
     font-weight: 100;
     color: white;
@@ -61,17 +61,21 @@ nav{
 
 nav .brand{
     display: inline;
+    padding: 0.5em 0em;
     font-size: 1.3em;
     vertical-align: middle;
     font-weight:inherit;
 }
 
 nav .nav-right{
+    padding: 0.2em 0em;
     display: inline;
     float: right;
+    border-left: 1px solid white;
 }
 
 nav a{
+    margin: 0em;
     text-decoration: none;
     color:white;
 }
@@ -98,6 +102,17 @@ nav .wr_btn:hover{
 
 nav .wr_btn i{
     font-size: 1em;
+}
+
+.nav-more{
+    background: #354149;
+    width: 100%;
+    border-top: 1px solid white;
+    position: absolute;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    /*visibility: hidden;*/
 }
 
 
