@@ -4,10 +4,17 @@
             <div class="nav-brand">
                 <a href="/" >공약지킴이</a>
             </div>
-            <ul class="nav-left">
-                <li><a href="#">발견하기</a></li>
-                <li><a href="#">평가하기</a></li>
-            </ul>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="#">
+                        <i class="fa fa-search" aria-hidden="true"></i><span>발견하기</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fa fa-pencil" aria-hidden="true"></i><span>평가하기</span>
+                    </a></li>
+                    <li></li>
+                </ul>
+            </div>
             <?php switch ($_SESSION['login_type']):
                 case 'guest': ##USERTYPE: GUEST일 경우 ?>
                     <ul class="nav-right">
@@ -36,14 +43,14 @@
             </div>
         </div>
     </div>
-</nav>
-<div class="nav-more">
-    <div class="container">
-        <p><?=$_SESSION['user_id']?></p>
-        <p><?=$_SESSION['ip']?></p>
-        <ul>
-            <li>댓글</li>
-            <li>좋아하는 공약 수</li>
-        </ul>
+    <div class="nav-more">
+        <div class="container">
+            <p><?=$_SESSION['user_id']?></p>
+            <p><?=$_SESSION['ip']?></p>
+            <ul>
+                <li>댓글</li>
+                <li>좋아하는 공약 수</li>
+            </ul>
+        </div>
     </div>
-</div>
+</nav>

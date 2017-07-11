@@ -62,10 +62,10 @@ nav .nav-wrapper{
     display: table;
     width: 100%;
     height: 50px;
-    table-layout: fixed;
 }
 
 nav .nav-brand{
+    padding-left: 10px;
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -78,21 +78,46 @@ nav .nav-brand{
 nav .nav-left{
     display: table-cell;
     text-align: left;
-    vertical-align: middle;
     padding-left: 10px;
     width: 50%;
 }
 
+nav .nav-left ul{
+    display: table;
+    width: 100%;
+    height: 50px;
+    margin: 0px;
+    padding-left: 0px;
+}
+
 nav .nav-left li{
+    display: table-cell;
+    vertical-align: middle;
+    word-break: keep-all;
+    padding: 0px 10px;
+    left: 0px;
+}
+
+nav .nav-left span{
+    display: none;
+}
+
+nav .nav-left li:hover{
+    background-color: #5D7382;
+}
+
+nav .nav-left li:last-child{
+    width: 100%;
+}
+
+nav .nav-left li:last-child:hover{
+    background-color: inherit;
+}
+
+nav .nav-left li i{
     display: inline;
-}
-
-nav .nav-left li::before{
-    content: "| ";
-}
-
-nav .nav-left li:first-child::before{
-    content: "";
+    word-break: keep-all;
+    padding-right: 5px;
 }
 
 nav .nav-right{
@@ -103,24 +128,30 @@ nav .nav-right{
     padding-right: 10px;
     width: 50%;
     word-break: nowrap;
+
+    visibility: hidden;
 }
 
 nav .nav-right li{
     display: inline;
+    color: #CED6DC;
 }
 
 nav .nav-right li::before{
     content: "| ";
+    color: #70777C;
 }
 
 nav .nav-right li:first-child::before{
     content: "";
 }
 
+nav .nav-right .fa{
+    display: inline;
+}
+
 nav .nav-profile{
     display: table-cell;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
     text-align: center;
     word-break: keep-all;
     font-size: 30px;
@@ -130,15 +161,14 @@ nav .nav-profile{
     padding: 0px 10px;
 }
 
-nav .nav-right .fa{
-    display: inline;
+nav .nav-profile:hover{
+    background-color: #5D7382;
 }
-
 
 nav a{
     margin: 0em;
     text-decoration: none;
-    color:white;
+    color: inherit;
 }
 
 nav a:hover{
@@ -155,7 +185,7 @@ nav .wr_btn i{
 
 }
 
-.nav-more{
+nav .nav-more{
     background: #354149;
     width: 100%;
     border-top: 1px solid white;
@@ -733,6 +763,18 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
 
     header{
         max-height: 250px;
+    }
+
+    nav .nav-left span{
+        display: inline;
+    }
+
+    nav .nav-right{
+        visibility: visible;
+    }
+
+    nav .nav-more{
+
     }
 
     .slide{
