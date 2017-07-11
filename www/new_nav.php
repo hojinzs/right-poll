@@ -5,23 +5,33 @@
                 <a href="/" >공약지킴이</a>
             </div>
             <ul class="nav-left">
-                <li>asdf</li>
-                <li>asdf</li>
+                <li><a href="#">발견하기</a></li>
+                <li><a href="#">평가하기</a></li>
             </ul>
-            <div class="nav-right">
+            <?php switch ($_SESSION['login_type']):
+                case 'guest': ##USERTYPE: GUEST일 경우 ?>
+                    <ul class="nav-right">
+                        <li><a href="/new_login.php">로그인</a></li>
+                        <li><a href="/new_register.php">회원가입</a></li>
+                    </ul>
+                    <a id="nav_more" class="nav-profile" href="#">
+                        <i class="fa fa-user-secret" aria-hidden="true"></i>
+                    </a>
+                    <?php break;?>
+                <?php case 'user': ##USERTYPE: USER일 경우 ?>
 
-                <?php switch ($_SESSION['login_type']):
-                    case 'guest':?>
-                        <!-- USERTYPE: GUEST 일 경우-->
-                        <div id="nav_more" class="nav-guest">
-                            <i class="fa fa-user-secret" aria-hidden="true"></i><?=$_SESSION['user_id']?>
-                        </div>
-                        <?php break;?>
+                    <ul class="nav-right">
+                        <li><a href="./new_mypage.php">마이페이지</a></li>
+                    </ul>
+                    <a id="nav_more" class="nav-profile" href="#">
+                        <i class="fa fa-user-secret" aria-hidden="true"></i>
+                    </a>
+                    <?php break;?>
 
-                    <?php default:?>
-                        !!?!
-                        <?php break;?>
-                <?php endswitch; ?>
+                <?php default:?>
+                    !!?!
+                    <?php break;?>
+            <?php endswitch; ?>
 
             </div>
         </div>
@@ -29,10 +39,11 @@
 </nav>
 <div class="nav-more">
     <div class="container">
+        <p><?=$_SESSION['user_id']?></p>
+        <p><?=$_SESSION['ip']?></p>
         <ul>
-            <li>asdf</li>
-            <li>asdf</li>
-            <li>asdf</li>
+            <li>댓글</li>
+            <li>좋아하는 공약 수</li>
         </ul>
     </div>
 </div>

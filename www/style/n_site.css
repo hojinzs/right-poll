@@ -62,14 +62,14 @@ nav .nav-wrapper{
     display: table;
     width: 100%;
     height: 50px;
+    table-layout: fixed;
 }
 
 nav .nav-brand{
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    /*width: 120px;*/
-    width: auto;
+    width: 120px;
     word-break: keep-all;
     font-size: 20px;
     font-weight: bolder;
@@ -80,7 +80,7 @@ nav .nav-left{
     text-align: left;
     vertical-align: middle;
     padding-left: 10px;
-    width: 100%;
+    width: 50%;
 }
 
 nav .nav-left li{
@@ -97,13 +97,37 @@ nav .nav-left li:first-child::before{
 
 nav .nav-right{
     display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-left: 0px;
+    padding-right: 10px;
+    width: 50%;
+    word-break: nowrap;
+}
+
+nav .nav-right li{
+    display: inline;
+}
+
+nav .nav-right li::before{
+    content: "| ";
+}
+
+nav .nav-right li:first-child::before{
+    content: "";
+}
+
+nav .nav-profile{
+    display: table-cell;
     border-left: 1px solid white;
     border-right: 1px solid white;
     text-align: center;
     word-break: keep-all;
-    width: 200px;
+    font-size: 30px;
+    width: 50px;
     right: 0px;
     vertical-align: middle;
+    padding: 0px 10px;
 }
 
 nav .nav-right .fa{
@@ -139,9 +163,9 @@ nav .wr_btn i{
     color: white;
     text-align: center;
     z-index: 1;
+    padding: 1em;
     /*visibility: hidden;*/
 }
-
 
 /* home */
 

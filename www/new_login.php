@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . '/../core/init.php';
 // 기본 메타데이터 (타이틀, 설명) 세팅
-$title = "실시간 공약이행률::로그인";
-$desc = "로그인";
+$title = "공약지킴이::로그인";
 ?>
 <HTML>
 <?php include 'head.php'; ?>
