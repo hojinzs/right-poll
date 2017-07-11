@@ -4,6 +4,8 @@ $(document).ready(function(){
     $('.comment_add').hide(); // 댓글 작성 감추기
     // $('.add_comment').hide(); //댓글 내용 감추기
 
+    $('.nav-more').hide();  //감추기
+
     // 좋아요 버튼 클릭시 좋아요 +1 POST 전송
     $("#set_thumbsup").click(function(){
         var pol_id = "pol_id="+$("#set_thumbsup").val();
@@ -75,6 +77,10 @@ $(document).ready(function(){
             },
         })
 
+    })
+
+    $('#nav_more').click(function(){
+        $('.nav-more').toggle();
     })
 
 })
