@@ -56,6 +56,7 @@ nav{
 
 nav .container{
     padding: 0px;
+    position: relative;
 }
 
 nav .nav-wrapper{
@@ -120,7 +121,7 @@ nav .nav-left li i{
     padding-right: 5px;
 }
 
-nav .nav-right{
+nav .nav-wrapper .nav-right{
     display: table-cell;
     text-align: right;
     vertical-align: middle;
@@ -132,21 +133,21 @@ nav .nav-right{
     visibility: hidden;
 }
 
-nav .nav-right li{
+nav .nav-wrapper .nav-right li{
     display: inline;
     color: #CED6DC;
 }
 
-nav .nav-right li::before{
+nav .nav-wrapper .nav-right li::before{
     content: "| ";
     color: #70777C;
 }
 
-nav .nav-right li:first-child::before{
+nav .nav-wrapper .nav-right li:first-child::before{
     content: "";
 }
 
-nav .nav-right .fa{
+nav .nav-wrapper .nav-right .fa{
     display: inline;
 }
 
@@ -195,6 +196,14 @@ nav .nav-more{
     z-index: 1;
     padding: 1em;
     /*visibility: hidden;*/
+}
+
+nav .nav-more ul{
+    padding: 0px;
+}
+
+nav .nav-more li{
+    display: block;
 }
 
 /* home */
@@ -769,12 +778,19 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
         display: inline;
     }
 
-    nav .nav-right{
+    nav .nav-wrapper .nav-right{
         visibility: visible;
     }
 
     nav .nav-more{
+        position: absolute;
+        right: 0px;
+        width: 200px;
+        text-align: left;
+    }
 
+    nav .nav-more hr{
+        display: none;
     }
 
     .slide{

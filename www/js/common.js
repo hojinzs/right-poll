@@ -6,6 +6,17 @@ $(document).ready(function(){
 
     $('.nav-more').hide();  //감추기
 
+    //네비게이션 서브메뉴 설정
+    var windowWidth = $(window).width();
+
+    if(windowWidth < 768) {
+        $('#nav-more-right').after($('#nav-right'))
+    }
+
+    if(windowWidth > 768) {
+        $('#nav-left').after($('#nav-right'))
+    }
+
     // 좋아요 버튼 클릭시 좋아요 +1 POST 전송
     $("#set_thumbsup").click(function(){
         var pol_id = "pol_id="+$("#set_thumbsup").val();
@@ -79,11 +90,27 @@ $(document).ready(function(){
 
     })
 
-    $('#nav_more').click(function(){
+    $('#toggle_nav_more').click(function(){
         $('.nav-more').toggle();
     })
 
 })
+
+// 창 크기가 변경될때마다 이벤트 실행
+
+$(window).resize(function(){
+    //창 가로 크기가 768보다 작을 경우
+    var windowWidth = $(window).width();
+
+    if(windowWidth < 768) {
+        $('#nav-more-right').after($('#nav-right'))
+    }
+
+    if(windowWidth > 768) {
+        $('#nav-left').after($('#nav-right'))
+    }
+
+}).resize();
 
 // 코멘트 평가 '좋아요' 클릭시 ajax POST 전송
 $.fn.postCommentLike_click = function(comment_id){
