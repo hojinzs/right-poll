@@ -1,0 +1,63 @@
+form.wr_form input{
+    margin: 5px 0px;
+    font-size: 1em;
+    line-height: 1em;
+}
+
+form.wr_form input:disabled.green{
+    background-color: #B1CEA1;
+    border-color: #5B8B41;
+}
+
+form.wr_form .wr_form_input{
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 3px;
+    border: #BDBDBD 1px solid;
+}
+
+form.wr_form .wr_form_btn{
+    width: 100%;
+}
+
+form.wr_form .wr_form_btn:disabled.green{
+    background-color: #B1CEA1;
+    border-color: #5B8B41;
+    color: #5B8B41;
+}
+
+
+form.wr_form .group_btn{
+    display: block;
+    width: 100%;
+    padding: 0px;
+    margin: 5px 0px;
+    position: relative;
+}
+
+form.wr_form .group_btn .wr_form_input{
+    display: inline;
+    width: 70%;
+    margin: 0px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+form.wr_form .group_btn .wr_form_btn{
+    display: inline;
+    right: 0px;
+    width: 29%;
+    margin-left: 5px;
+    line-height: 1em;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    margin: 0px;
+}
+
+
+form.wr_form .group_btn i.green{
+    position: absolute;
+    right: 32%;
+    top: 23%;
+    color: green;
+}
