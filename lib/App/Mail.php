@@ -2,12 +2,11 @@
 
 namespace App;
 
+use PHPMailer;
+
 /**
  * 메일 설정 / 발송 관련 클래스
  */
-
-use PHPMailer;
-
 class Mail
 {
 
@@ -50,9 +49,9 @@ class Mail
         $mail->AddAddress($address, $MAILTONAME);
 
         if(!$mail->Send()) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
+            return "Mailer Error: " . $mail->ErrorInfo;
           } else {
-            echo "Message sent!";
+            return "success";
           }
         }
 }
