@@ -29,29 +29,29 @@ $title = "공약지킴이::마이페이지";
 
             <h1>회원가입</h1>
 
-                <form class="wr_form">
+                <form id="form_register" class="wr_form">
 
-                    <div class="group_btn green">
-                        <input class="wr_form_input" name="email" type="email" placeholder="이메일" disabled></input>
-                        <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="코드발송" disabled></input>
+                    <div id="group_email" class="group_btn">
+                        <input class="wr_form_input" name="email" type="email" placeholder="이메일"></input>
+                        <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="코드발송"></input>
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
 
-                    <div class="group_btn">
+                    <div id="group_email_check" class="group_btn">
                         <input class="wr_form_input" name="email_check" type="text" placeholder="인증코드 입력(4자리)" maxlength="4"></input>
                         <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="확인"></input>
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
 
-                    <div class="group_btn">
+                    <div id="group_nick" class="group_btn">
                         <input class="wr_form_input" name="nick" type="text" placeholder="닉네임"></input>
                         <input class="wr_form_btn wr_btn wr_btn_blue" name="nick_check" type="button" value="중복확인" ></input>
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
 
-                    <input class="wr_form_input" name="password" type="password" placeholder="비밀번호"></input>
-                    <input class="wr_form_input" name="password_again" type="password" placeholder="비밀번호 확인"></input>
-                    <input class="wr_form_btn wr_btn wr_btn_blue" name="submit" type="submit" value="양식 제출 >"></input>
+                    <input id="password" class="wr_form_input" name="password" type="password" placeholder="비밀번호"></input>
+                    <input id="password_repeat" class="wr_form_input" name="password_repeat" type="password" placeholder="비밀번호 확인"></input>
+                    <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" name="submit" type="submit" value="양식 제출 >"></input>
                 </form>
 
             </div>
