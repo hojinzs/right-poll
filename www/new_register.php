@@ -37,8 +37,8 @@ $title = "공약지킴이::마이페이지";
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
 
-                    <div id="group_email_check" class="group_btn">
-                        <input class="wr_form_input" name="email_check" type="text" placeholder="인증코드 입력(4자리)" maxlength="4"></input>
+                    <div id="group_code" class="group_btn">
+                        <input class="wr_form_input" name="code" type="text" placeholder="인증코드 입력(5자리)" maxlength="5"></input>
                         <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="확인"></input>
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
