@@ -16,3 +16,8 @@ include 'new_nav.php';
     <input name="code" type="text" maxlength="5" placeholder="verify code test"></input>
     <input type="submit" value="CODE SEND"></input>
 </form>
+
+<form action="/pst/register/nick_check.php" method="post">
+    <input name="nick" type="text" maxlength="12" placeholder="duplicate nick test"></input>
+    <input type="submit" value="NICK SEND"></input>
+</form>

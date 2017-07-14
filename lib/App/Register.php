@@ -15,7 +15,7 @@ class Register
     public static function sendVerifiyEmail($email){
 
         // 이미 해당 메일로 가입한 회원이 있는지 확인한다.
-        $mailcheck = Register::getCurrentUserEmail($email);
+        $mailcheck = User::getCurrentUserEmail($email);
         if($mailcheck == true){
             return "error";
         }
@@ -47,35 +47,6 @@ class Register
         return $sendResult;
     }
 
-
-    /**
-     * 이미 가입한 회원 중 중복된 이메일을 사용하는 회원이 있는지 조회함.
-     * @param var $email 이메을 주소
-     * @return bool fales="조회 결과 없음",true="조회 결과 있음"
-     */
-    public static function getCurrentUserEmail($email){
-
-        // DB에서 $email과 동일한 이메일을 사용하는 회원 조회
-        $query =
-            "SELECT
-                u.id
-            FROM
-                rightpoll.user u
-            WHERE
-                u.email = :email
-            ";
-        $stmt = \db()->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $row = $stmt->fetch();
-
-        if($row == null){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     /**
      * 입력한 인증코드가 발급된 인증코드와 일치하는지 확인
      * @param var $code 입력된 인증코드
@@ -98,6 +69,25 @@ class Register
         } else {
             # 일치하지 않을 경우 error
             return "error:: register_code is not matched";
+        }
+    }
+
+    /**
+     * 닉네임 사용 가능 여부 (이미 중복되는 닉네임이 있는지) 확인
+     * @param var $nick 체크할 닉네임
+     * @return var 'ok'=사용 가능, 'exist nickname'= 존재하는 닉네임.
+     */
+    public static function checkCurrentNick($nick){
+
+        // $nick 이 존재하는 닉네임인지 확인
+        $result = User::getCurrentUserNick($nick);
+
+        if($result==true){
+            # 닉네임 검색 결과가 있을 경우
+            return "exist nickname";
+        } else {
+            # 중복되는 닉네임이 없을 경우
+            return "ok";
         }
     }
 }

@@ -8,8 +8,7 @@ namespace App;
 class User
 {
     /**
-     * [postNewGuestUser description]
-     * @return [type] [description]
+     * 새로운 게스트 유저 정보 저장
      */
     public static function setNewGuestUser(){
         $nickname = "";
@@ -86,5 +85,64 @@ class User
         $stmt->execute();
 
     }
+
+    /**
+     * 이미 가입한 회원 중 중복된 이메일을 사용하는 회원이 있는지 조회함.
+     * @param var $email 이메일 주소
+     * @return bool false="조회 결과 없음",true="조회 결과 있음"
+     */
+    public static function getCurrentUserEmail($email){
+
+        // DB에서 $email과 동일한 이메일을 사용하는 회원 조회
+        $query =
+            "SELECT
+                u.id
+            FROM
+                rightpoll.user u
+            WHERE
+                u.email = :email
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        if($row == null){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 이미 가입한 회원 중 중복된 닉네임을 사용하는 회원이 있는지 조회 함.
+     * @param var $nick 중복 체크할 닉네임
+     * @return bool false="조회 결과 없음", true="조회 결과 있음"
+     */
+    public static function getCurrentUserNick($nick){
+
+         // DB에서 $email과 동일한 닉네임을 사용하는 회원 조회
+         $query =
+             "SELECT
+                 u.id
+             FROM
+                 rightpoll.user u
+             WHERE
+                 u.nick = :nick
+             ";
+         $stmt = \db()->prepare($query);
+         $stmt->bindParam(':nick', $nick);
+         $stmt->execute();
+         $row = $stmt->fetch();
+
+         if($row == null){
+             return false;
+         } else {
+             return true;
+         }
+     }
+
+
+
 
 }
