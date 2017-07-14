@@ -4,32 +4,20 @@ form.wr_form input{
     line-height: 1em;
 }
 
-form.wr_form input:disabled.green{
-    background-color: #B1CEA1;
-    border-color: #5B8B41;
-}
-
 form.wr_form .wr_form_input{
-    width: 100%;
+    width: 98%;
     padding: 0.5em;
     border-radius: 3px;
     border: #BDBDBD 1px solid;
 }
 
 form.wr_form .wr_form_btn{
-    width: 100%;
+    width: 98%;
 }
-
-form.wr_form .wr_form_btn:disabled.green{
-    background-color: #B1CEA1;
-    border-color: #5B8B41;
-    color: #5B8B41;
-}
-
 
 form.wr_form .group_btn{
     display: block;
-    width: 100%;
+    width: 98%;
     padding: 0px;
     margin: 5px 0px;
     position: relative;
@@ -46,7 +34,7 @@ form.wr_form .group_btn .wr_form_input{
 form.wr_form .group_btn .wr_form_btn{
     display: inline;
     right: 0px;
-    width: 29%;
+    width: 28%;
     margin-left: 5px;
     line-height: 1em;
     padding-top: 0.6em;
@@ -54,10 +42,25 @@ form.wr_form .group_btn .wr_form_btn{
     margin: 0px;
 }
 
+form.wr_form .group_btn i{
+    display: none;
+}
 
-form.wr_form .group_btn i.green{
+form.wr_form .group_btn.green i{
+    display:contents;
     position: absolute;
     right: 32%;
-    top: 23%;
+    top: 25%;
     color: green;
+}
+
+form.wr_form .group_btn.green input:disabled{
+    background-color: #B1CEA1;
+    border-color: #5B8B41;
+}
+
+form.wr_form .group_btn.green .wr_form_btn:disabled{
+    background-color: #B1CEA1;
+    border-color: #5B8B41;
+    color: #5B8B41;
 }
