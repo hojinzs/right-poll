@@ -26,4 +26,17 @@ class Str
         return preg_replace("/([0-9]+).([0-9]+).([0-9]+).([0-9]+)/", "\\1.\\2.&#9825;.&#9825;", $ip);
     }
 
+    /**
+     * 비밀번호가 강력한 비밀번호인지 확인
+     * @param [type] $text [description]
+     * @return bool TRUE=유효한 비밀번호,FALSE=유효하지 않은 비밀번호
+     */
+    public static function checkPasswordStrength($text){
+
+        // 정규식 일치 여부 확인 (대소문자/숫자/특수문자 조합, 8~20자리 이내)
+        if(!preg_match("(^(?=.*[a-zA-Z])((?=.*\d))((?=.*\W)).{8,20}$)",$text)) return FALSE;
+
+        return TRUE;
+    }
+
 }

@@ -10,14 +10,14 @@ class Register
     /**
      * 인증 이메일 발송
      * @param var $email 인증메일을 발송할 이메일
-     * @return var 발송 결과(success,fail)
+     * @return var 발송 결과(success,fail,error:: exist email)
      */
     public static function sendVerifiyEmail($email){
 
         // 이미 해당 메일로 가입한 회원이 있는지 확인한다.
         $mailcheck = User::getCurrentUserEmail($email);
         if($mailcheck == true){
-            return "error";
+            return "error:: exist email";
         }
 
         // 인증 코드 생성
@@ -56,7 +56,7 @@ class Register
     public static function matchVerifyCode($code){
 
         // 세션에 register_code가 발급 되었는지 확인
-        if(!isset($_SESSION['register_code'])){
+        if(!isset($_SESSION['register']['issued_code'])){
             return "error:: register_code is not issued";
         }
 
@@ -86,7 +86,7 @@ class Register
 
         if($result==true){
             # 닉네임 검색 결과가 있을 경우
-            return "exist nickname";
+            return "error:: exist nickname";
         } else {
             # 중복되는 닉네임이 없을 경우
             return "ok";
