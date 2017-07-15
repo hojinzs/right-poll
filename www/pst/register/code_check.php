@@ -8,4 +8,4 @@ if(!isset($_POST['code'])){
     return "error:: 'code'is not sent!";
 }
 
-echo App\Register::matchVerifyCode($_POST['code']);
+echo User\Register::matchVerifyCode($_POST['code']);

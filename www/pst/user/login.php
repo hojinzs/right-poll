@@ -5,7 +5,14 @@
  * @param var $pw 패스워드
  */
 
+// post 파라미터가 제대로 넘어왔는지 확인
+if (isset($_POST['email'])) {echo "error:: cannot find email"; return;};
+if (isset($_POST['pw'])) {echo "error:: cannot find password"; return;};
+
+// post 파라미터 세팅
 $id = $_POST['email'];
-$pw = $_POST['pw'];
+$pw = Auth\Crypt::decryptCryptoJS($_POST['pw']);
+
+// 결과::
 
 echo $id.'::'.$pw;

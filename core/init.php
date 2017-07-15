@@ -1,4 +1,5 @@
 <?php
+use User;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -27,7 +28,7 @@ function getUserInfo(){
         # login 상태가 아니라면
         $_SESSION['id'] = $id;
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-        App\User::setNewGuestUser();
+        User\Guest::setNewGuestUser();
     }
 }
 

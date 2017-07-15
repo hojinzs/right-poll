@@ -8,4 +8,4 @@ if(!isset($_POST['email'])){
  return "error:: 'email'is not sent!";
 }
 
-echo App\Register::sendVerifiyEmail($_POST['email']);
+echo User\Register::sendVerifiyEmail($_POST['email']);

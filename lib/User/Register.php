@@ -1,6 +1,7 @@
 <?php
 
-namespace App;
+namespace User;
+use App;
 
 /**
  * 회원가입 관련 클래스
@@ -15,7 +16,7 @@ class Register
     public static function sendVerifiyEmail($email){
 
         // 이미 해당 메일로 가입한 회원이 있는지 확인한다.
-        $mailcheck = User::getCurrentUserEmail($email);
+        $mailcheck = Common::getCurrentUserEmail($email);
         if($mailcheck == true){
             return "error:: exist email";
         }
@@ -37,7 +38,7 @@ class Register
         $subject = "공약지킴이 가입 인증 코드";
 
         // 이메일 발송 결과 호출
-        $sendResult = Mail::sendMail($subject,$contents,$email,$email);
+        $sendResult = App\Mail::sendMail($subject,$contents,$email,$email);
 
         // 발송에 성공했다면 success
         if ($sendResult = 'Message sent!') {
@@ -82,7 +83,7 @@ class Register
     public static function checkCurrentNick($nick){
 
         // $nick 이 존재하는 닉네임인지 확인
-        $result = User::getCurrentUserNick($nick);
+        $result = Common::getCurrentUserNick($nick);
 
         if($result==true){
             # 닉네임 검색 결과가 있을 경우
@@ -103,19 +104,19 @@ class Register
         // $_SESSION['register']가 설정 되어 있는지 확인.
 
         // STAGE 1 :: 이메일 중복 여부 재확인
-        $check_mail = User::getCurrentUserEmail($email);
+        $check_mail = Common::getCurrentUserEmail($email);
         if($check_mail == true) return "error:: exist email";
 
         // STAGE 2 :: 닉네임 중복 여부 재확인
-        $check_nick = User::getCurrentUserNick($nick);
+        $check_nick = Common::getCurrentUserNick($nick);
         if($check_nick == true) return "error:: exist nickname";
 
         // STAGE 3 :: 비밀번호 유효성 확인
-        $check_pw = Str::checkPasswordStrength($password);
+        $check_pw = App\Str::checkPasswordStrength($password);
         if($check_pw == false) return "error:: not strength password";
 
         // 다 통과했다면 새로운 유저 생성
-        $result = User::setNewUser($email,$nick,$password);
+        $result = Common::setNewUser($email,$nick,$password);
 
         // 유저 생성 결과가 Success가 아니라면 에러문구 리턴
         if(!$result=="success") return $result;

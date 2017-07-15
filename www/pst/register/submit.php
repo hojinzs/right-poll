@@ -20,7 +20,7 @@ $nick = $_POST['nick'];
 $password = Auth\Crypt::decryptCryptoJS($_POST['password']);
 
 // 최종 회원 가입 시작
-$return = App\Register::setRegister($email,$nick,$password);
+$return = User\Register::setRegister($email,$nick,$password);
 
 // 회원가입 성공 여부에 따라 return message 세팅
 echo $return;

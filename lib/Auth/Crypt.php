@@ -63,7 +63,7 @@ class Crypt
 
     /**
      * CryptoJS로 암호화한 텍스트 디코딩 & 복호화
-     * @param var $pw 브라우저에서 CryptoJS로 암호화한 텍스트
+     * @param var $text 브라우저에서 CryptoJS로 암호화한 텍스트
      * @return var 복호화된 텍스트
      */
     public static function decryptCryptoJS($text){

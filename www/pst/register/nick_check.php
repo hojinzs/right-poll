@@ -8,4 +8,4 @@ if(!isset($_POST['nick'])){
  return "error:: 'nick'is not sent!";
 }
 
-echo App\Register::checkCurrentNick($_POST['nick']);
+echo User\Register::checkCurrentNick($_POST['nick']);
