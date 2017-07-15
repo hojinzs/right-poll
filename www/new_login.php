@@ -12,22 +12,28 @@ $title = "공약지킴이::로그인";
     <script src="js/jsencrypt.min.js"></script>
 
     <script src="js/login.js"></script>
+
+    <link rel="stylesheet" href="style/wr_form.css">
+
 </head>
 
 <BODY>
 <?php include 'new_nav.php'; ?>
 
-<div class="container contents-box">
+<div class="hidden" >
+    <input id="publickey" style="display:none"></input>
+</div>
+<div class="container">
     <div class="row">
         <div class="wr_contents col-md-12">
-
-            <h1>비번 암호화 테스트</h1>
-            <form id="login">
-                닉네임: <input name="id" id="id" type="text"><br>
-                비밀번호: <input name="pw" id="pw" type="password"><br>
-                <input id="btn" type="button" value="로그인"><br>
-            </form>
-
+            <div class="wr_single_wrapper">
+                <h1>로그인</h1>
+                    <form id="login" class="wr_form" action="/pst/user/login.php" method="post">
+                        <input id="email" class="wr_form_input" name="email" type="email" placeholder="이메일"></input>
+                        <input id="password" class="wr_form_input" type="password" placeholder="비밀번호"></input>
+                        <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="로그인 >"></input>
+                    </form>
+                </div>
         </div>
     </div>
 </div>
