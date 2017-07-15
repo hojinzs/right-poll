@@ -1,6 +1,16 @@
 <?php require_once __DIR__ . '/../core/init.php';
 include 'head.php';
 include 'new_nav.php';
+
+if(isset($_SESSION['register'])){
+    unset($_SESSION['register']);
+}
+
+$_SESSION['register']['stage'] = "3";
+$_SESSION['register'][1] = "1";
+$_SESSION['register'][2] = "2";
+$_SESSION['register'][3] = "3";
+
 ?>
 
 <script>
@@ -21,3 +31,10 @@ include 'new_nav.php';
     <input name="nick" type="text" maxlength="12" placeholder="duplicate nick test"></input>
     <input type="submit" value="NICK SEND"></input>
 </form>
+
+<?php print_r($_SESSION['register']);?>
+<br>
+<?php foreach ($_SESSION['register'] as $key) {
+    echo $key;
+}
+?>

@@ -1,7 +1,13 @@
 <?php require_once __DIR__ . '/../core/init.php';
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
-$title = "공약지킴이::마이페이지";
+$title = "공약지킴이::회원가입";
+
+// 회원가입 단계 시작. 회원가입 단계에 따라 $SESSION['register']에 단계/정보 추가.
+// 페이지를 불러오면 단계를 초기화한다.
+if(isset($_SESSION['register'])){
+    unset($_SESSION['register']);
+}
 
 ?>
 
@@ -21,7 +27,9 @@ $title = "공약지킴이::마이페이지";
 </head>
 <BODY>
 <?php include 'new_nav.php'; ?>
-
+<div class="hidden" >
+    <input id="publickey" style="display:none"></input>
+</div>
 <div class="container">
     <div class="row">
         <div class="wr_contents col-md-12">
@@ -29,7 +37,7 @@ $title = "공약지킴이::마이페이지";
 
             <h1>회원가입</h1>
 
-                <form id="form_register" class="wr_form">
+                <form id="form_register" class="wr_form" action="/pst/register/submit.php" method="post">
 
                     <div id="group_email" class="group_btn">
                         <input class="wr_form_input" name="email" type="email" placeholder="이메일"></input>
@@ -50,8 +58,8 @@ $title = "공약지킴이::마이페이지";
                     </div>
 
                     <input id="password" class="wr_form_input" name="password" type="password" placeholder="비밀번호"></input>
-                    <input id="password_repeat" class="wr_form_input" name="password_repeat" type="password" placeholder="비밀번호 확인"></input>
-                    <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" name="submit" type="submit" value="양식 제출 >"></input>
+                    <input id="password_repeat" class="wr_form_input" type="password" placeholder="비밀번호 확인"></input>
+                    <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="양식 제출 >"></input>
                 </form>
 
             </div>

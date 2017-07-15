@@ -53,6 +53,13 @@ form.wr_form .group_btn.green i{
     top: 25%;
     color: green;
 }
+form.wr_form .group_btn i.green{
+    display:contents;
+    position: absolute;
+    right: 32%;
+    top: 25%;
+    color: green;
+}
 
 form.wr_form .group_btn.green input:disabled{
     background-color: #B1CEA1;
@@ -63,4 +70,15 @@ form.wr_form .group_btn.green .wr_form_btn:disabled{
     background-color: #B1CEA1;
     border-color: #5B8B41;
     color: #5B8B41;
+}
+
+form.wr_form input:disabled{
+    background-color: #BDBDBD;
+    border-color: #848484;
+}
+
+form.wr_form .wr_form_btn:disabled{
+    background-color: #BDBDBD;
+    border-color: #848484;
+    color: #848484;
 }

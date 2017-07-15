@@ -22,7 +22,8 @@ class Register
 
         // 인증 코드 생성
         $code = rand(00000,99999);
-        $_SESSION['register_code'] = $code;
+        $_SESSION['register']['email'] = $email;
+        $_SESSION['register']['issued_code'] = $code;
 
         // 이메일 발송 준비
         $contents = "
@@ -60,11 +61,12 @@ class Register
         }
 
         $inputCode = $code;
-        $issuedCode = $_SESSION['register_code'];
+        $issuedCode = $_SESSION['register']['issued_code'];
 
         // 입력된 코드가 register_code와 일치하는지 체크
         if($inputCode == $issuedCode){
-            # 일치할 경우 success
+            # 일치할 경우, register 단계를 추가하고 success
+            $_SESSION['register']['checked_email'] = $_SESSION['register']['email'];
             return "success";
         } else {
             # 일치하지 않을 경우 error
