@@ -45,7 +45,7 @@ $(document).ready(function(){
             data: pst_msg,
             success: function(return_msg){
                 alert(return_msg);
-                location.href('new_login.php');
+                location.href('/new_login.php');
             },
             error:function(request,status,error){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
