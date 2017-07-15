@@ -1,3 +1,46 @@
+<?php
+// 메뉴 하이라이트 세팅 (todo)
+
+// 우측 메뉴 (유저 메뉴) 세팅
+switch ($_SESSION['login_type']) {
+    case 'guest':
+        # 게스트 유저일 경우 메뉴
+        $user_menu = [
+            [
+                'herf' => "/new_login.php",
+                'text' => "로그인"
+            ],
+            [
+                'herf' => "/new_register.php",
+                'text' => "회원가입"
+            ]
+        ];
+        $user_icon = "fa-user-secret";
+
+        break;
+
+    case 'user':
+        # 일반 유저일 경우 메뉴
+        $user_menu = [
+            [
+                'herf' => "/new_mypage.php",
+                'text' => "마이페이지"
+            ],
+            [
+                'herf' => "/new_logout.php",
+                'text' => "로그아웃"
+            ]
+        ];
+        $user_icon = "fa-user-circle-o";
+        break;
+
+    default:
+        # code...
+        break;
+}
+
+?>
+
 <nav>
     <div class="container">
         <div class="nav-wrapper">
@@ -15,39 +58,21 @@
                     <li></li>
                 </ul>
             </div>
-            <?php switch ($_SESSION['login_type']):
-                case 'guest': ##USERTYPE: GUEST일 경우 ?>
-                    <ul id="nav-right" class="nav-right">
-                        <li><a href="/new_login.php">로그인</a></li>
-                        <li><a href="/new_register.php">회원가입</a></li>
-                    </ul>
-                    <a id="toggle_nav_more" class="nav-profile" href="#">
-                        <i class="fa fa-user-secret" aria-hidden="true"></i>
-                    </a>
-                    <?php break;?>
-                <?php case 'user': ##USERTYPE: USER일 경우 ?>
-
-                    <ul class="nav-right">
-                        <li><a href="./new_mypage.php">마이페이지</a></li>
-                    </ul>
-                    <a id="toggle_nav_more" class="nav-profile" href="#">
-                        <i class="fa fa-user-secret" aria-hidden="true"></i>
-                    </a>
-                    <?php break;?>
-
-                <?php default:?>
-                    !!?!
-                    <?php break;?>
-            <?php endswitch; ?>
-
-            </div>
-            <div class="nav-more">
-                <ul class="user_info">
-                    <li><?=$_SESSION['user_id']?></li>
-                    <li><?=$_SESSION['ip']?></li>
-                </ul>
-                <hr id="nav-more-right">
-            </div>
+            <ul id="nav-right" class="nav-right">
+                <?php foreach ($user_menu as $menu):?>
+                    <li><a href="<?=$menu['herf']?>"><?=$menu['text']?></a></li>
+                <?php endforeach;?>
+            </ul>
+            <a id="toggle_nav_more" class="nav-profile" href="#">
+                <i class="fa <?=$user_icon?>" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="nav-more">
+            <ul class="user_info">
+                <li><?=$_SESSION['user_id']?></li>
+                <li><?=$_SESSION['ip']?></li>
+            </ul>
+            <hr id="nav-more-right">
         </div>
     </div>
 </nav>

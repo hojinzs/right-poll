@@ -66,11 +66,11 @@ nav .nav-wrapper{
 }
 
 nav .nav-brand{
-    padding-left: 10px;
+    padding-left: 1em;
     display: table-cell;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
-    width: 120px;
+    width: 50px;
     word-break: keep-all;
     font-size: 20px;
     font-weight: bolder;
@@ -80,7 +80,7 @@ nav .nav-left{
     display: table-cell;
     text-align: left;
     padding-left: 10px;
-    width: 50%;
+    width: 70%;
 }
 
 nav .nav-left ul{

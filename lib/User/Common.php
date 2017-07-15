@@ -72,7 +72,7 @@ class Common
      public static function setNewUser($email,$nick,$password){
 
          // 패스워드를 SHA256으로 암호화
-         $password = hash('sha256', $password, true);
+         $password = hash('sha256', $password);
 
          // DB Insert
          $query =
@@ -97,4 +97,51 @@ class Common
 
          return "success";
      }
+
+    /**
+    * [getUserPassword description]
+    * @param [type] $email [description]
+    * @return [type] [description]
+    */
+    public static function getUserPassword($email){
+        $query =
+            "SELECT
+                u.password
+            FROM
+                rightpoll.user u
+            WHERE
+                u.email = :email
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+         return $row[0];
+    }
+
+    /**
+    * 유저 데이터 불러오기
+    * @param [type] $email [description]
+    * @return [type] [description]
+    */
+    public static function getUserInfomation($email){
+        $query =
+            "SELECT
+                u.id,
+                u.email,
+                u.nick
+            FROM
+                rightpoll.user u
+            WHERE
+                u.email = :email
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        return $row;
+    }
+
 }

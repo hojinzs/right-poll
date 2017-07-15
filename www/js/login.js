@@ -29,6 +29,7 @@ $(document).ready(function(){
             data: pst_msg,
             success: function(return_msg){
                 alert(return_msg);
+                goBack();
             },
             error:function(request,status,error){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -55,4 +56,19 @@ function pwCrypt(pw,pubkey){
 
     return encoded;
 
+}
+
+
+// 이전 페이지로 이동
+function goBack(){
+    var ref = document.referrer.split('/')[2];
+    var domain = ref.substring(ref.indexOf('.')+1, ref.length);
+    var thisdomain = window.location.hostname;
+
+    if (domain == thisdomain)
+    	window.location.replace(document.referrer);
+    else if (ref == thisdomain)
+    	window.location.replace(document.referrer);
+    else
+    	window.location.replace("http://example.com");
 }

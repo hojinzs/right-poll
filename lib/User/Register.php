@@ -1,7 +1,6 @@
 <?php
 
 namespace User;
-use App;
 
 /**
  * 회원가입 관련 클래스
@@ -22,7 +21,7 @@ class Register
         }
 
         // 인증 코드 생성
-        $code = rand(00000,99999);
+        $code = rand(10000,99999);
         $_SESSION['register']['email'] = $email;
         $_SESSION['register']['issued_code'] = $code;
 
@@ -38,7 +37,7 @@ class Register
         $subject = "공약지킴이 가입 인증 코드";
 
         // 이메일 발송 결과 호출
-        $sendResult = App\Mail::sendMail($subject,$contents,$email,$email);
+        $sendResult = \App\Mail::sendMail($subject,$contents,$email,$email);
 
         // 발송에 성공했다면 success
         if ($sendResult = 'Message sent!') {
@@ -112,7 +111,7 @@ class Register
         if($check_nick == true) return "error:: exist nickname";
 
         // STAGE 3 :: 비밀번호 유효성 확인
-        $check_pw = App\Str::checkPasswordStrength($password);
+        $check_pw = \App\Str::checkPasswordStrength($password);
         if($check_pw == false) return "error:: not strength password";
 
         // 다 통과했다면 새로운 유저 생성
