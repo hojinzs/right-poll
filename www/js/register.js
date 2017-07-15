@@ -5,7 +5,6 @@ $(document).ready(function(){
             success:getPublickKey
         })
 
-
     // '코드발송' 버튼을 눌렀을 경우
     $('#group_email > .wr_form_btn').click(function(){
         sendmail();
@@ -37,7 +36,7 @@ $(document).ready(function(){
         var password = pwCrypt(pw_raw);
 
         //POST 메세지 준비
-        var pst_msg = "nick="+nick+"&password="+password;
+        var pst_msg = "nick="+nick+"&password="+password+"&password_repeat="+pw_rpt;
 
         //ajax 전송
         $.ajax({

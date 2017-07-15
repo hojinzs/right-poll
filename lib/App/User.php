@@ -142,6 +142,40 @@ class User
          }
      }
 
+     /**
+      * 새로운 유저 생성
+      * @param var $email 로그인에 사용할 이메일
+      * @param var $nick 사용할 닉네임
+      * @param var $password 로그인에 사용할 암호
+      */
+     public static function setNewUser($email,$nick,$password){
+
+         // 패스워드를 SHA256으로 암호화
+         $password = hash('sha256', $password, true);
+
+         // DB Insert
+         $query =
+         "INSERT INTO rightpoll.user
+         (
+             email,
+             nick,
+             password
+         )
+         VALUES
+         (
+             :email,
+             :nick,
+             :password
+         )
+         ";
+         $stmt1 = \db()->prepare($query);
+         $stmt1->bindParam(':email', $email);
+         $stmt1->bindParam(':nick', $nick);
+         $stmt1->bindParam(':password',$password);
+         $stmt1->execute();
+
+         return "success";
+     }
 
 
 

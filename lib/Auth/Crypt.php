@@ -60,4 +60,19 @@ class Crypt
 
         return $plaintext;
     }
+
+    /**
+     * CryptoJS로 암호화한 텍스트 디코딩 & 복호화
+     * @param var $pw 브라우저에서 CryptoJS로 암호화한 텍스트
+     * @return var 복호화된 텍스트
+     */
+    public static function decryptCryptoJS($text){
+        //JS에서 BASE64로 인코딩된 텍스트를 한번 디코딩 한다.
+        $decoded = base64_decode($text);
+
+        // rsaDecrypt를 이용해 패스워드 복호화.
+        $password = \Auth\Crypt::rsaDecrypt($decoded);
+
+        return $password;
+    }
 }
