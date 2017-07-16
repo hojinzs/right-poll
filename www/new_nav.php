@@ -7,10 +7,12 @@ switch ($_SESSION['login_type']) {
         # 게스트 유저일 경우 메뉴
         $user_menu = [
             [
+                'id' => "nav_login",
                 'herf' => "/new_login.php",
                 'text' => "로그인"
             ],
             [
+                'id' => "nav_register",
                 'herf' => "/new_register.php",
                 'text' => "회원가입"
             ]
@@ -23,10 +25,12 @@ switch ($_SESSION['login_type']) {
         # 일반 유저일 경우 메뉴
         $user_menu = [
             [
+                'id' => "nav_mypage",
                 'herf' => "/new_mypage.php",
                 'text' => "마이페이지"
             ],
             [
+                'id' => "nav_logout",
                 'herf' => "/new_logout.php",
                 'text' => "로그아웃"
             ]
@@ -60,7 +64,7 @@ switch ($_SESSION['login_type']) {
             </div>
             <ul id="nav-right" class="nav-right">
                 <?php foreach ($user_menu as $menu):?>
-                    <li><a href="<?=$menu['herf']?>"><?=$menu['text']?></a></li>
+                    <li><a id="<?=$menu['id']?>" href="<?=$menu['herf']?>"><?=$menu['text']?></a></li>
                 <?php endforeach;?>
             </ul>
             <a id="toggle_nav_more" class="nav-profile" href="#">

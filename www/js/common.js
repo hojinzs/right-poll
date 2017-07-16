@@ -93,6 +93,22 @@ $(document).ready(function(){
     $('#toggle_nav_more').click(function(){
         $('.nav-more').toggle();
     })
+    
+    $('#nav_logout').click(function(event){
+    	event.preventDefault();
+    	
+    	$.ajax({
+	        url : './pst/user/logout.php',
+	        success : function(data){
+	            location.reload();
+	        },
+	        error:function(request,status,error){
+	            // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		        alert("실패하였습니다");
+	        },
+	    })
+        	
+    })
 
 })
 

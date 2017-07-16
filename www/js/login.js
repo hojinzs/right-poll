@@ -27,9 +27,12 @@ $(document).ready(function(){
             type: "POST",
             url: "/pst/user/login.php",
             data: pst_msg,
-            success: function(return_msg){
-                alert(return_msg);
-                goBack();
+            success: function(return_msg){                
+                if(return_msg == "success"){
+                	goBack();
+                } else {
+                    alert(return_msg);   	
+				}
             },
             error:function(request,status,error){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
