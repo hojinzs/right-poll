@@ -66,7 +66,7 @@ nav .nav-wrapper{
 }
 
 nav .nav-brand{
-    padding-left: 1em;
+    padding-left: 0.5em;
     display: table-cell;
     text-align: left;
     vertical-align: middle;
@@ -80,7 +80,7 @@ nav .nav-left{
     display: table-cell;
     text-align: left;
     padding-left: 10px;
-    width: 70%;
+    width: 100%;
 }
 
 nav .nav-left ul{
@@ -773,6 +773,11 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     header{
         max-height: 250px;
     }
+
+	nav .nav-left{
+		width: 50%;
+	}
+
 
     nav .nav-left span{
         display: inline;
