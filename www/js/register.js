@@ -31,12 +31,20 @@ $(document).ready(function(){
         var pw_rpt = $('#password_repeat').val();
 
         //password와 password 일치 확인
+        if(pw_raw != pw_rpt){
+        	alert("error:: password is not matched!");
+        	return false;
+        }
+        
+        //password strength test (todo)
+        
 
         //password를 암호화한다
         var password = pwCrypt(pw_raw);
+        var password_repeat = pwCrypt(pw_rpt);
 
         //POST 메세지 준비
-        var pst_msg = "nick="+nick+"&password="+password+"&password_repeat="+pw_rpt;
+        var pst_msg = "nick="+nick+"&password="+password+"&password_repeat="+password_repeat;
 
         //ajax 전송
         $.ajax({

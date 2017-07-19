@@ -18,6 +18,10 @@ if(!isset($_POST['password_repeat'])) {echo "error:: repeat password is not sent
 $email = $_SESSION['register']['checked_email'];
 $nick = $_POST['nick'];
 $password = Auth\Crypt::decryptCryptoJS($_POST['password']);
+$password_repeat = Auth\Crypt::decryptCryptoJS($_POST['password_repeat']);
+
+// check password & repeat password matched
+if($password != $password_repeat) {echo "error:: password is not matched!"; return;}
 
 // 회원 가입 정보 제출
 $return = User\Register::setRegister($email,$nick,$password);
