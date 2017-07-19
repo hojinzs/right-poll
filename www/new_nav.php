@@ -18,11 +18,23 @@ switch ($_SESSION['login_type']) {
             ]
         ];
         $user_icon = "fa-user-secret";
+        $user_info = [
+            [
+                'name' => "ID",
+                'value' => $_SESSION['user_id']
+            ],
+            [
+                'name' => "IP",
+                'value' => $_SESSION['ip']
+            ]
+        ];
 
         break;
 
     case 'user':
         # 일반 유저일 경우 메뉴
+        $user = \User\Common::getUserInfomation($_SESSION['user_id']);
+
         $user_menu = [
             [
                 'id' => "nav_mypage",
@@ -36,6 +48,13 @@ switch ($_SESSION['login_type']) {
             ]
         ];
         $user_icon = "fa-user-circle-o";
+        $user_info = [
+            [
+                'name' => "NICK",
+                'value' => $user['nick']
+            ]
+        ];
+
         break;
 
     default:
@@ -73,8 +92,9 @@ switch ($_SESSION['login_type']) {
         </div>
         <div class="nav-more">
             <ul class="user_info">
-                <li><?=$_SESSION['user_id']?></li>
-                <li><?=$_SESSION['ip']?></li>
+                <?php foreach ($user_info as $info):?>
+                    <li id="<?=$info['name']?>"><?=$info['value']?></li>
+                <?php endforeach; ?>
             </ul>
             <hr id="nav-more-right">
         </div>

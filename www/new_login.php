@@ -1,4 +1,7 @@
 <?php require_once __DIR__ . '/../core/init.php';
+// 로그인한 사용자는 사용 불가, 마이페이지로 이동.
+if($_SESSION['login_type']=="user") header("Location:/new_mypage.php");
+
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = "공약지킴이::로그인";
 ?>
@@ -14,7 +17,6 @@ $title = "공약지킴이::로그인";
     <script src="js/login.js"></script>
 
     <link rel="stylesheet" href="style/wr_form.css">
-
 </head>
 
 <BODY>

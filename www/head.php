@@ -65,6 +65,7 @@ if(isset($og['image'])){
 
     <!-- custom css stylesheet -->
     <link rel="stylesheet" href="style/wr_common.css">
+    <link rel="stylesheet" href="style/wr_form.css">
     <link rel="stylesheet" href="style/site.css">
     <link rel="stylesheet" href="style/n_site.css">
     <link rel="stylesheet" href="style/article.css">

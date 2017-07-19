@@ -1,4 +1,6 @@
 <?php require_once __DIR__ . '/../core/init.php';
+// 로그인한 사용자는 사용 불가, 마이페이지로 이동.
+if($_SESSION['login_type']=="user") header("Location:/new_mypage.php");
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = "공약지킴이::회원가입";
@@ -22,8 +24,6 @@ if(isset($_SESSION['register'])){
 
     <script src="js/register.js"></script>
 
-    <link rel="stylesheet" href="style/wr_form.css">
-
 </head>
 <BODY>
 <?php include 'new_nav.php'; ?>
@@ -38,7 +38,6 @@ if(isset($_SESSION['register'])){
             <h1>회원가입</h1>
 
                 <form id="form_register" class="wr_form" action="/pst/register/submit.php" method="post">
-
                     <div id="group_email" class="group_btn">
                         <input class="wr_form_input" name="email" type="email" placeholder="이메일"></input>
                         <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="코드발송"></input>
@@ -47,7 +46,7 @@ if(isset($_SESSION['register'])){
 
                     <div id="group_code" class="group_btn">
                         <input class="wr_form_input" name="code" type="text" placeholder="인증코드 입력(5자리)" maxlength="5"></input>
-                        <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="확인"></input>
+                        <input class="wr_form_btn wr_btn wr_btn_blue" name="code_check" type="button" value="확인"></input>
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
 

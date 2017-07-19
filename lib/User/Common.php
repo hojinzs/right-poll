@@ -7,6 +7,33 @@ namespace User;
  */
 class Common
 {
+
+    /**
+     * 존재하는 USER ID인지 확인
+     * @param var $user_id 유저 아이디
+     * @return bool true=있음/false=없음
+     */
+    public static function getCurrentUserID($user_id){
+        $query =
+            "SELECT
+                u.id
+            FROM
+                rightpoll.user u
+            WHERE
+                u.id = :id
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':id', $user_id);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        if($row == null){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /**
      * 이미 가입한 회원 중 중복된 이메일을 사용하는 회원이 있는지 조회함.
      * @param var $email 이메일 주소
@@ -121,16 +148,14 @@ class Common
     }
 
     /**
-    * 유저 데이터 불러오기
-    * @param [type] $email [description]
-    * @return [type] [description]
-    */
-    public static function getUserInfomation($email){
+     * 이메일 정보로 유저 ID 가져오기
+     * @param var $email 검색할 유저 이메일
+     * @return var 유저 ID
+     */
+    public static function getUserId($email){
         $query =
             "SELECT
-                u.id,
-                u.email,
-                u.nick
+                u.id
             FROM
                 rightpoll.user u
             WHERE
@@ -138,6 +163,29 @@ class Common
             ";
         $stmt = \db()->prepare($query);
         $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        return $row;
+    }
+
+    /**
+    * 유저 데이터 불러오기
+    * @param var $id 불러올 사용자 ID
+    * @return array (email,nick)
+    */
+    public static function getUserInfomation($id){
+        $query =
+            "SELECT
+                u.email,
+                u.nick
+            FROM
+                rightpoll.user u
+            WHERE
+                u.id = :id
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         $row = $stmt->fetch();
 
