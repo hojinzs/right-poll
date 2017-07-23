@@ -8,6 +8,11 @@ $(document).ready(function(){
         }
     })
 
+    $('#form_myinfo').submit(function(){
+        var queryString = $('#form_myinfo').serialize();
+        alert("abc");
+        
+    })
 })
 
 // 패스워드 JS 암호화

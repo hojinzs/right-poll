@@ -52,9 +52,10 @@ class Control
      * @param [type] $id [description]
      * @param [type] $user_id [description]
      * @param [type] $nick [description]
+     * @param [type] $email [description]
      * @return [type] [description]
      */
-    public static function editUserInformation($id,$user_id,$nick){
+    public static function editUserInformation($id,$user_id,$nick,$email){
         // $id가 존재하는 ID인지 확인
         $check_id = \User\Common::getCurrentUserIdx($id);
         if($check_id == false) return "error:: not user!";
@@ -67,6 +68,14 @@ class Control
             // 로그인 ID(user_id)가 이미 사용중인지 확인
             $check_user_id = \User\Common::getCurrentLoginId($user_id);
             if($check_user_id == true) return "error:: exist user id";
+            $switch ++;
+        }
+
+        // 이메일을 바꾸려 하는가?
+        if($origin_info['email']!=$email){
+            // 닉네임(nick)을 이미 사용중인지 확인
+            $check_email = \User\Common::getCurrentUserEmail($email);
+            if($check_email == true) return "error:: exist email";
             $switch ++;
         }
 

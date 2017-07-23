@@ -9,27 +9,18 @@ $myinfo = \User\Common::getUserInfomation($_SESSION['user_id']);
 
 ?>
 
-<form id="myinfo" class="wr_form" action="/pst/user/edit.php" method="post">
+<form id="form_myinfo" class="wr_form" action="/pst/user/edit.php" method="post">
     <h2>회원정보 수정</h2>
-    <input class="wr_form_input" name="userid" hidden="hidden" value="<?=$_SESSION['user_id']?>"></input>
+    <input class="wr_form_input" name="id" hidden="hidden" value="<?=$_SESSION['user_id']?>"></input>
 
-    <div id="group_email" class="group_btn">
-        <input class="wr_form_input" name="email" type="email" placeholder="이메일" value="<?=$myinfo['email']?>"></input>
-        <input class="wr_form_btn wr_btn wr_btn_blue" name="email_send" type="button" value="변경하기"></input>
-        <i class="fa fa-check" aria-hidden="true"></i>
-    </div>
+    <label for="id">ID</label>
+    <input id="user_id" class="wr_form_input" name="user_id" type="text" placeholder="5~20자 (영문)" value="<?=$myinfo['user_id']?>"></input>
 
-    <div id="group_code" class="group_btn">
-        <input class="wr_form_input" name="code" type="text" placeholder="인증코드 입력(5자리)" maxlength="5"></input>
-        <input class="wr_form_btn wr_btn wr_btn_blue" name="email_check" type="button" value="확인"></input>
-        <i class="fa fa-check" aria-hidden="true"></i>
-    </div>
+    <label for="nick">닉네임</label>
+    <input id="nick" class="wr_form_input" name="nick" type="text" placeholder="2~12자 (대소문자/한글)" value="<?=$myinfo['nick']?>"></input>
 
-    <div id="group_nick" class="group_btn">
-        <input class="wr_form_input" name="nick" type="text" placeholder="닉네임" value="<?=$myinfo['nick']?>" ></input>
-        <input class="wr_form_btn wr_btn wr_btn_blue" name="nick_check" type="button" value="중복확인" ></input>
-        <i class="fa fa-check" aria-hidden="true"></i>
-    </div>
+    <label for="email">이메일</label>
+    <input id="email" class="wr_form_input" name="email" type="email" placeholder="이메일 (정보 수신 / 비밀번호 찾기 용도)" value="<?=$myinfo['email']?>"></input>
 
     <input class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="저장"></input>
 </form>
