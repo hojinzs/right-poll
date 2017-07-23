@@ -95,27 +95,31 @@ class Register
 
     /**
      * 회원 가입
-     * @param var $email 가입할 이메일
+     * @param var $id 가입할 회원 아이디
      * @param var $nick 가입할 닉네임
      * @param var $password 로그인시 사용할 비밀번호
      */
-    public static function setRegister($email,$nick,$password){
+    public static function setRegister($id,$nick,$email,$password){
         // $_SESSION['register']가 설정 되어 있는지 확인.
 
-        // STAGE 1 :: 이메일 중복 여부 재확인
-        $check_mail = Common::getCurrentUserEmail($email);
-        if($check_mail == true) return "error:: exist email";
+        // STAGE 1 :: 아이디 중복 여부 확인
+        $check_id = Common::getCurrentLoginId($id);
+        if($check_id == true) return "error: exist user id";
 
-        // STAGE 2 :: 닉네임 중복 여부 재확인
+        // STAGE 2 :: 닉네임 중복 여부 확인
         $check_nick = Common::getCurrentUserNick($nick);
         if($check_nick == true) return "error:: exist nickname";
 
-        // STAGE 3 :: 비밀번호 유효성 확인
+        // STAGE 3 :: 이메일 중복 여부 확인
+        $check_nick = Common::getCurrentUserEmail($email);
+        if($check_nick == true) return "error:: exist email";
+
+        // STAGE 4 :: 비밀번호 유효성 확인
         $check_pw = \App\Str::checkPasswordStrength($password);
         if($check_pw == false) return "error:: not strength password";
 
         // 다 통과했다면 새로운 유저 생성
-        $result = Common::setNewUser($email,$nick,$password);
+        $result = Control::setNewUser($id,$nick,$email,$password);
 
         // 유저 생성 결과가 Success가 아니라면 에러문구 리턴
         if(!$result=="success") return $result;

@@ -1,7 +1,18 @@
+form.wr_form h2{
+    text-align: center;
+}
+
 form.wr_form input{
     margin: 5px 0px;
     font-size: 1em;
     line-height: 1em;
+    box-shadow: none;
+}
+
+form.wr_form label{
+    font-size: 0.8em;
+    margin-top: 0.5em;
+    margin-bottom: 0px;
 }
 
 form.wr_form .wr_form_input{

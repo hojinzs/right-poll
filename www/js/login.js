@@ -12,7 +12,7 @@ $(document).ready(function(){
     $('#login').submit(function(){
 
         // 로그인폼 입력값과 공개키를 가져움.
-        var email = $('#email').val();
+        var id = $('#id').val();
         var pw = $('#password').val();
         var csr = $('#publickey').val();
 
@@ -20,18 +20,18 @@ $(document).ready(function(){
         var crypt_pw = pwCrypt(pw,csr);
 
         // post 메세지 준비
-        pst_msg = "email="+email+"&pw="+crypt_pw;
+        pst_msg = "id="+id+"&pw="+crypt_pw;
 
         // ajax 전송
         $.ajax({
             type: "POST",
             url: "/pst/user/login.php",
             data: pst_msg,
-            success: function(return_msg){                
+            success: function(return_msg){
                 if(return_msg == "success"){
                 	goBack();
                 } else {
-                    alert(return_msg);   	
+                    alert(return_msg);
 				}
             },
             error:function(request,status,error){

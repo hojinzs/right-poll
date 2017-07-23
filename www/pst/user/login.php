@@ -6,11 +6,11 @@
  */
 
 // post 파라미터가 제대로 넘어왔는지 확인
-if (!isset($_POST['email'])) {echo "error:: cannot get email"; return;};
-if (!isset($_POST['pw'])) {echo "error:: cannot get password"; return;};
+if (!isset($_POST['id'])) {echo "error:: id is not sent"; return;};
+if (!isset($_POST['pw'])) {echo "error:: password is not sent"; return;};
 
 // post 파라미터 세팅
-$id = $_POST['email'];
+$id = $_POST['id'];
 $pw = Auth\Crypt::decryptCryptoJS($_POST['pw']);
 
 // login 시도

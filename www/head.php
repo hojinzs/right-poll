@@ -43,11 +43,11 @@ if(isset($og['image'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N7VLQPB');</script>
+    })(window,document,'script','dataLayer','GTM-N7VLQPB');</script> -->
     <!-- End Google Tag Manager -->
 
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -61,7 +61,7 @@ if(isset($og['image'])){
     <link rel="stylesheet" href="css/w3.css">
 
     <!-- Font Awesome intro:: http://fontawesome.io -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
     <!-- custom css stylesheet -->
     <link rel="stylesheet" href="style/wr_common.css">
@@ -71,7 +71,7 @@ if(isset($og['image'])){
     <link rel="stylesheet" href="style/article.css">
 
     <!-- Webfont -->
-    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <!-- <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css"> -->
 
     <!-- 기본 메타정보 -->
     <title><?=$meta['title']?></title>

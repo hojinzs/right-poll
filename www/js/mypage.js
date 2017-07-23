@@ -25,3 +25,33 @@ function pwCrypt(pw,pubkey){
     return encoded;
 
 }
+
+//인증 메일 발송하기
+function sendmail(){
+    var mail = $('#group_email > .wr_form_input').val();
+
+    //ready post message
+    var pst_msg = "email="+mail;
+
+    //ajax POST
+    $.ajax({
+        type: "POST",
+        url: "/pst/register/mail_send.php",
+        data: pst_msg,
+        beforeSend:function(){
+            $('#group_email > .wr_form_btn').prop('disabled', true);
+            $('#group_email > .wr_form_btn').prop('value', "발송중..");
+        },
+        complete: function(){
+            $('#group_email > .wr_form_btn').prop('disabled', false);
+            $('#group_email > .wr_form_btn').prop('value', "코드발송");
+        },
+        success: function(return_msg){
+            alert(return_msg);
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            // alert("실패하였습니다");
+        },
+    })
+}

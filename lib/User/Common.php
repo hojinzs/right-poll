@@ -9,11 +9,11 @@ class Common
 {
 
     /**
-     * 존재하는 USER ID인지 확인
-     * @param var $user_id 유저 아이디
+     * 존재하는 USER idx(번호) 인지 확인
+     * @param var $id 유저 아이디
      * @return bool true=있음/false=없음
      */
-    public static function getCurrentUserID($user_id){
+    public static function getCurrentUserIdx($id){
         $query =
             "SELECT
                 u.id
@@ -23,7 +23,33 @@ class Common
                 u.id = :id
             ";
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':id', $user_id);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        if($row == null){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 존재하는 USER user_id(로그인 아이디)인지 확인
+     * @param var $user_id 유저 아이디
+     * @return bool true=있음/false=없음
+     */
+    public static function getCurrentLoginId($user_id){
+        $query =
+            "SELECT
+                u.id
+            FROM
+                rightpoll.user u
+            WHERE
+                u.user_id = :user_id
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         $row = $stmt->fetch();
 
@@ -90,57 +116,22 @@ class Common
          }
      }
 
-     /**
-      * 새로운 유저 생성
-      * @param var $email 로그인에 사용할 이메일
-      * @param var $nick 사용할 닉네임
-      * @param var $password 로그인에 사용할 암호
-      */
-     public static function setNewUser($email,$nick,$password){
-
-         // 패스워드를 SHA256으로 암호화
-         $password = hash('sha256', $password);
-
-         // DB Insert
-         $query =
-         "INSERT INTO rightpoll.user
-         (
-             email,
-             nick,
-             password
-         )
-         VALUES
-         (
-             :email,
-             :nick,
-             :password
-         )
-         ";
-         $stmt1 = \db()->prepare($query);
-         $stmt1->bindParam(':email', $email);
-         $stmt1->bindParam(':nick', $nick);
-         $stmt1->bindParam(':password',$password);
-         $stmt1->execute();
-
-         return "success";
-     }
-
     /**
     * [getUserPassword description]
     * @param [type] $email [description]
     * @return [type] [description]
     */
-    public static function getUserPassword($email){
+    public static function getUserPassword($login_id){
         $query =
             "SELECT
                 u.password
             FROM
                 rightpoll.user u
             WHERE
-                u.email = :email
+                u.user_id = :login_id
             ";
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':login_id', $login_id);
         $stmt->execute();
         $row = $stmt->fetch();
 
@@ -148,21 +139,21 @@ class Common
     }
 
     /**
-     * 이메일 정보로 유저 ID 가져오기
-     * @param var $email 검색할 유저 이메일
+     * 로그인 ID로 유저 ID 가져오기
+     * @param var $login_id 검색할 유저 이메일
      * @return var 유저 ID
      */
-    public static function getUserId($email){
+    public static function getUserId($login_id){
         $query =
             "SELECT
                 u.id
             FROM
                 rightpoll.user u
             WHERE
-                u.email = :email
+                u.user_id = :user_id
             ";
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':user_id', $login_id);
         $stmt->execute();
         $row = $stmt->fetch();
 
@@ -177,6 +168,7 @@ class Common
     public static function getUserInfomation($id){
         $query =
             "SELECT
+                u.user_id,
                 u.email,
                 u.nick
             FROM
