@@ -33,3 +33,4 @@ $return = User\Register::setRegister($user_id,$nick,$email,$password);
 
 // 회원가입 성공 여부에 따라 return message 세팅
 echo $return;
+return;

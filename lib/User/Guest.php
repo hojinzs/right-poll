@@ -54,6 +54,7 @@ class Guest
         $_SESSION['login_type'] = 'guest';
         $_SESSION['user_id'] = $user_id;
         $_SESSION['user_nick'] = '';
+        $_SESSION['guest_id'] = $user_id;
     }
 
     /**

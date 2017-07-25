@@ -9,9 +9,31 @@ $(document).ready(function(){
     })
 
     $('#form_myinfo').submit(function(){
+
+        // set ajax data
         var queryString = $('#form_myinfo').serialize();
-        alert("abc");
-        
+
+        // ajax POST 전송
+        $.ajax({
+            type: "POST",
+            url: "./pst/user/edit_userinfo.php",
+            data: queryString,
+            success:function(return_msg){
+                if(return_msg=="success"){
+                    // return이 success라면
+                    alert("회원정보가 정상적으로 수정되었습니다.");
+                    location.reload(true);
+                } else {
+                    // return이 success가 아니라면 (서버에서 에러가 있을 경우)
+                    alert(return_msg);
+                }
+            },
+            error:function(request,status,error){
+                // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                alert("실패하였습니다");
+            },
+        })
+        return false;
     })
 })
 

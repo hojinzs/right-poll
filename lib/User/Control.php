@@ -68,6 +68,11 @@ class Control
             // 로그인 ID(user_id)가 이미 사용중인지 확인
             $check_user_id = \User\Common::getCurrentLoginId($user_id);
             if($check_user_id == true) return "error:: exist user id";
+
+            // 로그인 ID가 형식에 맞는지 확인
+            $check_id = \App\Str::checkUserIdVaildation($user_id);
+            if($check_id != true) return "error: user id must be 4~20 character of the alphabet!";
+
             $switch ++;
         }
 

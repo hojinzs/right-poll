@@ -44,7 +44,7 @@ $(document).ready(function(){
         //ajax 전송
         $.ajax({
             type: "POST",
-            url: "/pst/register/submit.php",
+            url: "./pst/register/submit.php",
             data: pst_msg,
             success: function(return_msg){
                 if(return_msg=="success"){

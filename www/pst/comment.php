@@ -19,7 +19,7 @@ if(isset($_POST['parents'])){
 
 // 게스트일 경우 유저 닉네임을 변경
 if ($_SESSION['login_type'] == 'guest') {
-    $user_nick = \App\User::setGuestUserNick($_POST['nickname']);
+    $user_nick = \User\Guest::setGuestUserNick($_POST['nickname']);
 }
 
 // setComment에 코멘트 내용 전달

@@ -96,23 +96,47 @@ class Register
     /**
      * 회원 가입
      * @param var $id 가입할 회원 아이디
-     * @param var $nick 가입할 닉네임
+     * @param var $nick 사용할 닉네임
+     * @param var $email 가입할 이메일
      * @param var $password 로그인시 사용할 비밀번호
      */
     public static function setRegister($id,$nick,$email,$password){
         // $_SESSION['register']가 설정 되어 있는지 확인.
 
-        // STAGE 1 :: 아이디 중복 여부 확인
-        $check_id = Common::getCurrentLoginId($id);
-        if($check_id == true) return "error: exist user id";
+        // STAGE 1 :: 아이디 검증
+        if($id == ""){
+            // 아이디가 빈값일 경우
+            return "error: user id is empty!";
+        } else {
+            // 아이디가 이미 사용중인 아이디인지 확인
+            $check_id = Common::getCurrentLoginId($id);
+            if($check_id == true) return "error: exist user id!";
 
-        // STAGE 2 :: 닉네임 중복 여부 확인
-        $check_nick = Common::getCurrentUserNick($nick);
-        if($check_nick == true) return "error:: exist nickname";
+            // 아이디가 형식에 맞는 아이디인지 확인
+            $check_id = \App\Str::checkUserIdVaildation($id);
+            if($check_id != true) return "error: user id must be 4~20 character of the alphabet!";
+        }
 
-        // STAGE 3 :: 이메일 중복 여부 확인
-        $check_nick = Common::getCurrentUserEmail($email);
-        if($check_nick == true) return "error:: exist email";
+
+        // STAGE 2 :: 닉네임 검증
+        if($nick == ""){
+            // 닉네임이 빈값일 경우
+            return "error: nickname is empty!";
+        } else {
+            // 닉네임이 이미 사용중인 이메일인지 확인
+            $check_nick = Common::getCurrentUserNick($nick);
+            if($check_nick == true) return "error:: exist nickname";
+        }
+
+        // STAGE 3 :: 이메일 검증
+        if($email == ""){
+            // 이메일이 빈 값일 경우
+            return "error: email is empty!";
+        } else {
+            // 이메일이 이미 사용중인 이메일인지 확인
+            $check_nick = Common::getCurrentUserEmail($email);
+            if($check_nick == true) return "error:: exist email";
+        }
 
         // STAGE 4 :: 비밀번호 유효성 확인
         $check_pw = \App\Str::checkPasswordStrength($password);

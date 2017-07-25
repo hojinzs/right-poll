@@ -40,4 +40,18 @@ class Str
         return TRUE;
     }
 
+    /**
+     * 유자 아이디가 형식에 맞는 닉네임인지 체크
+     * @param var $text 체크하고자 하는 닉네임
+     * @return var 체크 성공 여부
+     */
+    public static function checkUserIdVaildation($text){
+
+        // 정규식 일치 여부 확인 (대소문자/숫자 조합, 4~20자리 이내)
+        if(!preg_match("/^([A-Za-z0-9]{4,20})$/",$text)){
+            return FALSE;
+        }
+        return TRUE;
+    }
+
 }

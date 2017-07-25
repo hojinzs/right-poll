@@ -26,14 +26,16 @@ switch ($_SESSION['login_type']) {
             [
                 'name' => "IP",
                 'value' => $_SESSION['ip']
+            ],
+            [
+                'name' => "NICK",
+                'value' => $_SESSION['user_nick']
             ]
         ];
 
         break;
 
     case 'user':
-        # 일반 유저일 경우 메뉴
-        $user = \User\Common::getUserInfomation($_SESSION['user_id']);
 
         $user_menu = [
             [
@@ -51,7 +53,7 @@ switch ($_SESSION['login_type']) {
         $user_info = [
             [
                 'name' => "NICK",
-                'value' => $user['nick']
+                'value' => $_SESSION['user_nick']
             ]
         ];
 

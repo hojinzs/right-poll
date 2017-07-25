@@ -118,7 +118,7 @@ class Common
 
     /**
     * [getUserPassword description]
-    * @param [type] $email [description]
+    * @param [type] $login_id [description]
     * @return [type] [description]
     */
     public static function getUserPassword($login_id){
@@ -157,7 +157,7 @@ class Common
         $stmt->execute();
         $row = $stmt->fetch();
 
-        return $row;
+        return $row['id'];
     }
 
     /**

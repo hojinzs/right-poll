@@ -35,7 +35,7 @@ if(isset($_SESSION['register'])){
         <div class="wr_contents col-md-12">
             <div class="wr_single_wrapper">
 
-                <form id="form_register" name="register" class="wr_form" action="/pst/register/submit.php" method="post">
+                <form id="form_register" name="register" class="wr_form" action="./pst/register/submit.php" method="post">
                     <h2> 회원가입 </h3>
                         <label for="id">ID</label>
                         <input id="id" class="wr_form_input" name="id" type="text" placeholder="5~20자 (영문)"></input>
