@@ -96,3 +96,10 @@ a.wr_btn{
     background: #1F5597;
     border: #15447D 1px solid;
 }
+
+.wr_label.wr_label_gray{
+    color: white;
+    background: #848484;
+    border: #424242 1px solid;
+}
+

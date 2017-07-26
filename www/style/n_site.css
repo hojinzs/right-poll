@@ -542,6 +542,12 @@ textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     margin-top: 0px;
 }
 
+.usertype{
+	font-size: 0.8em;
+	padding: 0.2em;
+	padding-top: 0.1em;
+}
+
 .comment_header .wr_user_ip{
     margin-top: 0.7em;
 }

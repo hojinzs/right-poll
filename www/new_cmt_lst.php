@@ -17,6 +17,15 @@ $cmt_list = [];
 // c_cmt_list['id'] = 'id'에 해당하는 댓글의 대댓글
 foreach ($get_cmts as $tmp_cmt) {
 
+	//check user_type	
+	$tmp_cmt['user_type'] = "user";
+	if(preg_match("/^guest_/", $tmp_cmt['user_id'])){
+		$tmp_cmt['user_type'] = "guest";	
+	}
+
+	//input user_nickname
+	//(later, after edit function query
+
     if ($tmp_cmt['id'] == $tmp_cmt['parents_id']) {
         $cmt_list[$tmp_cmt['id']] = $tmp_cmt;
         $c_cmt_list[$tmp_cmt['parents_id']] = [];
@@ -38,6 +47,7 @@ unset($get_cmts);
         <div class="comment_main">
             <div class="comment_header">
                 <?=$cmt['nick'] ?>
+                	<span class="wr_label wr_label_gray usertype"><?=$cmt['user_type']?></span>
                 <div class="wr_user_ip go_right">
                     <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?=$cmt['ip'] ?>
                 </div>
@@ -74,6 +84,7 @@ unset($get_cmts);
                 <div class="add_comment" data-parent-cmt-id="<?=$c_cmt['parents_id']?>" _id="add_comment_<?=$c_cmt['parents_id'] ?>">
                     <div class="add_comment_header">
                         <?=$c_cmt['nick'] ?>
+                        <span class="wr_label wr_label_gray usertype"><?=$cmt['user_type']?></span>
                         <div class="wr_user_ip go_right">
                             <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><?=$c_cmt['ip'] ?>
                         </div>
