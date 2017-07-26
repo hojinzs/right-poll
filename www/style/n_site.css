@@ -443,6 +443,11 @@ header.home .welcome .fa-check{
 
 }
 
+.wr_nickname{
+	border-bottom: #E6E6E6 1px solid;
+    border-radius: 0px;
+}
+
 .wr_nick_input{
     height: auto;
     line-height: normal;
@@ -470,8 +475,6 @@ header.home .welcome .fa-check{
     outline-style: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-top: #E6E6E6 1px solid;
-    border-radius: 0px;
     resize: none;
 }
 

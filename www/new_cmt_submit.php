@@ -28,6 +28,12 @@ switch ($for) {
         break;
 }
 
+// switch nickname input by login_type
+$hidden = "";
+if($_SESSION['login_type']=='user'){
+	$hidden = "hidden";
+}
+
 ?>
 
 <!-- POST COMMENT -->
@@ -39,11 +45,13 @@ switch ($for) {
             <input type="hidden" id="parents" name="parents" value="<?=$prt_cmt; ?>">
         <?php endif;?>
         <div class="wr_form_comment col-md-10 col-xs-12">
-            <label for="nickname" class="sr-only">닉네임</label>
-            <input id="nickname" class="wr_nick_input" name="nickname" placeholder="닉네임" value="<?=$_SESSION['user_nick']?>">
-            <div class="wr_user_ip go_right">
-                <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
-                <?=$_SESSION['ip'];?>
+        	<div class="wr_nickname" <?=$hidden?>>
+	            <label for="nickname" class="sr-only">닉네임</label>
+	            <input id="nickname" class="wr_nick_input" name="nickname" placeholder="닉네임" value="<?=$_SESSION['user_nick']?>">
+	            <div class="wr_user_ip go_right">
+	                <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+	                <?=$_SESSION['ip'];?>
+	            </div>
             </div>
             <label for="content" class="sr-only">한마디 내용</label>
             <textarea type="text" id="content" name="content" class="wr_comment_input wr_comment_input_<?=$cmt_target?>" rows="4" resize="none" placeholder="나의 한마디"></textarea>
