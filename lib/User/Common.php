@@ -162,10 +162,10 @@ class Common
 
     /**
     * 유저 데이터 불러오기
-    * @param var $id 불러올 사용자 ID
+    * @param var $user_id 불러올 사용자 ID
     * @return array (email,nick)
     */
-    public static function getUserInfomation($id){
+    public static function getUserInfomation($user_id){
         $query =
             "SELECT
                 u.user_id,
@@ -174,10 +174,10 @@ class Common
             FROM
                 rightpoll.user u
             WHERE
-                u.id = :id
+                u.user_id = :user_id
             ";
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         $row = $stmt->fetch();
 

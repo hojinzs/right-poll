@@ -27,15 +27,12 @@ class Login
         // 3. 비밀번호가 해당 회원과 일치하는지 확인
         if(strcmp($user_pw,$input_pw)) return "error:: password is not correct";
 
-        // 4. user id 가져옴
-        $id = Common::getUserId($login_id);
-
         // 5. user infomation 가져옴
-        $user_info = Common::getUserInfomation($id);
+        $user_info = Common::getUserInfomation($login_id);
 
         // 5. 세션에 유저 정보 저장
         $_SESSION['login_type'] = 'user';
-        $_SESSION['user_id'] = $id;
+        $_SESSION['user_id'] = $user_info['user_id'];
         $_SESSION['user_nick'] = $user_info['nick'];
 
         // 6. DB에 유저 로그인 정보 저장
