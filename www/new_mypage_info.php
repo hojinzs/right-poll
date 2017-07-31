@@ -11,10 +11,10 @@ $myinfo = \User\Common::getUserInfomation($_SESSION['user_id']);
 
 <form id="form_myinfo" class="wr_form" action="./pst/user/edit_userinfo.php" method="post">
     <h2>회원정보 수정</h2>
-    <input class="wr_form_input" id="id" name="id" hidden="hidden" value="<?=$_SESSION['user_id']?>"></input>
+    <input class="wr_form_input" id="user_id" name="user_id" hidden="hidden" value="<?=$_SESSION['user_id']?>"></input>
 
-    <label for="user_id">ID</label>
-    <input id="user_id" class="wr_form_input" name="user_id" type="text" placeholder="5~20자 (영문)" value="<?=$myinfo['user_id']?>"></input>
+    <label for="user_id">ID (수정 불가)</label>
+    <input class="wr_form_input" type="text" placeholder="5~20자 (영문)" value="<?=$myinfo['user_id']?>" disabled></input>
 
     <label for="nick">닉네임</label>
     <input id="nick" class="wr_form_input" name="nick" type="text" placeholder="2~12자 (대소문자/한글)" value="<?=$myinfo['nick']?>"></input>
