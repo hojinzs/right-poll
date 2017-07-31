@@ -17,15 +17,18 @@ $cmt_list = [];
 // c_cmt_list['id'] = 'id'에 해당하는 댓글의 대댓글
 foreach ($get_cmts as $tmp_cmt) {
 
-	//check user_type	
+	//check user_type
 	$tmp_cmt['user_type'] = "user";
 	if(preg_match("/^guest_/", $tmp_cmt['user_id'])){
-		$tmp_cmt['user_type'] = "guest";	
+		$tmp_cmt['user_type'] = "guest";
 	}
 
-	//input user_nickname
-	//(later, after edit function query
+    // user일 경우 닉네임을 현재 닉네임으로 설정함.
+    if($tmp_cmt['user_nick'] != NULL){
+        $tmp_cmt['nick'] = $tmp_cmt['user_nick'];
+    }
 
+    // 댓글 재배열
     if ($tmp_cmt['id'] == $tmp_cmt['parents_id']) {
         $cmt_list[$tmp_cmt['id']] = $tmp_cmt;
         $c_cmt_list[$tmp_cmt['parents_id']] = [];

@@ -278,6 +278,7 @@ class Common
             c.parents_id,
             c.user_id,
             c.nick,
+            u.nick 'user_nick',
             c.content,
             c.ip_blind 'ip',
             c.created_at,
@@ -285,6 +286,7 @@ class Common
             ifnull(r.dislke,0) 'dislke'
             FROM rightpoll.comment c
             	LEFT OUTER JOIN rightpoll.comment_rate_c r ON r.cmt_id = c.id
+                LEFT OUTER JOIN rightpoll.user u ON u.user_id = c.user_id
             WHERE c.owner = :type
             AND c.owner_id = :id
             order by c.parents_id desc, c.id asc
