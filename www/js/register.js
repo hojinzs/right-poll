@@ -15,7 +15,7 @@ $(document).ready(function(){
         var publickey = $("#publickey").attr('value');
 
         //form의 내용을 불러옴.
-        var id = $('#id').val();
+        var id = $('#name').val();
         var nick = $('#nick').val();
         var email = $('#email').val();
         var pw_raw = $('#password').val();

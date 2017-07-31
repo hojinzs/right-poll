@@ -12,7 +12,7 @@ $(document).ready(function(){
     $('#login').submit(function(){
 
         // 로그인폼 입력값과 공개키를 가져움.
-        var id = $('#id').val();
+        var id = $('#name').val();
         var pw = $('#password').val();
         var csr = $('#publickey').val();
 

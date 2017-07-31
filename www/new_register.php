@@ -37,14 +37,14 @@ if(isset($_SESSION['register'])){
 
                 <form id="form_register" name="register" class="wr_form" action="./pst/register/submit.php" method="post">
                     <h2> 회원가입 </h3>
-                        <label for="id">ID</label>
-                        <input id="id" class="wr_form_input" name="id" type="text" placeholder="5~20자 (영문)"></input>
+                        <label for="name">ID</label>
+                        <input id="name" class="wr_form_input" name="name" type="text" placeholder="5~20자 (영문)" autocomplete="on" ></input>
 
                         <label for="nick">닉네임</label>
                         <input id="nick" class="wr_form_input" name="nick" type="text" placeholder="2~12자 (대소문자/한글)"></input>
 
                         <label for="email">이메일</label>
-                        <input id="email" class="wr_form_input" name="email" type="email" placeholder="이메일 (정보 수신 / 비밀번호 찾기 용도)"></input>
+                        <input id="email" class="wr_form_input" name="email" type="email" placeholder="이메일 (정보 수신 / 비밀번호 찾기 용도)" ></input>
 
                         <label for="nick">비밀번호</label>
                         <input id="password" class="wr_form_input" name="password" type="password" placeholder="비밀번호 (영문/숫자/특수문자 포함)"></input>

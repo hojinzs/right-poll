@@ -31,8 +31,8 @@ $title = "공약지킴이::로그인";
             <div class="wr_single_wrapper">
                 <h1>로그인</h1>
                     <form id="login" class="wr_form" action="/pst/user/login.php" method="post">
-                        <input id="id" class="wr_form_input" name="id" type="text" placeholder="아이디"></input>
-                        <input id="password" class="wr_form_input" type="password" placeholder="비밀번호"></input>
+                        <input id="name" class="wr_form_input" name="name" type="text" placeholder="아이디" autocomplete="on" ></input>
+                        <input id="password" class="wr_form_input" type="password" placeholder="비밀번호" autocomplete="on" ></input>
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="로그인 >"></input>
                     </form>
                 </div>
