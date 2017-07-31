@@ -55,7 +55,7 @@ class Control
      * @return [type] [description]
      */
     public static function editUserInformation($user_id,$nick,$email){
-        // $id가 존재하는 ID인지 확인
+        // $user_id가 존재하는 ID인지 확인
         $check_id = \User\Common::getCurrentLoginId($user_id);
         if($check_id == false) return "error:: not user!";
 
@@ -98,6 +98,38 @@ class Control
         $stmt->execute();
 
         return "success";
+    }
+
+    /**
+     * 비밀번호 정보 수정
+     * @param var $user_id 비밀번호를 수정할 유저 아이디
+     * @param var $password 수정할 비밀번호
+     * @return var success=성공
+     */
+    public static function setUserPassword($user_id,$password){
+        //STEP1. user가 존재하는지 확인
+        $check_id = \User\Common::getCurrentLoginId($user_id);
+        if($check_id == false) return "error:: not user!";
+
+        //STEP2. 변경할 패스워드를 해시로 변경
+        $password = hash('sha256', $password);
+
+        //STEP2. 문제가 없으면 패스워드 변경
+        $query =
+            "UPDATE
+                rightpoll.user
+            SET
+                password=:password
+            WHERE
+                user_id=:user_id
+            ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+
+        return "success";
+
     }
 
 }

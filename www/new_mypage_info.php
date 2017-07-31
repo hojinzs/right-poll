@@ -8,11 +8,13 @@
 $myinfo = \User\Common::getUserInfomation($_SESSION['user_id']);
 
 ?>
+<div class="hidden" >
+    <input id="publickey" style="display:none"></input>
+</div>
 
 <form id="form_myinfo" class="wr_form" action="./pst/user/edit_userinfo.php" method="post">
-    <h2>회원정보 수정</h2>
     <input class="wr_form_input" id="user_id" name="user_id" hidden="hidden" value="<?=$_SESSION['user_id']?>"></input>
-
+    <h2>회원정보 수정</h2>
     <label for="user_id">ID (수정 불가)</label>
     <input class="wr_form_input" type="text" placeholder="5~20자 (영문)" value="<?=$myinfo['user_id']?>" disabled></input>
 
@@ -25,9 +27,11 @@ $myinfo = \User\Common::getUserInfomation($_SESSION['user_id']);
     <input class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="저장"></input>
 </form>
 
-<form id="password" class="wr_form" action="/pst/user/edit.php" method="post">
+<form id="form_pw" class="wr_form" action="/pst/user/edit.php" method="post">
+    <input id="pw_user_id" class="wr_form_input" name="user_id" hidden="hidden" value="<?=$_SESSION['user_id']?>"></input>
+
     <h2>비밀번호 수정</h2>
     <input id="password" class="wr_form_input" name="password" type="password" placeholder="비밀번호"></input>
     <input id="password_repeat" class="wr_form_input" type="password" placeholder="비밀번호 확인"></input>
-    <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="저장"></input>
+    <input class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="저장"></input>
 </form>
