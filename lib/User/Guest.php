@@ -42,12 +42,12 @@ class Guest
         //user_id 저장
         $query =
             "UPDATE rightpoll.user_guest
-                SET user_id =:id
-            WHERE id=:where_id;
+                SET user_id =:user_id
+            WHERE idx=:idx;
             ";
         $stmt1 = \db()->prepare($query);
-        $stmt1->bindParam(':id', $user_id);
-        $stmt1->bindParam(':where_id', $pstd);
+        $stmt1->bindParam(':user_id', $user_id);
+        $stmt1->bindParam(':idx', $pstd);
         $stmt1->execute();
 
         // 세션에 게스트 유저 정보 저장
