@@ -49,32 +49,18 @@ class Control
 
     /**
      * 유저 정보 수정
-     * @param [type] $id [description]
      * @param [type] $user_id [description]
      * @param [type] $nick [description]
      * @param [type] $email [description]
      * @return [type] [description]
      */
-    public static function editUserInformation($id,$user_id,$nick,$email){
+    public static function editUserInformation($user_id,$nick,$email){
         // $id가 존재하는 ID인지 확인
-        $check_id = \User\Common::getCurrentUserIdx($id);
+        $check_id = \User\Common::getCurrentLoginId($user_id);
         if($check_id == false) return "error:: not user!";
 
-        $origin_info = \User\Common::getUserInfomation($id);
+        $origin_info = \User\Common::getUserInfomation($user_id);
         $switch = 0;
-
-        // 로그인 ID(user_id)를 바꾸려 하는가?
-        if($origin_info['user_id']!=$user_id){
-            // 로그인 ID(user_id)가 이미 사용중인지 확인
-            $check_user_id = \User\Common::getCurrentLoginId($user_id);
-            if($check_user_id == true) return "error:: exist user id";
-
-            // 로그인 ID가 형식에 맞는지 확인
-            $check_id = \App\Str::checkUserIdVaildation($user_id);
-            if($check_id != true) return "error: user id must be 4~20 character of the alphabet!";
-
-            $switch ++;
-        }
 
         // 이메일을 바꾸려 하는가?
         if($origin_info['email']!=$email){
@@ -100,14 +86,14 @@ class Control
             "UPDATE
                 rightpoll.user
             SET
-                user_id=:user_id,
-                nick=:nick
+                nick=:nick,
+                email=:email
             WHERE
-            	id=:id
+            	user_id=:user_id
             ";
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':id', $id);
         $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':email', $email);
         $stmt->bindParam(':nick', $nick);
         $stmt->execute();
 

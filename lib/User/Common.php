@@ -10,20 +10,20 @@ class Common
 
     /**
      * 존재하는 USER idx(번호) 인지 확인
-     * @param var $id 유저 아이디
+     * @param var $idx 유저 아이디
      * @return bool true=있음/false=없음
      */
-    public static function getCurrentUserIdx($id){
+    public static function getCurrentUserIdx($idx){
         $query =
             "SELECT
-                u.id
+                u.idx
             FROM
                 rightpoll.user u
             WHERE
-                u.id = :id
+                u.idx = :idx
             ";
         $stmt = \db()->prepare($query);
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':idx', $idx);
         $stmt->execute();
         $row = $stmt->fetch();
 
@@ -42,7 +42,7 @@ class Common
     public static function getCurrentLoginId($user_id){
         $query =
             "SELECT
-                u.id
+                u.idx
             FROM
                 rightpoll.user u
             WHERE
@@ -70,7 +70,7 @@ class Common
         // DB에서 $email과 동일한 이메일을 사용하는 회원 조회
         $query =
             "SELECT
-                u.id
+                u.idx
             FROM
                 rightpoll.user u
             WHERE
@@ -98,7 +98,7 @@ class Common
          // DB에서 $email과 동일한 닉네임을 사용하는 회원 조회
          $query =
              "SELECT
-                 u.id
+                 u.idx
              FROM
                  rightpoll.user u
              WHERE
@@ -146,7 +146,7 @@ class Common
     public static function getUserId($login_id){
         $query =
             "SELECT
-                u.id
+                u.idx
             FROM
                 rightpoll.user u
             WHERE
@@ -157,7 +157,7 @@ class Common
         $stmt->execute();
         $row = $stmt->fetch();
 
-        return $row['id'];
+        return $row['idx'];
     }
 
     /**

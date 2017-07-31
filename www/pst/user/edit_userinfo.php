@@ -8,13 +8,11 @@
  */
 
 // post 파라미터가 제대로 넘어왔는지 확인
-if (!isset($_POST['id'])) {echo "error:: id is not sent!"; return;}
 if (!isset($_POST['user_id'])) {echo "error:: id is not sent!"; return;}
 if (!isset($_POST['nick'])) {echo "error:: nickname is is not sent!"; return;}
 if (!isset($_POST['email'])) {echo "error:: email is not sent!"; return;}
 
 // post 파라미터 세팅
-$id = $_POST['id'];
 $user_id = $_POST['user_id'];
 $nick = $_POST['nick'];
 $email = $_POST['email'];
@@ -23,7 +21,7 @@ $email = $_POST['email'];
 // if($id!=$_SESSION['user_id']) {echo "error:: user is differnt"; return;}
 
 // 수정 시도
-$result = \User\Control::editUserInformation($id,$user_id,$nick,$email);
+$result = \User\Control::editUserInformation($user_id,$nick,$email);
 
 // 유저 정보 수정 실패시 메시지 반환
 if($result == "success"){

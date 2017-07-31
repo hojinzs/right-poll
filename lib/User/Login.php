@@ -36,8 +36,22 @@ class Login
         $_SESSION['user_nick'] = $user_info['nick'];
 
         // 6. DB에 유저 로그인 정보 저장
+        $query = "INSERT INTO rightpoll.log_login
+        (
+            ip,
+            user_id
+        )
+        VALUES
+        (
+            :ip,
+            :user_id
+        )
+        ";
 
-
+        $stmt1 = \db()->prepare($query);
+        $stmt1->bindParam(':ip', $_SESSION['ip']);
+        $stmt1->bindParam(':user_id',$user_info['user_id']);
+        $stmt1->execute();
 
         // success
         return "success";
