@@ -183,5 +183,72 @@ class Common
 
         return $row;
     }
+    
+    /**
+     * 인증 이메일 발송
+     * @param var $email 인증메일을 발송할 이메일
+     * @return var 발송 결과(success,fail,error:: exist email)
+     */
+    public static function sendVerifiyEmail($email){
+
+        // 인증 코드 생성
+        $code = rand(10000,99999);
+        $_SESSION['findpw']['email'] = $email;
+        $_SESSION['findpw']['issued_code'] = $code;
+
+        // 이메일 발송 준비
+        $contents = "
+        공약지킴이 인증 메일<br>
+        <h1>보안 코드</h1><br>
+        다음 보안코드를 사용해 비미ㄹ버ㄴ호 차ㅈ기르ㄹ 진행해주세요.<br>
+        보안 코드: <b>".$code."</b><br>
+        <br>
+        감사합니다.<br>
+        ";
+        $subject = "공약지킴이 가입 인증 코드";
+
+        // 이메일 발송 결과 호출
+        $sendResult = \App\Mail::sendMail($subject,$contents,$email,$email);
+
+        // 발송에 성공했다면 success
+        if ($sendResult = 'Message sent!') {
+            return 'success';
+        }
+
+        // 발송 결과가 success가 아니라면, 발송 에러를 출력한다.
+        return $sendResult;
+    }
+
+    /**
+     * 입력한 인증코드가 발급된 인증코드와 일치하는지 확인
+     * @param var $code 입력된 인증코드
+     * @param var $email Email for Verify
+     * @return var {success} or {error:: message}
+     */
+    public static function matchVerifyCode($code,$email){
+
+        // 세션에 register_code가 발급 되었는지 확인
+        if(!isset($_SESSION['findpw']['issued_code'])){return "error:: register_code is not issued";}
+        if(!isset($_SESSION['findpw']['email'])){return "error:: email is not issued";}
+		
+		// 입력된 email이 $issued_email 일치하는지 체크
+        $inputEmail = $email;
+        $issuedEmail = $_SESSION['findpw']['email'];
+        if($inputEmail != $issuedEmail){
+            # 일치하지 않을 경우 error
+            return "error:: email is not matched";
+        }
+
+        // 입력된 코드가 issued_code와 일치하는지 체크
+        $inputCode = $code;
+        $issuedCode = $_SESSION['findpw']['issued_code'];
+        if($inputCode != $issuedCode){
+            # 일치하지 않을 경우 error
+            return "error:: register_code is not matched";
+        }
+        
+        return "success";
+    }
+
 
 }

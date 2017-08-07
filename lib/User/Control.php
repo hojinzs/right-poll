@@ -96,7 +96,8 @@ class Control
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':nick', $nick);
         $stmt->execute();
-
+		
+		
         return "success";
     }
 

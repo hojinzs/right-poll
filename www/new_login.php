@@ -35,6 +35,9 @@ $title = "공약지킴이::로그인";
                         <input id="password" class="wr_form_input" type="password" placeholder="비밀번호" autocomplete="on" ></input>
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="로그인 >"></input>
                     </form>
+                    <a href="/new_findid.php">Find Login ID</a>
+                    |
+	                <a href="/new_findpw.php">Find Password</a>
                 </div>
         </div>
     </div>

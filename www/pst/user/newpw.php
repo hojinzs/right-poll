@@ -16,13 +16,19 @@ $user_id = $_POST['user_id'];
 $password = Auth\Crypt::decryptCryptoJS($_POST['password']);
 $password_repeat = Auth\Crypt::decryptCryptoJS($_POST['password_repeat']);
 
-// 요청ID 와 세션ID가 일치하는지 확인
-if($user_id != $_SESSION['user_id']) {echo "error:: user is differnt"; return;}
+// todo:: Check Session, User has a Permission to Change Password
+if($user_id != $_SESSION['findpw']['user_id']) {
+	
+	// 요청ID 와 세션ID가 일치하는지 확인
+	if($user_id != $_SESSION['user_id']) {echo "error:: user is differnt"; return;}	
+}
 
 // 비밀번호가 일치하는지 확인
 if($password != $password_repeat) {echo "error:: password is not matched!"; return;}
 
 $result = \User\Control::setUserPassword($user_id,$password);
+
+// todo:: Destroy Permission to Change Password in User Session Data
 
 // 유저 정보 수정 실패시 메시지 반환
 if($result!="success"){

@@ -14,12 +14,6 @@ class Register
      */
     public static function sendVerifiyEmail($email){
 
-        // 이미 해당 메일로 가입한 회원이 있는지 확인한다.
-        $mailcheck = Common::getCurrentUserEmail($email);
-        if($mailcheck == true){
-            return "error:: exist email";
-        }
-
         // 인증 코드 생성
         $code = rand(10000,99999);
         $_SESSION['register']['email'] = $email;
