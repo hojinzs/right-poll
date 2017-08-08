@@ -1,11 +1,11 @@
 # Dump of table user
 # ------------------------------------------------------------
 
-ALTER TABLE rightpoll.user
+ALTER TABLE user
 CHANGE id idx int(11) unsigned NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE rightpoll.user_guest
+ALTER TABLE user_guest
 CHANGE id idx int(11) unsigned NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE rightpoll.log_login
+ALTER TABLE log_login
 CHANGE user_idx user_id varchar(20);
