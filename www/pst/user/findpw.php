@@ -43,12 +43,17 @@ $_SESSION['findpw']['target_user_id'] = $id;
 echo "success";
 return;
 
+<<<<<<< HEAD
 /**
  * 회원가입 여부 확인
  * @param  [var] $user_id [유저 아이디]
  * @param  [var] $email   [이메일]
  * @return [var]          [success(유효함.) Error:: cannot find user information]
  */
+=======
+// Function
+
+>>>>>>> Develop
 function checkEmailAvailable($user_id,$email){
 	//1. Get Userdata for $user_id
 	$user = \User\Common::getUserInfomation($user_id);

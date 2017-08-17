@@ -35,9 +35,15 @@ $title = "공약지킴이::로그인";
                         <input id="password" class="wr_form_input" type="password" placeholder="비밀번호" autocomplete="on" required></input>
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="로그인 >"></input>
                     </form>
+<<<<<<< HEAD
                     <a href="/fogot/id">ID 찾기</a>
                     |
 	                <a href="/fogot/pw">비밀번호 찾기</a>
+=======
+                    <a href="/new_findid.php">ID 찾기</a>
+                    |
+	                <a href="/new_findpw.php">비밀번호 찾기</a>
+>>>>>>> Develop
                 </div>
         </div>
     </div>
