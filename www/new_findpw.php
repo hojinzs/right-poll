@@ -39,8 +39,8 @@ $_SESSION['findpw']['user_id'] = "";
             	<div id="findpw_1">
 	                <h1>Enter  your ID and E-Mail</h1>
                     <form id="findpw1" class="wr_form" action="/pst/user/findpw.php" method="post">
-                        <input id="name" class="wr_form_input" name="name" type="text" placeholder="아이디" autocomplete="on" ></input>
-                        <input id="email" class="wr_form_input" type="email" placeholder="이메이ㄹ" autocomplete="on" ></input>
+                        <input id="name" class="wr_form_input" name="name" type="text" placeholder="아이디" autocomplete="on" required></input>
+                        <input id="email" class="wr_form_input" type="email" placeholder="이메일" autocomplete="on" required></input>
                         
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="check >"></input>
                     </form>

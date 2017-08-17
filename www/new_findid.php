@@ -24,7 +24,7 @@ $title = "공약지킴이::Find ID";
             	<div id="find_id">
 	                <h1>Enter your E-Mail</h1>
                     <form id="findid" class="wr_form" action="/pst/user/findid.php" method="post">
-                        <input id="email" class="wr_form_input" type="email" placeholder="이메이ㄹ" autocomplete="on" ></input>
+                        <input id="email" class="wr_form_input" type="email" placeholder="이메일" autocomplete="on" required></input>
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="check >"></input>
                     </form>
                 </div>

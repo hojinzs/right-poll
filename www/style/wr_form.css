@@ -13,6 +13,7 @@ form.wr_form label{
     font-size: 0.8em;
     margin-top: 0.5em;
     margin-bottom: 0px;
+    display: block;
 }
 
 form.wr_form .wr_form_input{
