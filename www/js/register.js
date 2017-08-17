@@ -48,7 +48,7 @@ $(document).ready(function(){
             data: pst_msg,
             success: function(return_msg){
                 if(return_msg=="success"){
-                    location.href = '/new_login.php';
+                    location.href = '/login';
                 }
                 alert(return_msg);
             },

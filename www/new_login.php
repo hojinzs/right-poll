@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../core/init.php';
 // 로그인한 사용자는 사용 불가, 마이페이지로 이동.
-if($_SESSION['login_type']=="user") header("Location:/new_mypage.php");
+if($_SESSION['login_type']=="user") header("Location:/mypage");
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = "공약지킴이::로그인";
@@ -31,13 +31,13 @@ $title = "공약지킴이::로그인";
             <div class="wr_single_wrapper">
                 <h1>로그인</h1>
                     <form id="login" class="wr_form" action="/pst/user/login.php" method="post">
-                        <input id="name" class="wr_form_input" name="name" type="text" placeholder="아이디" autocomplete="on" ></input>
-                        <input id="password" class="wr_form_input" type="password" placeholder="비밀번호" autocomplete="on" ></input>
+                        <input id="name" class="wr_form_input" name="name" type="text" placeholder="아이디" autocomplete="on" required></input>
+                        <input id="password" class="wr_form_input" type="password" placeholder="비밀번호" autocomplete="on" required></input>
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="로그인 >"></input>
                     </form>
-                    <a href="/new_findid.php">Find Login ID</a>
+                    <a href="/fogot/id">ID 찾기</a>
                     |
-	                <a href="/new_findpw.php">Find Password</a>
+	                <a href="/fogot/pw">비밀번호 찾기</a>
                 </div>
         </div>
     </div>

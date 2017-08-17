@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../core/init.php';
 // guest user는 사용 불가
-if($_SESSION['login_type']!="user") header("Location:/new_login.php");
-if(!isset($_SESSION['user_id'])) header("Location:/404.php");
+if($_SESSION['login_type']!="user") header("Location:/login");
+if(!isset($_SESSION['user_id'])) header("Location:/404");
 
 // 기본 메타데이터 (타이틀, 설명) 세팅
 $title = "공약지킴이::마이페이지";

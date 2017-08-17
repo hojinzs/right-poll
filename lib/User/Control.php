@@ -55,6 +55,10 @@ class Control
      * @return [type] [description]
      */
     public static function editUserInformation($user_id,$nick,$email){
+        // 빈 값 확인
+        if($nick == "") return "error:: nickname is empty";
+        if($email == "") return "error:: email is empty";
+
         // $user_id가 존재하는 ID인지 확인
         $check_id = \User\Common::getCurrentLoginId($user_id);
         if($check_id == false) return "error:: not user!";
@@ -96,8 +100,8 @@ class Control
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':nick', $nick);
         $stmt->execute();
-		
-		
+
+
         return "success";
     }
 
@@ -108,6 +112,9 @@ class Control
      * @return var success=성공
      */
     public static function setUserPassword($user_id,$password){
+        // 빈 값 확인
+        if($password == "") return "error:: password is empty";
+
         //STEP1. user가 존재하는지 확인
         $check_id = \User\Common::getCurrentLoginId($user_id);
         if($check_id == false) return "error:: not user!";

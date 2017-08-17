@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $('#findid').submit(function(){
-		
+
 		var email = $('#findid > #email').val();
 
 	    //ready post message
@@ -23,8 +23,8 @@ $(document).ready(function(){
 	        success: function(return_msg){
 	            if (return_msg == "success") {
 	            	alert("success!!");
-	            	location.href = '/new_login.php';
-	            } else {	            	
+	            	location.href = '/login';
+	            } else {
 	            	alert(return_msg);
 	            }
 	        },
@@ -33,8 +33,8 @@ $(document).ready(function(){
 	        	// alert("실패하였습니다");
 	        }
         })
-	    
+
         return false;
     })
-    
+
 })

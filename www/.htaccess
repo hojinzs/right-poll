@@ -4,14 +4,16 @@
 ## Turn mod_rewrite on
 
 <IfModule mod_rewrite.c>
+    DirectoryIndex ./new_home.php
+    ErrorDocument 404 /404.php
+
     RewriteEngine On
 
-    ## RewriteCond %{REQUEST_FILENAME} !-f // 나중을 위한 라우팅 옵션
-    ## RewriteRule ^ Route.php [QSA,L]  // 나중을 위한 라우팅 옵션
-
-    DirectoryIndex ./new_home.php
-
-    ErrorDocument 404 /404.php
+    RewriteRule ^/?login /new_login.php
+    RewriteRule ^/?register /new_register.php
+    RewriteRule ^/?fogot/?id /new_findid.php
+    RewriteRule ^/?fogot/?pw /new_findpw.php
+    RewriteRule ^/?mypage /new_mypage.php
 
     RewriteRule ^/?el/([A-Za-z0-9]+)$ ./new_states.php?id=$1
     RewriteRule ^/?el/([A-Za-z0-9]+)/?comment$ ./new_states.php?id=$1&mnu=cmt

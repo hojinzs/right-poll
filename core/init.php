@@ -28,7 +28,7 @@ function getUserInfo(){
         # login 상태가 아니라면
         $_SESSION['id'] = $id;
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-        User\Guest::setNewGuestUser();
+        \User\Guest::setNewGuestUser();
     }
 }
 

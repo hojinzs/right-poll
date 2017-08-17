@@ -6,8 +6,14 @@
  */
 
 // post 파라미터가 제대로 넘어왔는지 확인
-if (!isset($_POST['user_id'])) {echo "error:: user_id is not sent"; return;};
-if (!isset($_POST['email'])) {echo "error:: email is not sent"; return;};
+if (!isset($_POST['user_id'])) {
+    echo "error:: user_id is not sent";
+    return;
+}
+if (!isset($_POST['email'])) {
+    echo "error:: email is not sent";
+    return;
+};
 
 // post 파라미터 세팅
 $id = $_POST['user_id'];
@@ -23,7 +29,7 @@ if($result!="success"){
 }
 
 // Send Verify Email
-$result = \User\Common::sendVerifiyEmail($email);
+$result = \User\Common::sendFogotPasswordEmail($email);
 
 // Send Email 실패시 에러 메시지 반환
 if($result!="success"){
@@ -31,13 +37,18 @@ if($result!="success"){
     return;
 }
 
+// 세션에 타겟 유저 ID 저장
 $_SESSION['findpw']['target_user_id'] = $id;
 
 echo "success";
 return;
 
-// Function 
-
+/**
+ * 회원가입 여부 확인
+ * @param  [var] $user_id [유저 아이디]
+ * @param  [var] $email   [이메일]
+ * @return [var]          [success(유효함.) Error:: cannot find user information]
+ */
 function checkEmailAvailable($user_id,$email){
 	//1. Get Userdata for $user_id
 	$user = \User\Common::getUserInfomation($user_id);
@@ -46,13 +57,13 @@ function checkEmailAvailable($user_id,$email){
 	if($user==NULL){
 		return "Error:: cannot find user information";
 	}
-	
-	//3. Check Email 
+
+	//3. Check Email
 	if($user['email']!=$email){
 		return "Error:: cannot find user information";
 	}
-	
+
 	//4. return Success
 	return "success";
-	
+
 };

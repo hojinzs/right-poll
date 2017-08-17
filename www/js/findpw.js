@@ -8,12 +8,12 @@ $(document).ready(function(){
         }
     })
 
-    $('#findpw_1').show();    
+    $('#findpw_1').show();
     $('#findpw_2').hide();
     $('#findpw_3').hide();
 
     $('#findpw1').submit(function(){
-		
+
 		var user_id = $('#findpw1 > #name').val();
 		var email = $('#findpw1 > #email').val();
 
@@ -34,12 +34,12 @@ $(document).ready(function(){
 	            $('#findpw1 > #submit').prop('value', "코드발송");
 	        },
 	        success: function(return_msg){
-	            
+
 	            if (return_msg == "success") {
 	            	// Show Next Step
-	            	$('#findpw_1').hide();    
+	            	$('#findpw_1').hide();
 	            	$('#findpw_2').show();
-	            } else {	            	
+	            } else {
 	            	alert(return_msg);
 	            }
 	        },
@@ -47,20 +47,20 @@ $(document).ready(function(){
 		        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
             // alert("실패하였습니다");
         },
-        
+
         })
-	    
+
         return false;
     })
 
 	$('#findpw2').submit(function(){
-		
+
 		var code = $('#findpw2 > #code').val();
 		var email = $('#findpw1 > #email').val();
 
 	    //ready post message
 	    var pst_msg = "code="+code+"&email="+email;
-				
+
 		// Send Verify Code for Check
 		 $.ajax({
             type: "POST",
@@ -69,11 +69,11 @@ $(document).ready(function(){
             success:function(return_msg){
                 if(return_msg=="success"){
                     // return이 success라면
-                    
+
                     // Show Next Step
                     $('#findpw_2').hide();
                     $('#findpw_3').show();
-                    
+
                 } else {
                     // return이 success가 아니라면 (서버에서 에러가 있을 경우)
                     alert(return_msg);
@@ -84,12 +84,12 @@ $(document).ready(function(){
                 alert("실패하였습니다");
             },
         })
-		
+
 		return false;
 	})
-	
+
 	$('#findpw3').submit(function(){
-		
+
 		var publickey = $("#publickey").attr('value');
 
         // set ajax data
@@ -126,7 +126,7 @@ $(document).ready(function(){
                 if(return_msg=="success"){
                     // return이 success라면
                     alert("비밀번호가 정상적으로 수정되었습니다.");
-                    location.href = '/new_login.php';
+                    location.href = '/login';
                 } else {
                     // return이 success가 아니라면 (서버에서 에러가 있을 경우)
                     alert(return_msg);
@@ -138,9 +138,9 @@ $(document).ready(function(){
             },
         })
         return false;
-		
+
 	})
-	
+
 })
 
 // 패스워드 JS 암호화

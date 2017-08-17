@@ -15,6 +15,9 @@ class Login
      * @return var "success" or "error::reason"
      */
     public static function userLogin($login_id,$pw){
+        // 0. 빈 값 확인
+        if($login_id == "") return "error: login_id is empty!";
+        if($pw == "") return "error: password is empty!";
 
         // 1. 아이디가 존재하는지 확인
         $mailcheck = Common::getCurrentLoginId($login_id);

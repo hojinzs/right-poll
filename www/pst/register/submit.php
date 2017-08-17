@@ -16,9 +16,9 @@ if(!isset($_POST['password'])) {echo "error:: password is not sent!"; return;}
 if(!isset($_POST['password_repeat'])) {echo "error:: repeat password is not sent!"; return;}
 
 // 데이터 세팅
-$user_id = $_POST['id'];
+$user_id = strtolower($_POST['id']);
 $nick = $_POST['nick'];
-$email = $_POST['email'];
+$email = strtolower($_POST['email']);
 $password = \Auth\Crypt::decryptCryptoJS($_POST['password']);
 $password_repeat = \Auth\Crypt::decryptCryptoJS($_POST['password_repeat']);
 

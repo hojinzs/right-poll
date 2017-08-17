@@ -8,12 +8,12 @@ switch ($_SESSION['login_type']) {
         $user_menu = [
             [
                 'id' => "nav_login",
-                'herf' => "/new_login.php",
+                'herf' => "/login",
                 'text' => "로그인"
             ],
             [
                 'id' => "nav_register",
-                'herf' => "/new_register.php",
+                'herf' => "/register",
                 'text' => "회원가입"
             ]
         ];
@@ -40,12 +40,12 @@ switch ($_SESSION['login_type']) {
         $user_menu = [
             [
                 'id' => "nav_mypage",
-                'herf' => "/new_mypage.php",
+                'herf' => "/mypage",
                 'text' => "마이페이지"
             ],
             [
                 'id' => "nav_logout",
-                'herf' => "/new_logout.php",
+                'herf' => "/logout",
                 'text' => "로그아웃"
             ]
         ];
