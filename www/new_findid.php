@@ -19,16 +19,17 @@ $title = "공약지킴이::Find ID";
     <div class="row">
         <div class="wr_contents col-md-12">
             <div class="wr_single_wrapper">
-            	
+
             	<!-- Enter Email for send ID -->
             	<div id="find_id">
-	                <h1>Enter your E-Mail</h1>
+	                <h1>이메일을 입력해주세요.</h1>
+                    <p>회원 정보가 있다면 이메일이 발송됩니다.</p>
                     <form id="findid" class="wr_form" action="/pst/user/findid.php" method="post">
                         <input id="email" class="wr_form_input" type="email" placeholder="이메일" autocomplete="on" required></input>
                         <input id="submit" class="wr_form_btn wr_btn wr_btn_blue" type="submit" value="check >"></input>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>

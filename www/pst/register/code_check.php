@@ -5,7 +5,8 @@
 
 //POST 데이터(code={code})가 제대로 전달 되었는지 확인
 if(!isset($_POST['code'])){
-    return "error:: 'code'is not sent!";
+    echo "error:: code is not sent!";
+    return;
 }
 
 echo \User\Register::matchVerifyCode($_POST['code']);

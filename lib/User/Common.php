@@ -183,13 +183,13 @@ class Common
 
         return $row;
     }
-    
+
     /**
-     * 인증 이메일 발송
+     * 비밀번호 찾기 인증 이메일 발송
      * @param var $email 인증메일을 발송할 이메일
      * @return var 발송 결과(success,fail,error:: exist email)
      */
-    public static function sendVerifiyEmail($email){
+    public static function sendFogotPasswordEmail($email){
 
         // 인증 코드 생성
         $code = rand(10000,99999);
@@ -199,8 +199,8 @@ class Common
         // 이메일 발송 준비
         $contents = "
         공약지킴이 인증 메일<br>
-        <h1>보안 코드</h1><br>
-        다음 보안코드를 사용해 비미ㄹ버ㄴ호 차ㅈ기르ㄹ 진행해주세요.<br>
+        <h1>인증코드</h1><br>
+        다음 인증코드를 사용해 비밀번호 재설정을 진행해주세요.<br>
         보안 코드: <b>".$code."</b><br>
         <br>
         감사합니다.<br>
@@ -220,6 +220,61 @@ class Common
     }
 
     /**
+     * 아이디 찾기 이메일 발송하기
+     * @param  var $email 아이디를 발송할 이메일(회원)
+     * @return var        success(성공), error::Message
+     */
+    public static function sendIdentifyEmail($email){
+        //0. 빈 값 확인
+        if($email==""){
+            return "error:: email is empty";
+        }
+
+    	//1. 유저 정보 조회
+        $query =
+        "SELECT
+            u.user_id
+        FROM
+            rightpoll.user u
+        WHERE
+            u.email = :email
+        ";
+        $stmt = \db()->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+    	//2. 조회된 유저 정보가 없는가?
+    	if($row['user_id'] == NULL){
+    		return "Error:: cannot find user information";
+    	}
+
+    	//3. 이메일 발송
+    	$user_id = $row['user_id'];
+
+    	    $contents = "
+    	    공약지킴이 인증 메일<br>
+    	    <h1>로그인 아이디</h1><br>
+    	    회원님의 로그인 아이디는 <b>".$user_id."</b>입니다.<br>
+    	    <br>
+    	    감사합니다.<br>
+    	    ";
+    	    $subject = "공약지킴이 가입 인증 코드";
+
+    	    // 이메일 발송 결과 호출
+    	    $sendResult = \App\Mail::sendMail($subject,$contents,$email,$email);
+
+    	    // 발송 결과가 success가 아니라면, 발송 에러를 출력한다.
+    	    if ($sendResult != 'Message sent!') {
+    		    return $sendResult;
+    	    }
+
+    	//4. return Success
+    	return "success";
+    }
+
+
+    /**
      * 입력한 인증코드가 발급된 인증코드와 일치하는지 확인
      * @param var $code 입력된 인증코드
      * @param var $email Email for Verify
@@ -230,7 +285,7 @@ class Common
         // 세션에 register_code가 발급 되었는지 확인
         if(!isset($_SESSION['findpw']['issued_code'])){return "error:: register_code is not issued";}
         if(!isset($_SESSION['findpw']['email'])){return "error:: email is not issued";}
-		
+
 		// 입력된 email이 $issued_email 일치하는지 체크
         $inputEmail = $email;
         $issuedEmail = $_SESSION['findpw']['email'];
@@ -246,7 +301,7 @@ class Common
             # 일치하지 않을 경우 error
             return "error:: register_code is not matched";
         }
-        
+
         return "success";
     }
 
