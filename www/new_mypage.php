@@ -27,19 +27,20 @@ $title = "공약지킴이::마이페이지";
 <div class="container">
     <div class="row">
         <div class="wr_contents col-md-12">
-            <h1> MyPAGE </h1>
-            <div class="row">
-            	<div class="col-md-3">
-                    <?php include 'new_mypage_menu.php'; ?>
-            	</div>
-            	<div class="col-md-9">
-                    <?php include 'new_mypage_info.php'; ?>
-            	</div>
+        	<div class="wr_single_wrapper">
+	            <h1> MyPAGE </h1>
+	            <div class="row">
+	            	<div class="col-md-3">
+	                    <?php include 'new_mypage_menu.php'; ?>
+	            	</div>
+	            	<div class="col-md-9">
+	                    <?php include 'new_mypage_info.php'; ?>
+	            	</div>
+	            </div>
             </div>
-
         </div>
     </div>
-</div>
+</div
 
 <?php include 'new_footer.php'; ?>
 
