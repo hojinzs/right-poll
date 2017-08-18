@@ -40,7 +40,7 @@ $title = "공약지킴이::마이페이지";
             </div>
         </div>
     </div>
-</div
+</div>
 
 <?php include 'new_footer.php'; ?>
 
